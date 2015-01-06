@@ -1,0 +1,67 @@
+==================================================================
+https://keybase.io/jemonjam
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://jemonjam.com
+  * I am jemonjam (https://keybase.io/jemonjam) on keybase.
+  * I have a public key with fingerprint FC3D 3C74 B844 AD9A 4442  A876 D5E6 C8BE 4340 C1BA
+
+To claim this, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "fingerprint": "fc3d3c74b844ad9a4442a876d5e6c8be4340c1ba",
+            "host": "keybase.io",
+            "key_id": "d5e6c8be4340c1ba",
+            "kid": "01013869df5d885d4d798bb6b53314e98e4f0d115be4b2518fc70271d4466eba04200a",
+            "uid": "bac4ad8c82a3ec100ce0c9b7de611d00",
+            "username": "jemonjam"
+        },
+        "service": {
+            "hostname": "jemonjam.com",
+            "protocol": "https:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1420582166,
+    "expire_in": 157680000,
+    "prev": "da1979d099fbb658b9d55557649a9e7192a30045a761532cb3700665a1c4ef82",
+    "seqno": 4,
+    "tag": "signature"
+}
+
+with the aforementioned key, yielding the PGP signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.0.1
+Comment: https://keybase.io/crypto
+
+yMIbAnicbVJrSBRRFN7NyjRKiUiFhJqICrb13pk7M3e2hwU92J6S/UjTlpl776xj
+7cy2rzIfkRXRk5DCgggzQYR+BG0YRVZaLT0MA6PoaQ/oQRFBRARRd6T+ROfP5Z7z
+fd855+NcH5flyfW+eZXRGvKfNHnvXFuY9Kw9Uz2pXjAcWicE6oWNbPgxLTvMYtGY
+ZSeEgGASiUpERQZGSKeajhASdawqVGYKwQZDEgIEGrrgE2qcuMvgMoYeZ37L4Tn+
+CVmUZ/+D3zhcABBACSsaNWWKsUwRVTVsGIohSxJETMMMmYBCKHOuIcoQm0QFogop
+QorCDB0gEQBXLjksZ+iEz4kJFnWJEQgAYYBohkqZAiEFwAXGWczWI4yja1nEsWv1
+iNDoE3g2ZRHmWuBu8g/CT5wI50ZjTsIhziZeqUkkovGAy0zURV3oFmaE/oiEDMum
+3EfOSLFY3HJsIQA5kiQsVxXymWUsQkXxCWxr1IqxkOUiZFXBgIfbh6Vc13SoqRoF
+mmZyS2RsaFTmoSpI0zWmQo1vCQCSdVWBsiQSQ1IBUBRZhwQxE4uCu9Zm2xECiI+p
+h7lk3ArbeiIZY0Jj79WqkR5vrmf0qBHuJXhyc/L/3kfg4BjP3oE1Rd07d5R8e1eR
+bp7f2frVXpbfcWB786pg8x6fVFLQ8mBCzq7+bRP2FXQ1VFw5tGxun9WTrmya9fJL
+9tKckPihZLCvv6xgalWwsDy35ubz0pb1kYX9G4q7Pi9X3o7tw4OLbj3OgtrngaG2
+eQu6Kx+mfghlg+cO12Hp5wVl+iL68tLq9dn+sxPNEyg9e47YWXqjvHznm6PtC64U
+JWfMLJhWml7yvifzYuD5yQrVu7jh2c+VU341igTmZQof2buPLW0/lPl+vLnLvPxu
+n7arY2jd/dbzRZMDR17Hq8/jU+HGi8EV5/LK2qqHLhT3Zn28N/7gp2me7qddl/ff
+9gedDXf9p7/9Bt0rJLM=
+=tujF
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/jemonjam
+
+==================================================================
