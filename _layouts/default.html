@@ -2,12 +2,32 @@
 <html lang="en">
 {% include header.html %}
 <body>
-    <div class="container">
-        <div class="row">
-            <main class="span12">
-                {{content}}
-            </main>
+    <div class="masthead clearfix">
+        <div class="inner">
+            <h3 class="masthead-brand">jemonjam</h3>
+            <nav>
+                <ul class="nav masthead-nav">
+                    <li><a href="#">Virtual</a></li>
+                    <li><a href="#">Meat</a></li>
+                </ul>
+            </nav>
         </div>
     </div>
+
+    <main class="container">
+        <div class="row">
+            <div class="span12">
+                <div class="inner">
+                    {{content}}
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="mastfoot">
+        <div class="inner">
+            <p>Jacob Meacham 2015</p>
+        </div>
+    </footer>
 </body>
 {% include footer.html %}
