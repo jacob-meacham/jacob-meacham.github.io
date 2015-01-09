@@ -86,6 +86,10 @@ body {
   }
 }
 
+.content {
+    padding-top: 40px;
+}
+
 
 /*
  * Footer
