@@ -1,3 +1,8 @@
+---
+title: Clocks Build
+layout: default
+---
+
 One sound that you almost never hear anymore is the ticking of a clock. Sure, your parents or grandparents might have an old grandfather clock that still keeps the time, or even a pocket watch (as my grandfather has), but nearly all timekeeping devices these days are in our phones, or at the very least on a digital watch.
 
 Still, there’s something soothing about the sound of a ticking clock, and also something universal in seeing the hands wind around its face, both inexorably marking time’s passage and also demonstrating the fundamental cycles by which we live our lives. Since we don’t need clocks to tell time anymore, there’s lots of fun things that we can do with them!
