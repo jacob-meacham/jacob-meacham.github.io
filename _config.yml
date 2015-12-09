@@ -1,5 +1,6 @@
-highlighter: pygments
-
 url: http://jemonjam.com
 title: Jemonjam
 description: 'Developer, builder of things'
+highlighter: pygments
+gems:
+    - jekyll-sitemap
