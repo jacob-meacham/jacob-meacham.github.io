@@ -90,6 +90,11 @@ p {
     padding-top: 40px;
 }
 
+.real-masthead {
+  height: 100px;
+  margin-bottom: 30px;
+}
+
 
 /*
  * Footer
