@@ -20,7 +20,7 @@ $(function() {
   var time = 0;
   var dt = 1.0 / 60.0
   function update() {
-    ctx.clearRect(0, 0, width, height);
+    ctx.clearRect(0, 0, width*2, height*2);
 
     var bounds = container.getBoundingClientRect();
     var posX = (bounds.left + bounds.right) * 0.5;
@@ -35,8 +35,8 @@ $(function() {
       var circleRadius = radius + deltaCircle*(numCircles - i) + deltaCircle * 1.5;
 
       var wobbleRadius = deltaCircle*0.5;
-      var circlePosX = posX + Math.cos(time*4.0 + i)*wobbleRadius;
-      var circlePosY = posY + Math.sin(time*4.0 + i)*wobbleRadius;
+      var circlePosX = posX + Math.cos(time + i)*wobbleRadius;
+      var circlePosY = posY + Math.sin(time + i)*wobbleRadius;
       time += dt;
 
       if ( i == numCircles-1 )
