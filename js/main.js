@@ -5,7 +5,7 @@ $(function() {
     $(this).removeClass('active');
   });
 
-  var container = document.querySelector('.real-masthead');
+  var container = document.querySelector('.masthead');
   var canvas = document.createElement('canvas');
   var ctx = canvas.getContext('2d');
   var width = container.clientWidth;
