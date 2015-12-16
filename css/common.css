@@ -24,10 +24,10 @@ a:hover {
 html,
 body {
   height: 100%;
-  background-color: #333;
+  background-color: white;
 }
 body {
-  color: #fff;
+  color: #222;
   text-align: center;
   font-family: 'Montserrat', sans-serif;
 }
@@ -91,6 +91,8 @@ p {
 }
 
 .real-masthead {
+  background-image: url("/img/pw_maze_black.png");
+  background-color: #222;
   height: 100px;
   margin-bottom: 30px;
 }
@@ -100,9 +102,10 @@ p {
  * Footer
  */
 
-.mastfoot {
-  color: #999; /* IE8 proofing */
-  color: rgba(255,255,255,.5);
+.footer {
+  background-image: url("/img/pw_maze_black.png");
+  background-color: #222;
+  color: white;
 }
 
 
@@ -135,6 +138,10 @@ p {
   .cover-container {
     width: 700px;
   }
+}
+
+.real-masthead {
+  background-color: #222;
 }
 
 .portfolio-box {
