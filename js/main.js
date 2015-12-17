@@ -15,6 +15,7 @@ $(function() {
     width = container.clientWidth;
     height = container.clientHeight;
     canvas.width = width;
+    canvas.height = height;
   }
 
   var time = 0;
