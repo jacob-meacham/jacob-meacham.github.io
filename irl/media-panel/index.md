@@ -8,6 +8,7 @@ It all started with an old laptop that we had lying around. Jessie upgraded to a
 Parts
 ----- 
 Aside from the screen, I knew I needed a couple of other materials:
+
 * Plywood for the front
 * Hardwood for the frame
 * A computer to run the media panel

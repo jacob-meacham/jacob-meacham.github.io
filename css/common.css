@@ -38,6 +38,7 @@ p {
 
 /* Padding for spacing */
 .main {
+  text-align: left;
   padding: 30px;
   padding-top: 0;
 }
@@ -88,6 +89,7 @@ p {
   border-radius: 3px;
   color: #222;
   display: inline-block;
+  text-align: center;
 }
 
 a.div-linker {
