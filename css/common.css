@@ -51,20 +51,26 @@ p {
 }
 
 .masthead {
-  background-image: url("/img/pw_maze_black.png");
-  background-color: #222;
+  /*background-image: url("/img/pw_maze_black.png");*/
+  background-color: #333;
   height: 150px;
   margin-bottom: 30px;
-  border-bottom: 3px solid #fcb426;
+  border-bottom: 5px solid #c12b32;
+  padding-top: 40px;
+}
+
+.masthead .title {
+  font-size: 3em;
+  color: white;
 }
 
 /*
  * Footer
  */
 .footer {
-  background-image: url("/img/pw_maze_black.png");
-  border-top: 3px solid #fcb426;
-  background-color: #222;
+  /*background-image: url("/img/pw_maze_black.png");*/
+  border-top: 2px solid #c12b32;
+  background-color: #333;
   color: white;
 }
 
