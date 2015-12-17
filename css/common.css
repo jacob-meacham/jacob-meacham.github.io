@@ -94,15 +94,20 @@ p {
   color: #222;
 }
 
-.portfolio-box {
+.game-box {
+  background: #FFF center center no-repeat;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.hover-card {
   transition: all 500ms cubic-bezier(0.190, 1.000, 0.220, 1.000);
 
   box-shadow: 0 1px 1px rgba(0,0,0,0.3);
   transform: translateY(0) scale(0.95, 0.95);
 }
 
-.portfolio-box.active {
+.hover-card.active {
   box-shadow: 0 11px 18px rgba(0,0,0,0.2);
   transform: translateY(-20px) scale(1, 1);
 }
-
