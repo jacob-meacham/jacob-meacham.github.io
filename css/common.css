@@ -27,7 +27,7 @@ body {
   background-color: white;
 }
 body {
-  color: #222;
+  color: #555;
   text-align: center;
   font-family: 'Montserrat', sans-serif;
 }
@@ -37,12 +37,9 @@ p {
 }
 
 /* Padding for spacing */
-.inner {
+.main {
   padding: 30px;
-}
-
-.content {
-    padding-top: 40px;
+  padding-top: 0;
 }
 
 .navbar {
@@ -72,6 +69,10 @@ p {
   border-top: 2px solid #c12b32;
   background-color: #333;
   color: white;
+}
+
+.footer .inner {
+  padding: 30px;
 }
 
 .portfolio-box {
