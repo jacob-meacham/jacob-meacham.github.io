@@ -42,9 +42,14 @@ p {
   padding-top: 0;
 }
 
+/* TODO: remove bootstrap */
 .navbar {
   margin-bottom: 0;
   background-color: white;
+}
+
+.navbar-brand {
+  margin-right: 350px;
 }
 
 .masthead {
@@ -76,11 +81,13 @@ p {
 }
 
 .portfolio-box {
+  padding-top: 90px;
   background: #FFF center center no-repeat;
-  width: 200px;
+  width: 300px;
   height: 300px;
   border-radius: 3px;
   color: #222;
+  display: inline-block;
 }
 
 .portfolio-box a {
@@ -96,6 +103,6 @@ p {
 
 .portfolio-box.active {
   box-shadow: 0 11px 18px rgba(0,0,0,0.2);
-  transform: translateX(-20px) translateY(-20px) scale(1, 1);
+  transform: translateY(-20px) scale(1, 1);
 }
 
