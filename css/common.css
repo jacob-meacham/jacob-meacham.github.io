@@ -45,11 +45,17 @@ p {
     padding-top: 40px;
 }
 
+.navbar {
+  margin-bottom: 0;
+  background-color: white;
+}
+
 .masthead {
   background-image: url("/img/pw_maze_black.png");
   background-color: #222;
-  height: 100px;
+  height: 150px;
   margin-bottom: 30px;
+  border-bottom: 3px solid #fcb426;
 }
 
 /*
@@ -57,6 +63,7 @@ p {
  */
 .footer {
   background-image: url("/img/pw_maze_black.png");
+  border-top: 3px solid #fcb426;
   background-color: #222;
   color: white;
 }
