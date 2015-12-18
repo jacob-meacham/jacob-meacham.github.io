@@ -5,6 +5,12 @@ $(function() {
     $(this).removeClass('active');
   });
 
+  $('.portfolio-thumb img').click(function() {
+    var img = $(this).attr('src')
+    $('.portfolio-main img').attr('src', img)
+
+  })
+
   var container = document.querySelector('.masthead');
   var canvas = document.createElement('canvas');
   var ctx = canvas.getContext('2d');

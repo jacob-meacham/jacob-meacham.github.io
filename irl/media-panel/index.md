@@ -3,6 +3,36 @@ title: Media Panel
 layout: default
 ---
 
+<div class="portfolio-images clearfix">
+    <div class="portfolio-main">
+        <img src="/img/media-panel/001.jpg">
+    </div>
+    <div class="portfolio-thumb">
+        <img src="/img/media-panel/001.jpg">
+    </div>
+    <div class="portfolio-thumb">
+        <img src="/img/media-panel/002.jpg">
+    </div>
+    <div class="portfolio-thumb">
+        <img src="/img/media-panel/003.jpg">
+    </div>
+    <div class="portfolio-thumb">
+        <img src="/img/media-panel/010.jpg">
+    </div>
+    <div class="portfolio-thumb">
+        <img src="/img/media-panel/005.jpg">
+    </div>
+    <div class="portfolio-thumb">
+        <img src="/img/media-panel/006.jpg">
+    </div>
+    <div class="portfolio-thumb">
+        <img src="/img/media-panel/007.jpg">
+    </div>
+    <div class="portfolio-thumb">
+        <img src="/img/media-panel/008.jpg">
+    </div>
+</div>
+
 It all started with an old laptop that we had lying around. Jessie upgraded to a much smaller netbook, leaving a nice 15” screen just lying around. I’m loathe to dispose of electronics - beyond the graveyard of laptops and old desktops, I also have bad RAM, decaying power supplies, and other assorted bits and bobs floating around the house. I stumbled across someone who had built a touch screen out of a laptop screen, and after doing a bit of research, I discovered that using a laptop screen standalone is actually really simple and pretty cheap. I decided that I would build a media panel for the wall, that could display pictures, todo lists, or anything else we wanted to see.
 
 Parts
