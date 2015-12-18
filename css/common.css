@@ -20,16 +20,20 @@ a:hover {
 /*
  * Base structure
  */
+html {
+  position: relative;
+  min-height: 100%;
+}
 
 html,
 body {
-  height: 100%;
   background-color: white;
 }
 body {
   color: #555;
   text-align: center;
   font-family: 'Montserrat', sans-serif;
+  margin-bottom: 100px; /* For the footer */
 }
 
 p {
@@ -38,9 +42,16 @@ p {
 
 /* Padding for spacing */
 .main {
-  text-align: left;
   padding: 30px;
   padding-top: 0;
+}
+
+h1, h2, h3, h4, h5 {
+  text-align: left;
+}
+
+.main ul {
+  text-align: left;
 }
 
 /* TODO: remove bootstrap */
@@ -77,14 +88,8 @@ p {
   color: white;
   position: absolute;
   width: 100%;
-  bottom: -100px;
+  bottom: 0px;
   height: 100px;
-}
-
-/* line 3, ../sass/footer.scss */
-.wrapper {
-  position: relative;
-  min-height: 100%;
 }
 
 .footer .inner {
@@ -120,6 +125,11 @@ a.div-linker {
   background: #FFF center center no-repeat;
   display: inline-block;
   margin-bottom: 10px;
+}
+
+.game-box .game-image img {
+  max-width:100%;
+  max-height:100%;
 }
 
 .hover-card {
