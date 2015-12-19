@@ -63,6 +63,7 @@ h1, h2, h3, h4, h5 {
 
 /* TODO: remove bootstrap */
 .navbar {
+  z-index: 1;
   margin-bottom: 20px;
   background-color: transparent;
   border-color: transparent;
@@ -83,6 +84,12 @@ h1, h2, h3, h4, h5 {
   height: 200px;
   margin-bottom: 30px;
   border-bottom: 5px solid #c12b32;
+}
+
+.masthead canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .masthead .title {
