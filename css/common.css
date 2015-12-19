@@ -27,7 +27,7 @@ html {
 
 html,
 body {
-  background-color: white;
+  background-color: #efefef;
 }
 body {
   color: #555;
@@ -48,7 +48,7 @@ p {
 
 .container {
     position: relative;
-    width: 85%;
+    width: 70%;
     max-width: 1265px;
     margin: 0 auto;
 }
@@ -83,7 +83,7 @@ h1, h2, h3, h4, h5 {
   background-color: #333;
   height: 200px;
   margin-bottom: 30px;
-  border-bottom: 5px solid #c12b32;
+  border-bottom: 5px solid #729f98;
 }
 
 .masthead canvas {
@@ -102,7 +102,7 @@ h1, h2, h3, h4, h5 {
  */
 .footer {
   /*background-image: url("/img/pw_maze_black.png");*/
-  border-top: 2px solid #c12b32;
+  border-top: 3px solid #ba9077;
   background-color: #333;
   color: white;
   position: absolute;
