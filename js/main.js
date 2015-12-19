@@ -1,15 +1,20 @@
-$(function() {
-  $('.hover-card').hover(function() {
-    $(this).addClass('active');
-  }, function() {
-    $(this).removeClass('active');
+//$(function() {
+  $('.hover-card').each(function() {
+    console.log('test');
+    this.addEventListener('mouseenter', function() {
+      $(this).addClass('active');
+    });
+    this.addEventListener('mouseleave', function() {
+      $(this).removeClass('active');
+    });
   });
 
-  $('.portfolio-thumb img').click(function() {
-    var img = $(this).attr('src')
-    $('.portfolio-main img').attr('src', img)
-
-  })
+  $('.portfolio-thumb img').each(function() {
+    this.addEventListener('click', function() {
+      var img = $(this).attr('src')
+      $('.portfolio-main img').attr('src', img);
+    });
+  });
 
   var container = document.querySelector('.masthead');
   var canvas = document.createElement('canvas');
@@ -46,4 +51,4 @@ $(function() {
   requestAnimFrame(update);
   window.addEventListener('resize', onResize, false);
   container.appendChild(canvas);
-});
+//});

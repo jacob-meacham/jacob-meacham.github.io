@@ -1,10 +1,18 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat);
 
 /* Links */
+a {
+  text-decoration: none;
+}
+
 a,
 a:focus,
 a:hover {
   color: #fff;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 /* Custom default button */
@@ -33,7 +41,10 @@ body {
   color: #555;
   text-align: center;
   font-family: 'Montserrat', sans-serif;
+  margin: 0;
   margin-bottom: 100px; /* For the footer */
+  font-size: 14px;
+  line-height: 1.42857143;
 }
 
 p {
@@ -61,21 +72,49 @@ h1, h2, h3, h4, h5 {
   text-align: left;
 }
 
-/* TODO: remove bootstrap */
+/* Some of this is adapted from Bootstrap */
 .navbar {
   z-index: 1;
   margin-bottom: 20px;
   background-color: transparent;
   border-color: transparent;
+  position: relative;
+  min-height: 50px;
 }
 
 .navbar-nav {
   float: right;
-  margin-right: 50px;
+  margin: 0;
+  margin-right: 25px;
+}
+
+.nav {
+  list-style: none;
+}
+
+.nav>li {
+  float: left;
+  position: relative;
+  display: block;
+}
+
+.nav>li>a {
+  position: relative;
+  display: block;
+  padding: 15px 15px;
+  line-height: 20px;
 }
 
 .navbar-brand {
-  margin-right: 350px;
+  float: left;
+  height: 50px;
+  padding: 15px 15px;
+  font-size: 18px;
+  line-height: 20px;
+}
+
+.navbar-header {
+  float: left;
 }
 
 .masthead {
