@@ -1,6 +1,5 @@
-//$(function() {
+function initializeHoverCards() {
   $('.hover-card').each(function() {
-    console.log('test');
     this.addEventListener('mouseenter', function() {
       $(this).addClass('active');
     });
@@ -8,47 +7,87 @@
       $(this).removeClass('active');
     });
   });
+};
 
+function initializePortfolioMain() {
   $('.portfolio-thumb img').each(function() {
     this.addEventListener('click', function() {
       var img = $(this).attr('src')
       $('.portfolio-main img').attr('src', img);
     });
   });
+};
 
-  var container = document.querySelector('.masthead');
-  var canvas = document.createElement('canvas');
-  var ctx = canvas.getContext('2d');
-  var width = container.clientWidth;
-  var height = container.clientHeight;
+function initializeRipple(scene) {
+  var planeGeometry = new THREE.PlaneGeometry(50, 25, 64, 32);
+  var shaderMaterial = new THREE.ShaderMaterial({
+    vertexShader: document.getElementById('rippleVS').textContent,
+    fragmentShader: document.getElementById('rippleFS').textContent,
+    depthTest: true,
+  });
 
-  function onResize() {
-    width = container.clientWidth;
-    height = container.clientHeight;
-    canvas.width = width;
-    canvas.height = height;
-  }
+  var mesh = new THREE.Line(new THREE.WireframeGeometry(planeGeometry), shaderMaterial, THREE.LineSegments);
+  scene.scene.add(mesh);
+};
 
-  var time = 0;
-  var dt = 1.0 / 60.0
-  function update() {
-    ctx.clearRect(0, 0, width*2, height*2);
+function Scene() {
+  this.init = function() {
+    this.container = document.querySelector('.masthead');
+    var width = this.container.clientWidth;
+    var height = this.container.clientHeight;
 
-    requestAnimFrame(update);
-  }
-  // shim layer with setTimeout fallback. From
-  // http://www.paulirish.com/2011/requestanimationframe-for-smart-animating/
-  window.requestAnimFrame = (function(){
-    return  window.requestAnimationFrame       ||
-            window.webkitRequestAnimationFrame ||
-            window.mozRequestAnimationFrame    ||
-            function( callback ){
-              window.setTimeout(callback, 1000 / 60);
-            };
-  })();
+    this.scene = new THREE.Scene();
+    this.camera = new THREE.PerspectiveCamera(60, width / height, 0.1, 1000);
+    this.camera.position.z = 5;
 
-  onResize();
+    this.renderer = new THREE.WebGLRenderer();
+    this.renderer.setSize(width, height);
+    this.renderer.setClearColor(0x333333, 1);
+
+    this.container.appendChild(this.renderer.domElement);
+  };
+
+  this.onResize = function() {
+    width = this.container.clientWidth;
+    height = this.container.clientHeight;
+
+    this.camera.aspect = width / height;
+    this.camera.updateProjectionMatrix();
+    this.renderer.setSize(width, height);
+  };
+
+  this.update = function(dt) {
+    this.renderer.render(this.scene, this.camera);
+  };
+};
+
+// Initialize 3d
+var scene = new Scene();
+scene.init();
+initializeRipple(scene);
+
+// Initialize other components
+initializeHoverCards();
+initializePortfolioMain();
+
+// shim layer with setTimeout fallback. From
+// http://www.paulirish.com/2011/requestanimationframe-for-smart-animating/
+window.requestAnimFrame = (function(){
+  return  window.requestAnimationFrame       ||
+          window.webkitRequestAnimationFrame ||
+          window.mozRequestAnimationFrame    ||
+          function( callback ){
+            window.setTimeout(callback, 1000 / 60);
+          };
+})();
+
+function update() {
+  var dt = 1.0 / 60.0;
+  scene.update(dt);
   requestAnimFrame(update);
-  window.addEventListener('resize', onResize, false);
-  container.appendChild(canvas);
-//});
+}
+
+// Finish bootstrapping
+scene.onResize();
+requestAnimFrame(update);
+window.addEventListener('resize', scene.onResize, false);

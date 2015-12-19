@@ -1,3 +1,24 @@
 <script type="text/javascript" src="//cdn.jsdelivr.net/cash/1.0.0/cash.min.js" charset="utf-8"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r73/three.min.js" type="text/javascript" charset="utf-8"></script>
+<script id="rippleVS" type="x-shader/x-vertex">
+      precision mediump float;
+      precision mediump int;
+
+      varying vec4 vColor;
+
+      void main() {
+          vColor = vec4(0.4,0.4,0.4,0.4);
+          gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+      }
+</script>
+<script id="rippleFS" type="x-shader/x-fragment">
+  precision mediump float;
+  precision mediump int;
+
+  varying vec4 vColor;
+
+  void main() {
+      gl_FragColor = vColor;
+  }
+</script>
 <script src="/js/main.js" type="text/javascript" charset="utf-8"></script>
