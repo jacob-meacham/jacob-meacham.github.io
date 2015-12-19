@@ -1,6 +1,7 @@
 ---
 title: art/table
 layout: default
+group: projects
 ---
 
 When Jessie and I left Oregon, we decided to leave our table, which had been a gift from a friend. It wasn’t particularly big or sturdy, and we were looking for an upgrade anyway. Although we did find that upgrade eventually (in the form of a monstrous, 200 lb banquet table that Jessie picked up from a thrift store for $30), we were table-less for quite some time. At some point, after eating on the floor for long enough, we decided to cave in and get a wooden table with collapsing legs from Target. We used it as our main dinner table for a while, but once we got the banquet table, it sat forlornly folded up in the garage.

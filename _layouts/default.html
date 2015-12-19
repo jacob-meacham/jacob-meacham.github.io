@@ -9,11 +9,27 @@
             </div>
             <div>
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="/games">GAMES</a></li>
+                    {% if page.group == "games" %}
+                    <li class="active"><a href="/">GAMES</a></li>
+                    {% else %}
+                    <li><a href="/">GAMES</a></li>
+                    {% endif %}
+                    {% if page.group == "projects" %}
+                    <li class="active"><a href="/projects">PROJECTS</a></li>
+                    {% else %}
                     <li><a href="/projects">PROJECTS</a></li>
-                    <li><a href="/illustration">ILLUSTRATION</a></li>
+                    {% endif %}
+                    <li><a href="http://jemonjam.tumblr.com/">ILLUSTRATION</a></li>
+                    {% if page.group == "lab" %}
+                    <li class="active"><a href="/lab">LAB</a></li>
+                    {% else %}
                     <li><a href="/lab">LAB</a></li>
+                    {% endif %}
+                    {% if page.group == "about" %}
+                    <li class="active"><a href="/about">ABOUT</a></li>
+                    {% else %}
                     <li><a href="/about">ABOUT</a></li>
+                    {% endif %}
                 </ul>
             </div>
         </nav>

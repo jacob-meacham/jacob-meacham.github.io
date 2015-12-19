@@ -1,6 +1,7 @@
 ---
 title: Clocks Build
 layout: default
+group: projects
 ---
 
 One sound that you almost never hear anymore is the ticking of a clock. Sure, your parents or grandparents might have an old grandfather clock that still keeps the time, or even a pocket watch (as my grandfather has), but nearly all timekeeping devices these days are in our phones, or at the very least on a digital watch.

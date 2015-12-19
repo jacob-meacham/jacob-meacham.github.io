@@ -1,6 +1,7 @@
 ---
 title: Media Panel
 layout: default
+group: projects
 ---
 
 <div class="portfolio-images clearfix">
