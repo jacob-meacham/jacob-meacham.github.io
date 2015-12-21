@@ -32,6 +32,12 @@ function initializeRipple(scene) {
 
 function Scene() {
   this.init = function() {
+    // Initialize global time
+    this.time = sessionStorage.globalTime;
+    if (!this.time) {
+      this.time = 0;
+    }
+
     this.container = document.querySelector('.masthead');
     var width = this.container.clientWidth;
     var height = this.container.clientHeight;
@@ -57,8 +63,13 @@ function Scene() {
   };
 
   this.update = function(dt) {
-    this.renderer.render(this.scene, this.camera);
+    this.time += dt;
+    sessionStorage.globalTime = this.time;
   };
+
+  this.render = function() {
+    this.renderer.render(this.scene, this.camera);
+  }
 };
 
 // Initialize 3d
@@ -72,18 +83,24 @@ initializePortfolioMain();
 
 // shim layer with setTimeout fallback. From
 // http://www.paulirish.com/2011/requestanimationframe-for-smart-animating/
-window.requestAnimFrame = (function(){
+window.requestAnimFrame = (function() {
   return  window.requestAnimationFrame       ||
           window.webkitRequestAnimationFrame ||
           window.mozRequestAnimationFrame    ||
-          function( callback ){
+          function(callback) {
             window.setTimeout(callback, 1000 / 60);
           };
 })();
 
+var curTime;
+var lastTime = window.performance.now();
+
 function update() {
-  var dt = 1.0 / 60.0;
+  curTime = window.performance.now()
+  var dt = (curTime - lastTime) / 1000;
+
   scene.update(dt);
+  scene.render();
   requestAnimFrame(update);
 }
 
