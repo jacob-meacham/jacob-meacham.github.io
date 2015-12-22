@@ -18,13 +18,23 @@ function initializePortfolioMain() {
   });
 };
 
+var uniforms = {
+  time: {
+    type: 'f',
+    value: 10
+  }
+};
+
 function initializeRipple(scene) {
   var planeGeometry = new THREE.PlaneGeometry(50, 25, 64, 32);
+
   var shaderMaterial = new THREE.ShaderMaterial({
+    uniforms: uniforms,
     vertexShader: document.getElementById('rippleVS').textContent,
     fragmentShader: document.getElementById('rippleFS').textContent,
     depthTest: true,
   });
+  shaderMaterial.transparent = true;
 
   var mesh = new THREE.Line(new THREE.WireframeGeometry(planeGeometry), shaderMaterial, THREE.LineSegments);
   scene.scene.add(mesh);
@@ -33,7 +43,7 @@ function initializeRipple(scene) {
 function Scene() {
   this.init = function() {
     // Initialize global time
-    this.time = sessionStorage.globalTime;
+    this.time = parseFloat(sessionStorage.globalTime);
     if (!this.time) {
       this.time = 0;
     }
@@ -64,7 +74,8 @@ function Scene() {
 
   this.update = function(dt) {
     this.time += dt;
-    sessionStorage.globalTime = this.time;
+    sessionStorage.setItem('globalTime', this.time);
+    uniforms.time.value = this.time;
   };
 
   this.render = function() {
@@ -98,6 +109,7 @@ var lastTime = window.performance.now();
 function update() {
   curTime = window.performance.now()
   var dt = (curTime - lastTime) / 1000;
+  lastTime = curTime;
 
   scene.update(dt);
   scene.render();

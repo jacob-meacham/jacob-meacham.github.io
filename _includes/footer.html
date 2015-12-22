@@ -4,11 +4,23 @@
       precision mediump float;
       precision mediump int;
 
+      uniform float time;
       varying vec4 vColor;
 
       void main() {
-          vColor = vec4(0.4,0.4,0.4,0.4);
-          gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+          float PI = 3.14159;
+
+          float distFromCenter = length(position);
+
+          vec3 posFinal = position;
+          float offsetX = 0.5 * sin(position.x + time);
+          float offsetY = 0.5 * cos(position.y + time);
+          posFinal.x += offsetX;
+          posFinal.y += offsetY;
+
+          vColor = vec4(1.0,1.0,1.0,0.5) * vec4(1.0,1.0,1.0,offsetX+0.5);
+
+          gl_Position = projectionMatrix * modelViewMatrix * vec4(posFinal, 1.0);
       }
 </script>
 <script id="rippleFS" type="x-shader/x-fragment">
