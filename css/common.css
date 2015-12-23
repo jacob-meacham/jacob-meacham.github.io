@@ -83,26 +83,55 @@ h1, h2, h3, h4, h5 {
 }
 
 .navbar-nav {
+  list-style: none;
   float: right;
   margin: 0;
   margin-right: 25px;
 }
 
-.nav {
-  list-style: none;
-}
-
-.nav>li {
+.navbar-nav>li {
   float: left;
   position: relative;
   display: block;
 }
 
-.nav>li>a {
+.navbar-nav>li>a {
   position: relative;
   display: block;
-  padding: 15px 15px;
+  margin: 15px 15px;
+  margin-bottom: 1px;
   line-height: 20px;
+}
+
+.navbar-nav>li>a:hover {
+  transition: .5s ease;
+  color: #ddd;
+}
+
+.navbar-nav>li>a:after {
+content: '';
+display: block;
+height: 5px;
+width: 0;
+background: #ba9077;
+transition: width .5s ease, background-color .5s ease;
+}
+
+.navbar-nav>li>a:hover:after {
+width: 100%;
+background: #729f98;
+}
+
+.navbar-nav>li.active>a:after {
+  content: '';
+  display: block;
+  height: 5px;
+  width: 100%;
+  background: #ba9077;
+}
+
+.navbar-nav>li.active>a:hover:after {
+background: #ba9077;
 }
 
 .navbar-brand {
