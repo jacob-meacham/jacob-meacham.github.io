@@ -42,7 +42,7 @@ body {
   text-align: center;
   font-family: 'Montserrat', sans-serif;
   margin: 0;
-  margin-bottom: 100px; /* For the footer */
+  margin-bottom: 200px; /* For the footer */
   font-size: 14px;
   line-height: 1.42857143;
 }
@@ -178,7 +178,7 @@ background: #ba9077;
   position: absolute;
   width: 100%;
   bottom: 0px;
-  height: 100px;
+  height: 200px;
 }
 
 .footer .inner {
@@ -189,7 +189,7 @@ background: #ba9077;
   display: block;
   float: left;
   margin-top: 10px;
-  height: 80px;
+  height: 180px;
 }
 
 .footer .about {
