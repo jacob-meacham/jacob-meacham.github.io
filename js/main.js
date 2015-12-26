@@ -64,8 +64,8 @@ function Scene() {
   };
 
   this.onResize = function() {
-    width = this.container.clientWidth;
-    height = this.container.clientHeight;
+    var width = this.container.clientWidth;
+    var height = this.container.clientHeight;
 
     this.camera.aspect = width / height;
     this.camera.updateProjectionMatrix();
@@ -119,4 +119,4 @@ function update() {
 // Finish bootstrapping
 scene.onResize();
 requestAnimFrame(update);
-window.addEventListener('resize', scene.onResize, false);
+window.addEventListener('resize', function() { scene.onResize() }, false);
