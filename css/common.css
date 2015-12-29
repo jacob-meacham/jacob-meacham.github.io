@@ -114,7 +114,7 @@ display: block;
 height: 5px;
 width: 0;
 background: #ba9077;
-transition: width .5s ease, background-color .5s ease;
+transition: width .5s ease;
 }
 
 .navbar-nav>li>a:hover:after {
@@ -127,11 +127,12 @@ background: #729f98;
   display: block;
   height: 5px;
   width: 100%;
+  transition: .25s ease;
   background: #ba9077;
 }
 
 .navbar-nav>li.active>a:hover:after {
-background: #ba9077;
+  background: #729f98;
 }
 
 .navbar-brand {
