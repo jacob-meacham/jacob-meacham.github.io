@@ -232,14 +232,33 @@ background: #729f98;
 }
 
 .portfolio-box {
-  padding-top: 90px;
-  background: #FFF center center no-repeat;
   width: 300px;
-  height: 300px;
+  height: 230px;
   border-radius: 3px;
   color: #222;
   display: inline-block;
-  text-align: center;
+  margin-right: 15px;
+  margin-bottom: 20px;
+  border: 3px solid rgba(0, 0, 0, 0);
+}
+
+.portfolio-box.active {
+  border: 3px solid #7daadd;
+}
+
+.portfolio-box > .card-img > img {
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
+.portfolio-box > .info {
+  padding-top: 5px;
+  text-align: left;
+  padding-left: 15px;
 }
 
 a.div-linker {
@@ -248,8 +267,7 @@ a.div-linker {
   height: 100%;
   top: 0;
   left: 0;
-  text-decoration: none;
-  z-index: 10;
+  z-index: 1;
 }
 
 .portfolio-box a {
