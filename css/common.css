@@ -59,7 +59,6 @@ p {
 
 .container {
     position: relative;
-    width: 70%;
     max-width: 1265px;
     margin: 0 auto;
 }
