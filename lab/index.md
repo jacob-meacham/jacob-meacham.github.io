@@ -1,5 +1,6 @@
 ---
 title: Lab
+subtitle: Experiments and Works-in-Progress
 layout: default
 group: lab
 ---

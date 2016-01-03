@@ -300,7 +300,6 @@ a.div-linker {
 }
 
 .game-box {
-  background: #FFF center center no-repeat;
   display: inline-block;
   margin-bottom: 10px;
 }
@@ -310,8 +309,38 @@ a.div-linker {
   max-height:100%;
 }
 
+.game-desc-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  height: 25px;
+  background: white;
+  width: 100%;
+  text-align: left;
+  padding-left: 12px;
+
+  transition: height 500ms cubic-bezier(0.25, 0.02, 0.04, 1.0);
+}
+
+.game-desc-container .game-title {
+  padding-bottom: 10px;
+}
+
+.game-box.active .game-desc-container {
+  height: 50%;
+}
+
+.game-box.active {
+  border: 3px solid #7daadd;
+}
+
 .hover-card {
-  transition: all 500ms cubic-bezier(0.190, 1.000, 0.220, 1.000);
+  position: relative;
+}
+/*
+.hover-card {
+  transition: all 500ms cubic-bezier(0.19, 1.0, 0.22, 1.0);
 
   box-shadow: 0 1px 1px rgba(0,0,0,0.3);
   transform: translateY(0) scale(0.95, 0.95);
@@ -321,3 +350,4 @@ a.div-linker {
   box-shadow: 0 11px 18px rgba(0,0,0,0.2);
   transform: translateY(-20px) scale(1, 1);
 }
+*/
