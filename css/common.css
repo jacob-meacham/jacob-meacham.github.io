@@ -137,7 +137,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .navbar {
-  z-index: 1;
+  z-index: 2;
   margin-bottom: 20px;
   background-color: transparent;
   border-color: transparent;
@@ -227,6 +227,11 @@ background: #729f98;
 
 .masthead .title {
   font-size: 3em;
+  position: relative;
+  z-index: 1;
+}
+
+.masthead .subtitle {
   position: relative;
   z-index: 1;
 }
@@ -369,6 +374,10 @@ a.div-linker {
     border-radius: 3px;
 }
 
+.pro {
+  margin-top: 90px;
+}
+
 .game-card {
   margin: 20px auto;
   max-width: 900px;
@@ -384,7 +393,7 @@ a.div-linker {
 }
 
 .game-card > .game-image > img {
-  min-height: 150px;
+  min-height: 190px;
   max-width: 150%;
   position: relative;
 }
@@ -416,10 +425,22 @@ a.div-linker {
   font-style: italic;
 }
 
+@media (max-width: 760px) {
+  .game-card > .header > .info {
+    display: none !important;
+  }
+}
+
 .game-card > .header > .work {
   margin-left: 10px;
   font-weight: normal;
   color: green;
+}
+
+@media (max-width: 540px) {
+  .game-card > .header > .work {
+    display: none !important;
+  }
 }
 
 .horiz-list-item:before {

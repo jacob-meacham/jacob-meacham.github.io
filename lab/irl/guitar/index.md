@@ -1,7 +1,7 @@
 ---
-title: Violins
+title: Guitar
 layout: default
-group: projects
+group: lab
 ---
 
 I made a guitar...
