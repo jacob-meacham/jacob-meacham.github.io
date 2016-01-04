@@ -18,6 +18,13 @@ function initializePortfolioMain() {
   });
 };
 
+function lazyLoad() {
+  $('.lazy-load').each(function() {
+    var img = $(this).attr('data-src')
+    $(this).attr('src', img);
+  })
+}
+
 var uniforms = {
   time: {
     type: 'f',
@@ -83,40 +90,43 @@ function Scene() {
   }
 };
 
-// Initialize 3d
-var scene = new Scene();
-scene.init();
-initializeRipple(scene);
+$(document).ready(function() {
+  // Initialize 3d
+  var scene = new Scene();
+  scene.init();
+  initializeRipple(scene);
 
-// Initialize other components
-initializeHoverCards();
-initializePortfolioMain();
+  // Initialize other components
+  initializeHoverCards();
+  initializePortfolioMain();
+  lazyLoad();
 
-// shim layer with setTimeout fallback. From
-// http://www.paulirish.com/2011/requestanimationframe-for-smart-animating/
-window.requestAnimFrame = (function() {
-  return  window.requestAnimationFrame       ||
-          window.webkitRequestAnimationFrame ||
-          window.mozRequestAnimationFrame    ||
-          function(callback) {
-            window.setTimeout(callback, 1000 / 60);
-          };
-})();
+  // shim layer with setTimeout fallback. From
+  // http://www.paulirish.com/2011/requestanimationframe-for-smart-animating/
+  window.requestAnimFrame = (function() {
+    return  window.requestAnimationFrame       ||
+            window.webkitRequestAnimationFrame ||
+            window.mozRequestAnimationFrame    ||
+            function(callback) {
+              window.setTimeout(callback, 1000 / 60);
+            };
+  })();
 
-var curTime;
-var lastTime = window.performance.now();
+  var curTime;
+  var lastTime = window.performance.now();
 
-function update() {
-  curTime = window.performance.now()
-  var dt = (curTime - lastTime) / 1000;
-  lastTime = curTime;
+  function update() {
+    curTime = window.performance.now()
+    var dt = (curTime - lastTime) / 1000;
+    lastTime = curTime;
 
-  scene.update(dt);
-  scene.render();
+    scene.update(dt);
+    scene.render();
+    requestAnimFrame(update);
+  }
+
+  // Finish bootstrapping
+  scene.onResize();
   requestAnimFrame(update);
-}
-
-// Finish bootstrapping
-scene.onResize();
-requestAnimFrame(update);
-window.addEventListener('resize', function() { scene.onResize() }, false);
+  window.addEventListener('resize', function() { scene.onResize() }, false);
+});

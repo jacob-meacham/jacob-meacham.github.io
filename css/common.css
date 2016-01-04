@@ -39,7 +39,7 @@ html {
 
 html,
 body {
-  background-color: #efefef;
+  background-color: #fff;
 }
 
 body {
@@ -56,6 +56,10 @@ p {
   text-align: left;
 }
 
+img {
+  display:block;
+}
+
 /* Padding for spacing */
 .main {
   padding: 30px;
@@ -70,18 +74,66 @@ h1, h2, h3, h4, h5 {
   text-align: left;
 }
 
-.container {
-  position: relative;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
 /* All of the below (between comments) is adapted from Bootstrap, trying to keep site size down as low as possible */
 /* clearfix */
-.clearfix:before, .clearfix:after, .container:before, .container:after {
+.clearfix:before, .clearfix:after, .container:before, .container:after, .col-2:before, .col-2:after, .col-3:before, .col-3:after {
     display: table;
     content: " ";
     clear: both;
+}
+
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+
+.row {
+  margin-right: -15px;
+  margin-left: -15px;
+}
+.col-3, .col-2 {
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+@media (min-width: 700px) {
+  .col-3 {
+    float: left;
+  }
+
+  .col-3 {
+    width: 33.33333333%;
+  }
+}
+
+@media (min-width: 992px) {
+  .col-2 {
+    float: left;
+  }
+
+  .col-2 {
+    width: 50%;
+  }
 }
 
 .navbar {
@@ -253,12 +305,8 @@ background: #729f98;
 }
 
 .project-card {
-  width: 300px;
-  height: 230px;
   border-radius: 3px;
   color: #222;
-  display: inline-block;
-  margin-right: 15px;
   margin-bottom: 20px;
   border: 3px solid rgba(0, 0, 0, 0);
 }
@@ -322,59 +370,102 @@ a.div-linker {
 }
 
 .game-card {
-  display: inline-block;
-  margin-right: 20px;
-  height: 300px;
-  margin-bottom: 20px;
+  margin: 20px auto;
+  max-width: 900px;
+  border-radius: 10px;
+}
+
+.game-card > .game-image {
+  position: relative;
+  overflow: hidden;
+  background-color: rgb(85, 85, 85);
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
 }
 
 .game-card > .game-image > img {
-  max-width: 100%;
-  height: auto;
-  overflow: hidden;
+  min-height: 150px;
+  max-width: 150%;
+  position: relative;
 }
 
-.game-card > .title {
-  padding: 10px;
-  background: black;
-  font-size: 1.5em;
+@media (max-width: 690px) {
+  .game-card > .game-image > img {
+    left: -50%; /* Re-center the image, as it stretches */
+  }
+}
+
+.game-card > .header {
+  padding: 5px;
+  padding-left: 12px;
+  background: #555;
+  font-size: 1.2em;
   font-weight: bold;
   color: white;
   text-align: left;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
 }
 
-.game-card > .title.title-c1 {
+.game-card > .header > .info {
+  padding-right: 10px;
+  padding-top: 3px;
+  float: right;
+  font-size: 0.8em;
+  font-weight: normal;
+  font-style: italic;
+}
+
+.game-card > .header > .work {
+  margin-left: 10px;
+  font-weight: normal;
+  color: green;
+}
+
+.horiz-list-item:before {
+  color: white;
+  content: '\002022';
+  margin: 0 7px;
+}
+
+.game-card > .header.header-c1 {
   border-bottom: 5px solid red;
 }
 
-.game-card > .title.title-c2 {
+.game-card > .header.header-c2 {
   border-bottom: 5px solid green;
 }
 
-.game-card > .title.title-c3 {
+.game-card > .header.header-c3 {
   border-bottom: 5px solid yellow;
 }
 
-.game-card > .title.title-c4 {
+.game-card > .header.header-c4 {
   border-bottom: 5px solid blue;
 }
 
-.game-card > .caption {
+.game-card .caption {
   position: absolute;
-  bottom: 0;
+  bottom: 100%;
   left: 0;
   overflow: hidden;
   height: 0;
   background: white;
   width: 100%;
   text-align: left;
-  padding-left: 12px;
+  background-color: rgba(51, 51, 51, 0.8);
+  color: white;
 
-  transition: height 500ms cubic-bezier(0.25, 0.02, 0.04, 1.0);
+  transition: all 500ms cubic-bezier(0.25, 0.02, 0.04, 1.0);
 }
 
-.game-card.active > .caption {
-  height: 50%;
+.game-card .caption > .inner {
+  padding: 12px;
+}
+
+.game-card.active .caption {
+  bottom: 0;
+  height: 100%;
 }
 
 .hover-card {
