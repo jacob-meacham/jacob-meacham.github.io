@@ -32,7 +32,7 @@ var uniforms = {
   }
 };
 
-function initializeRipple(scene) {
+function createRipple(scene) {
   var planeGeometry = new THREE.PlaneGeometry(50, 25, 64, 32);
 
   var shaderMaterial = new THREE.ShaderMaterial({
@@ -44,8 +44,29 @@ function initializeRipple(scene) {
   shaderMaterial.transparent = true;
 
   var mesh = new THREE.Line(new THREE.WireframeGeometry(planeGeometry), shaderMaterial, THREE.LineSegments);
-  scene.scene.add(mesh);
+  return mesh;
 };
+
+function createBackground(scene, c1, c2) {
+  var geometry = new THREE.PlaneGeometry(50, 25, 1);
+  var material = new THREE.RawShaderMaterial({
+    vertexShader: document.getElementById('backgroundVS').textContent,
+    fragmentShader: document.getElementById('backgroundFS').textContent,
+    side: THREE.DoubleSide,
+    uniforms: {
+      aspectCorrection: { type: 'i', value: false },
+      aspect: { type: 'f', value: 1 },
+      offset: { type: 'v2', value: new THREE.Vector2(0, 0) },
+      scale: { type: 'v2', value: new THREE.Vector2(0.9, 0.8) },
+      color1: { type: 'c', value: new THREE.Color(c1) },
+      color2: { type: 'c', value: new THREE.Color(c2) }
+    },
+    depthTest: false
+  });
+
+  var mesh = new THREE.Mesh(geometry, material);
+  return mesh;
+}
 
 function Scene() {
   this.init = function() {
@@ -94,7 +115,8 @@ $(document).ready(function() {
   // Initialize 3d
   var scene = new Scene();
   scene.init();
-  initializeRipple(scene);
+  scene.scene.add(createBackground(scene, '#333', 'black'));
+  scene.scene.add(createRipple(scene));
 
   // Initialize other components
   initializeHoverCards();
