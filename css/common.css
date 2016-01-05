@@ -11,22 +11,8 @@ a:hover {
   color: #fff;
 }
 
-.clearfix {
-  overflow: auto;
-}
-
 * {
   box-sizing: border-box;
-}
-
-/* Custom default button */
-.btn-default,
-.btn-default:hover,
-.btn-default:focus {
-  color: #333;
-  text-shadow: none; /* Prevent inheritence from `body` */
-  background-color: #fff;
-  border: 1px solid #fff;
 }
 
 /*
@@ -76,7 +62,7 @@ h1, h2, h3, h4, h5 {
 
 /* All of the below (between comments) is adapted from Bootstrap, trying to keep site size down as low as possible */
 /* clearfix */
-.clearfix:before, .clearfix:after, .container:before, .container:after, .col-2:before, .col-2:after, .col-3:before, .col-3:after {
+.clearfix:before, .clearfix:after, .container:before, .container:after, .col-2:before, .col-2:after, .col-3:before, .col-3:after, .row:before, .row:after {
     display: table;
     content: " ";
     clear: both;
@@ -112,8 +98,8 @@ h1, h2, h3, h4, h5 {
 .col-3, .col-2 {
   position: relative;
   min-height: 1px;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 8px;
+  padding-left: 8px;
 }
 
 @media (min-width: 700px) {
@@ -126,7 +112,7 @@ h1, h2, h3, h4, h5 {
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1200px) {
   .col-2 {
     float: left;
   }
@@ -176,13 +162,13 @@ content: '';
 display: block;
 height: 5px;
 width: 0;
-background: #ba9077;
+background: #ffa200;
 transition: width .5s ease;
 }
 
 .navbar-nav>li>a:hover:after {
 width: 100%;
-background: #729f98;
+background: #ffa200;
 }
 
 .navbar-nav>li.active>a:after {
@@ -191,11 +177,11 @@ background: #729f98;
   height: 5px;
   width: 100%;
   transition: .25s ease;
-  background: #ba9077;
+  background: #ffa200;
 }
 
 .navbar-nav>li.active>a:hover:after {
-  background: #729f98;
+  background: #BF211E;
 }
 
 .navbar-brand {
@@ -216,7 +202,7 @@ background: #729f98;
   color: white;
   height: 200px;
   margin-bottom: 30px;
-  border-bottom: 5px solid #729f98;
+  border-bottom: 5px solid #03B5AA;
 }
 
 .masthead canvas {
@@ -237,7 +223,7 @@ background: #729f98;
 }
 
 .footer {
-  border-top: 3px solid #ba9077;
+  border-top: 5px solid #03B5AA;
   background-color: #333;
   color: white;
   position: absolute;
@@ -312,12 +298,12 @@ background: #729f98;
 .project-card {
   border-radius: 3px;
   color: #222;
-  margin-bottom: 20px;
+  margin-bottom: 8px;
   border: 3px solid rgba(0, 0, 0, 0);
 }
 
 .project-card.active {
-  border: 3px solid #7daadd;
+  border: 3px solid #03B5AA;
 }
 
 .project-card > .card-img > img {
@@ -374,12 +360,12 @@ a.div-linker {
     border-radius: 3px;
 }
 
-.pro {
-  margin-top: 90px;
+.games {
+  margin-top: 40px;
 }
 
 .game-card {
-  margin: 20px auto;
+  margin: 8px auto;
   max-width: 900px;
   border-radius: 10px;
 }
@@ -398,6 +384,12 @@ a.div-linker {
   position: relative;
 }
 
+@media (min-width: 1200px) {
+  .game-card > .game-image > img {
+    left: -50%; /* Re-center the image, as it stretches */
+  }
+}
+
 @media (max-width: 690px) {
   .game-card > .game-image > img {
     left: -50%; /* Re-center the image, as it stretches */
@@ -407,7 +399,7 @@ a.div-linker {
 .game-card > .header {
   padding: 5px;
   padding-left: 12px;
-  background: #555;
+  background: #02040F;
   font-size: 1.2em;
   font-weight: bold;
   color: white;
@@ -434,7 +426,7 @@ a.div-linker {
 .game-card > .header > .work {
   margin-left: 10px;
   font-weight: normal;
-  color: green;
+  color: #BF211E;
 }
 
 @media (max-width: 540px) {
@@ -450,19 +442,11 @@ a.div-linker {
 }
 
 .game-card > .header.header-c1 {
-  border-bottom: 5px solid red;
+  border-bottom: 5px solid white;
 }
 
 .game-card > .header.header-c2 {
-  border-bottom: 5px solid green;
-}
-
-.game-card > .header.header-c3 {
-  border-bottom: 5px solid yellow;
-}
-
-.game-card > .header.header-c4 {
-  border-bottom: 5px solid blue;
+  border-bottom: 5px solid #BF211E;
 }
 
 .game-card .caption {
