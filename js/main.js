@@ -33,7 +33,7 @@ var uniforms = {
 };
 
 function createRipple(scene) {
-  var planeGeometry = new THREE.PlaneGeometry(50, 25, 64, 32);
+  var planeGeometry = new THREE.PlaneGeometry(100, 25, 128, 32);
 
   var shaderMaterial = new THREE.ShaderMaterial({
     uniforms: uniforms,
@@ -58,7 +58,8 @@ function createBackground(scene, c1, c2) {
       aspect: { type: 'f', value: 1 },
       offset: { type: 'v2', value: new THREE.Vector2(0, 0) },
       scale: { type: 'v2', value: new THREE.Vector2(0.9, 0.8) },
-      color1: { type: 'c', value: new THREE.Color(c1) },
+      color1: { type: 'c', value: new THREE
+      .Color(c1) },
       color2: { type: 'c', value: new THREE.Color(c2) }
     },
     depthTest: false
@@ -115,7 +116,7 @@ $(document).ready(function() {
   // Initialize 3d
   var scene = new Scene();
   scene.init();
-  scene.scene.add(createBackground(scene, '#333', '#02040F'));
+  scene.scene.add(createBackground(scene, '#f6f6f6', '#e1e1e1'));
   scene.scene.add(createRipple(scene));
 
   // Initialize other components
