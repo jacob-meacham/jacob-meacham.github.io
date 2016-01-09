@@ -158,17 +158,17 @@ h1, h2, h3, h4, h5 {
 }
 
 .navbar-nav>li>a:after {
-content: '';
-display: block;
-height: 5px;
-width: 0;
-background: #ffa200;
-transition: width .5s ease;
+  content: '';
+  display: block;
+  height: 5px;
+  width: 0;
+  background: #ffa200;
+  transition: width .5s ease;
 }
 
 .navbar-nav>li>a:hover:after {
-width: 100%;
-background: #ffa200;
+  width: 100%;
+  background: #ffa200;
 }
 
 .navbar-nav>li.active>a:after {
@@ -177,7 +177,7 @@ background: #ffa200;
   height: 5px;
   width: 100%;
   transition: .25s ease;
-  background: #ffa200;
+  background: #BF211E;
 }
 
 .navbar-nav>li.active>a:hover:after {
@@ -190,6 +190,21 @@ background: #ffa200;
   padding: 15px 15px;
   font-size: 18px;
   line-height: 20px;
+}
+
+.navbar-brand:after {
+  content: '';
+  display: block;
+  height: 3px;
+  width: 0;
+  margin-top: -4px;
+  background: #ffa200;
+  transition: width .4s ease;
+}
+
+.navbar-brand:hover:after {
+  width: 100%;
+  background: #ffa200;
 }
 
 .navbar-header {
@@ -355,9 +370,8 @@ a.div-linker {
 /* TODO: Change styling */
 .portfolio-main {
   position: relative;
-  margin-bottom: 10px;
-  height: 550px;
-  width: 1000px;
+  margin: 10px auto;
+  max-width: 950px;
   border-radius: 3px;
 }
 
@@ -367,15 +381,25 @@ a.div-linker {
 }
 
 .portfolio-thumb {
-    padding: 0px;
-    width: 227px;
-    width: 242px;
-    height: 147px;
-    float: left;
-    margin-right: 10px;
-    margin-bottom: 10px;
-    box-shadow: 0 0 3px #888;
-    border-radius: 3px;
+  padding: 0px;
+  width: 80px;
+  height: auto;
+  display: inline-block;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 0 3px #888;
+  border-radius: 3px;
+  opacity: 0.5;
+  transition: all 0.15s ease;
+}
+
+.portfolio-thumb:hover {
+  cursor: pointer;
+  opacity: 1.0;
+}
+
+.portfolio-thumb.active {
+  opacity: 1.0;
 }
 
 .games {

@@ -4,7 +4,7 @@ layout: default
 group: lab
 ---
 
-<div class="portfolio-images clearfix">
+<div class="portfolio-images">
     <div class="portfolio-main">
         <img src="/img/media-panel/001.jpg">
     </div>

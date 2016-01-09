@@ -10,12 +10,21 @@ function initializeHoverCards() {
 };
 
 function initializePortfolioMain() {
+  function activateThumb(selector) {
+    $('.portfolio-thumb').removeClass('active');
+    $(selector).addClass('active');
+  }
+
   $('.portfolio-thumb img').each(function() {
     this.addEventListener('click', function() {
       var img = $(this).attr('src')
+      activateThumb($(this).parent());
       $('.portfolio-main img').attr('src', img);
     });
   });
+
+  // Activate the first image.
+  activateThumb($('.portfolio-thumb').first());
 };
 
 function lazyLoad() {
