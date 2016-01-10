@@ -228,7 +228,7 @@ h1, h2, h3, h4, h5 {
   bottom: -15px;
   position: absolute;
   border-top: 10px solid #333;
-  border-bottom: 5px solid #ffa200;
+  border-bottom: 3px solid #03B5AA;
 }
 
 .masthead canvas {
@@ -475,6 +475,17 @@ a.div-linker {
   .game-card > .header > .work {
     display: none !important;
   }
+}
+
+.game-card .platform {
+  font-weight: 200;
+  font-style: italic;
+  font-size: 0.9em;
+}
+
+.game-card .desc {
+  font-weight: 200;
+  font-size: 0.9em;
 }
 
 .horiz-list-item:before {
