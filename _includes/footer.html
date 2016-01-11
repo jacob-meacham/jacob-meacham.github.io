@@ -33,6 +33,7 @@
   precision mediump int;
 
   uniform float time;
+  uniform vec2 cursorPos;
   varying vec4 vColor;
 
   void main() {
@@ -41,12 +42,13 @@
     float distFromCenter = length(position);
 
     vec3 posFinal = position;
-    float offsetX = 0.5 * sin(position.x + time);
-    float offsetY = 0.5 * cos(position.y + time);
+    float offsetX = sin(time+distFromCenter) * 0.3 * sin(position.x + time * 0.8);
+    float offsetY = sin(time+distFromCenter) * 0.5 * cos(position.y + time * 0.8);
     posFinal.x += offsetX;
     posFinal.y += offsetY;
 
     vColor = vec4(0.9,0.9,0.9,1.0) * vec4(1.0,1.0,1.0,offsetX+0.5);
+    //vColor = vec4(1.0, 0.0, 0.0, 1.0);
 
     gl_Position = projectionMatrix * modelViewMatrix * vec4(posFinal, 1.0);
   }

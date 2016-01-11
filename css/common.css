@@ -280,6 +280,7 @@ h1, h2, h3, h4, h5 {
   padding: 15px;
   width: 50%;
   text-align: left;
+  padding-right: 80px;
 }
 
 .footer .social {
@@ -295,16 +296,6 @@ h1, h2, h3, h4, h5 {
 
   .footer .social {
     width: 100%;
-  }
-}
-
-.footer .small-copyright {
-  margin-top: 10px;
-}
-
-@media (min-width: 631px) {
-  .footer .small-copyright {
-    display: none !important;
   }
 }
 

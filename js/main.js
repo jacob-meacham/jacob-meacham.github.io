@@ -52,7 +52,7 @@ function createRipple(scene) {
   });
   shaderMaterial.transparent = true;
 
-  var mesh = new THREE.Line(new THREE.WireframeGeometry(planeGeometry), shaderMaterial, THREE.LineSegments);
+  var mesh = new THREE.LineSegments(new THREE.WireframeGeometry(planeGeometry), shaderMaterial);
   return mesh;
 };
 
@@ -63,12 +63,9 @@ function createBackground(scene, c1, c2) {
     fragmentShader: document.getElementById('backgroundFS').textContent,
     side: THREE.DoubleSide,
     uniforms: {
-      aspectCorrection: { type: 'i', value: false },
-      aspect: { type: 'f', value: 1 },
       offset: { type: 'v2', value: new THREE.Vector2(0, 0) },
       scale: { type: 'v2', value: new THREE.Vector2(0.9, 0.8) },
-      color1: { type: 'c', value: new THREE
-      .Color(c1) },
+      color1: { type: 'c', value: new THREE.Color(c1) },
       color2: { type: 'c', value: new THREE.Color(c2) }
     },
     depthTest: false
@@ -99,6 +96,17 @@ function Scene() {
     this.renderer.setClearColor(0x333333, 1);
 
     this.container.appendChild(this.renderer.domElement);
+
+    // TODO: fix to resize.
+    var renderRect = this.renderer.domElement.getBoundingClientRect();
+    this.renderer.domElement.addEventListener('mousemove', function(evt) {
+      var mousePos = {
+        x: evt.clientX - renderRect.left,
+        y: evt.clientY - renderRect.top
+      };
+
+      // TODO: Pass this shit in...
+    });
   };
 
   this.onResize = function() {
