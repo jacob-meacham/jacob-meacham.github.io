@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Montserrat);
+@import url(http://allfont.net/allfont.css?fonts=montserrat-light);
 
 /* Links */
 a {
@@ -31,7 +31,7 @@ body {
 body {
   color: #555;
   text-align: center;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Montserrat Light', sans-serif;
   margin: 0;
   margin-bottom: 300px; /* For the footer */
   font-size: 14px;
@@ -262,6 +262,7 @@ h1, h2, h3, h4, h5 {
   width: 100%;
   bottom: 0px;
   height: 300px;
+  font-weight: 100;
 }
 
 .footer .inner {
@@ -272,7 +273,7 @@ h1, h2, h3, h4, h5 {
   display: block;
   float: left;
   margin-top: 10px;
-  margin-bottom: 10px
+  margin-bottom: 10px;
   height: 75%;
 }
 
@@ -280,13 +281,23 @@ h1, h2, h3, h4, h5 {
   padding: 15px;
   width: 50%;
   text-align: left;
-  padding-right: 80px;
+}
+
+.footer .about .info {
+  font-size: 0.9em;
+  margin: 0 40px;
 }
 
 .footer .social {
   padding-top: 10px;
   border-left: 1px solid #555;
   width: 50%;
+}
+
+@media (max-width: 960px) {
+  .footer .about .more-info {
+    display: none !important;
+  }
 }
 
 @media (max-width: 630px) {
@@ -358,7 +369,6 @@ a.div-linker {
   color: #222;
 }
 
-/* TODO: Change styling */
 .portfolio-main {
   position: relative;
   margin: 10px auto;
@@ -471,12 +481,10 @@ a.div-linker {
 .game-card .platform {
   font-weight: 200;
   font-style: italic;
-  font-size: 0.9em;
 }
 
 .game-card .desc {
   font-weight: 200;
-  font-size: 0.9em;
 }
 
 .horiz-list-item:before {
