@@ -1,4 +1,11 @@
-@import url(http://allfont.net/allfont.css?fonts=montserrat-light);
+/* Font from allfont.net */
+@font-face {
+    font-family: 'Montserrat Light';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Montserrat Light'), local('Montserrat-Light'),
+        url(../fonts/montserrat-light.ttf) format('truetype');
+}
 
 /* Links */
 a {
