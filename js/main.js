@@ -34,28 +34,13 @@ function lazyLoad() {
   })
 }
 
-var uniforms = {
-  time: {
-    type: 'f',
-    value: 10
-  }
-};
+/*
+ *
+ * Masthead. Factored this way so that it's still relatively readable, but is kept small
+ *
+*/
 
-function createRipple(scene) {
-  var planeGeometry = new THREE.PlaneGeometry(100, 25, 128, 32);
-
-  var shaderMaterial = new THREE.ShaderMaterial({
-    uniforms: uniforms,
-    vertexShader: document.getElementById('rippleVS').textContent,
-    fragmentShader: document.getElementById('rippleFS').textContent,
-    depthTest: true,
-  });
-  shaderMaterial.transparent = true;
-
-  var mesh = new THREE.LineSegments(new THREE.WireframeGeometry(planeGeometry), shaderMaterial);
-  return mesh;
-};
-
+// Vignetted background
 function createBackground(scene, c1, c2) {
   var geometry = new THREE.PlaneGeometry(50, 25, 1);
   var material = new THREE.RawShaderMaterial({
@@ -75,6 +60,78 @@ function createBackground(scene, c1, c2) {
   return mesh;
 }
 
+// Ripple mesh
+var rippleUniforms = {
+  time: {
+    type: 'f',
+    value: 10
+  }
+};
+
+function createRipple(scene) {
+  var planeGeometry = new THREE.PlaneGeometry(100, 25, 128, 32);
+
+  var shaderMaterial = new THREE.ShaderMaterial({
+    uniforms: rippleUniforms,
+    vertexShader: document.getElementById('rippleVS').textContent,
+    fragmentShader: document.getElementById('rippleFS').textContent,
+    depthTest: true,
+  });
+  shaderMaterial.transparent = true;
+
+  var mesh = new THREE.LineSegments(new THREE.WireframeGeometry(planeGeometry), shaderMaterial);
+  return mesh;
+};
+
+// Camera Controller
+function v2(x, y) {
+  return new THREE.Vector2(x, y);
+}
+
+function lerpComponent(current, target, delta) {
+  if (current < target) {
+    if (current + delta > target) { return target; }
+    return current + delta;
+  } else {
+    if (current - delta < target) { return target; }
+    return current - delta;
+  }
+}
+
+function lerp(current, target, delta) {
+  return v2(lerpComponent(current.x, target.x, delta), lerpComponent(current.y, target.y, delta));
+}
+
+function CameraController() {
+  this.radius = 5.0;
+  this.theta = Math.PI * 0.5;
+  this.phi = Math.PI * 0.5;
+  this.currentPos = v2(0.5, 0.5);
+
+  this.lookAt = new THREE.Vector3(0.0, 0.0, 0.0);
+
+  // Container position is the distance that the mouse is currently across the container, from 0-1.
+  this.update = function(containerPos, dt) {
+    if (!containerPos) {
+      return;
+    }
+
+    var speed = dt * 4.0;
+    this.currentPos = lerp(this.currentPos, containerPos, speed);
+
+    // Slew right around PI * 0.5
+    this.phi = Math.PI * (0.5 - (0.001 - (1.0 - this.currentPos.x) * 0.002));
+    this.theta = Math.PI * (0.5 - (0.01 - this.currentPos.y * 0.02));
+
+    var x = this.radius * Math.cos(this.phi) * Math.sin(this.theta);
+    var y = this.radius * Math.cos(this.theta);
+    var z = this.radius * Math.sin(this.phi) * Math.sin(this.theta);
+
+    this.camera.position.copy(new THREE.Vector3(x, y, z));
+    this.camera.lookAt(this.lookAt);
+  }
+}
+
 function Scene() {
   this.init = function() {
     // Initialize global time
@@ -91,21 +148,21 @@ function Scene() {
     this.camera = new THREE.PerspectiveCamera(60, width / height, 0.1, 1000);
     this.camera.position.z = 5;
 
+    this.cameraController = new CameraController();
+    this.cameraController.camera = this.camera;
+
     this.renderer = new THREE.WebGLRenderer();
     this.renderer.setSize(width, height);
     this.renderer.setClearColor(0x333333, 1);
 
     this.container.appendChild(this.renderer.domElement);
 
-    // TODO: fix to resize.
-    var renderRect = this.renderer.domElement.getBoundingClientRect();
-    this.renderer.domElement.addEventListener('mousemove', function(evt) {
-      var mousePos = {
-        x: evt.clientX - renderRect.left,
-        y: evt.clientY - renderRect.top
-      };
-
-      // TODO: Pass this shit in...
+    this.renderRect = this.container.getBoundingClientRect();
+    var scene = this;
+    this.container.addEventListener('mousemove', function(evt) {
+      var x = (evt.clientX - scene.renderRect.left) / scene.renderRect.width;
+      var y = (evt.clientY - scene.renderRect.top) / scene.renderRect.height;
+      scene.containerPos = v2(x, y);
     });
   };
 
@@ -116,12 +173,14 @@ function Scene() {
     this.camera.aspect = width / height;
     this.camera.updateProjectionMatrix();
     this.renderer.setSize(width, height);
+    this.renderRect = this.container.getBoundingClientRect();
   };
 
   this.update = function(dt) {
     this.time += dt;
     sessionStorage.setItem('globalTime', this.time);
-    uniforms.time.value = this.time;
+    rippleUniforms.time.value = this.time;
+    this.cameraController.update(this.containerPos, dt);
   };
 
   this.render = function() {
