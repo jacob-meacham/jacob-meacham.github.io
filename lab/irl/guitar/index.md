@@ -15,6 +15,9 @@ group: lab
         <img src="/img/guitar/endgraft.jpg">
     </div>
     <div class="portfolio-thumb">
+        <img src="/img/guitar/front-braces.jpg">
+    </div>
+    <div class="portfolio-thumb">
         <img src="/img/guitar/white-back.jpg">
     </div>
     <div class="portfolio-thumb">
@@ -25,11 +28,5 @@ group: lab
     </div>
     <div class="portfolio-thumb">
         <img src="/img/guitar/003.jpg">
-    </div>
-    <div class="portfolio-thumb">
-        <img src="/img/guitar/back_curve.jpg">
-    </div>
-    <div class="portfolio-thumb">
-        <img src="/img/guitar/front-braces.jpg">
     </div>
 </div>
