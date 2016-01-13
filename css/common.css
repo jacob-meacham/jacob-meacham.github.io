@@ -243,8 +243,8 @@ h1, h2, h3, h4, h5 {
 .fa-github:before {
   content: "\f09b";
 }
-.fa-envelope:before {
-  content: "\f0e0";
+.fa-envelope-o:before {
+  content: "\f003";
 }
 .fa-linkedin:before {
   content: "\f0e1";
