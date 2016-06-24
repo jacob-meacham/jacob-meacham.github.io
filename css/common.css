@@ -452,15 +452,12 @@ a.div-linker {
 .game-card {
   margin: 8px auto;
   max-width: 900px;
-  border-radius: 10px;
 }
 
 .game-card > .game-image {
   position: relative;
   overflow: hidden;
   background-color: rgb(85, 85, 85);
-  border-bottom-left-radius: 12px;
-  border-bottom-right-radius: 12px;
 }
 
 .game-card > .game-image img {
@@ -489,8 +486,6 @@ a.div-linker {
   font-weight: bold;
   color: white;
   text-align: left;
-  border-top-left-radius: 12px;
-  border-top-right-radius: 12px;
 }
 
 .game-card > .header > .info {
@@ -568,7 +563,6 @@ a.div-linker {
 }
 
 .hover-card {
-  box-shadow: 0 1px 1px rgba(0,0,0,0.3);
   position: relative;
   /*display: none;*/
 
@@ -582,6 +576,7 @@ a.div-linker {
 }
 
 .project-card {
+  box-shadow: 0 1px 1px rgba(0,0,0,0.3);
   transition: all 500ms cubic-bezier(0.19, 1.0, 0.22, 1.0);
   transform: translateY(0) scale(0.95, 0.95);
 }
