@@ -7,7 +7,7 @@ function initializeHoverCards() {
       $(this).removeClass('active');
     });
   });
-};
+}
 
 function initializePortfolioMain() {
   function activateThumb(selector) {
@@ -25,13 +25,19 @@ function initializePortfolioMain() {
 
   // Activate the first image.
   activateThumb($('.portfolio-thumb').first());
-};
+}
 
 function lazyLoad() {
   $('.lazy-load').each(function() {
-    var img = $(this).attr('data-src')
-    $(this).attr('src', img);
-  })
+    var self = $(this)
+    var img = self.attr('data-src')
+    var newImage = new Image();
+    newImage.onload = function() {
+      self.parents('.hover-card').addClass('loaded');
+    };
+    self.append(newImage)
+    newImage.src = img
+  });
 }
 
 /*
@@ -81,7 +87,7 @@ function createRipple(scene) {
 
   var mesh = new THREE.LineSegments(new THREE.WireframeGeometry(planeGeometry), shaderMaterial);
   return mesh;
-};
+}
 
 // Camera Controller
 function v2(x, y) {
@@ -186,7 +192,7 @@ function Scene() {
   this.render = function() {
     this.renderer.render(this.scene, this.camera);
   }
-};
+}
 
 $(document).ready(function() {
   // Initialize 3d

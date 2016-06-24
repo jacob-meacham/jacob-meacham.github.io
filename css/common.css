@@ -463,20 +463,20 @@ a.div-linker {
   border-bottom-right-radius: 12px;
 }
 
-.game-card > .game-image > img {
+.game-card > .game-image img {
   min-height: 190px;
   max-width: 150%;
   position: relative;
 }
 
 @media (min-width: 1200px) {
-  .game-card > .game-image > img {
+  .game-card > .game-image img {
     left: -50%; /* Re-center the image, as it stretches */
   }
 }
 
 @media (max-width: 690px) {
-  .game-card > .game-image > img {
+  .game-card > .game-image img {
     left: -50%; /* Re-center the image, as it stretches */
   }
 }
@@ -570,6 +570,15 @@ a.div-linker {
 .hover-card {
   box-shadow: 0 1px 1px rgba(0,0,0,0.3);
   position: relative;
+  /*display: none;*/
+
+  transition: opacity 500ms ease-in-out;
+  opacity: 0;
+}
+
+.hover-card.loaded {
+  /*display: block;*/
+  opacity: 1;
 }
 
 .project-card {
