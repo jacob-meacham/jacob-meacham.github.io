@@ -41,8 +41,8 @@ body {
   font-family: 'Montserrat Light', sans-serif;
   margin: 0;
   margin-bottom: 300px; /* For the footer */
-  font-size: 14px;
-  line-height: 1.42857143;
+  font-size: 16px;
+  line-height: 1.5;
 }
 
 p {
@@ -51,6 +51,22 @@ p {
 
 img {
   display:block;
+}
+
+.img-splash {
+  margin: 10px -30px;
+  padding: 25px 0;
+  background-color: #111;
+}
+
+.img-splash .img-container {
+  position: relative;
+  margin: 0 auto;
+  max-width: 650px;
+}
+
+.img-splash .img-container img {
+  max-width: 100%;
 }
 
 .main {
@@ -297,6 +313,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .footer {
+  font-size: 14px;
   border-top: 5px solid #03B5AA;
   background-color: #333;
   color: white;
@@ -452,6 +469,7 @@ a.div-linker {
 .game-card {
   margin: 8px auto;
   max-width: 900px;
+  font-size: 14px;
 }
 
 .game-card > .game-image {

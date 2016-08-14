@@ -29,14 +29,18 @@
         {% endif %}
     </div>
     <main class="main">
+        {%if page.no_container == null || page.no_container == false %}
         <div class="container">
+        {% endif %}
             {{content}}
+        {%if page.no_container == null || page.no_container == false %}
         </div>
+        {% endif %}
     </main>
     <footer class="footer">
         <div class="panel about">
             <div class="info">
-                <p>Hello! My name is Jacob. I'm an engineer and game designer that loves to work with all sorts of tech, and in all kinds of styles. Right now, I work at <a href="http://dopplerlabs.com">Doppler Labs</a>, a hardware startup in San Francisco. I also work on illustration, games, creative coding, interactive visualizations, and many other side projects.</p>
+                <p>Hello! My name is Jacob. I'm an engineer and game designer that loves to work with all sorts of tech, and in all kinds of styles. Right now, I work at <a href="http://dopplerlabs.com">Doppler Labs</a>, a hardware startup in San Francisco. I also work on illustration, games, creative coding, and interactive visualizations.</p>
 
                 <p class="more-info">Before Doppler, I worked at <a href="http://palantir.com">Palantir</a>, helping solve some of the world's biggest problems - poverty, disaster relief, healthcare access and more.</p>
             </div>
