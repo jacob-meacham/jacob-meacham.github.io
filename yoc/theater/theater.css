@@ -147,6 +147,7 @@ body {
     padding-top: 20px;
     padding-bottom: 50px;
     min-height: 500px;
+    white-space: pre-line;
 }
 
 .left-diary {
@@ -204,7 +205,7 @@ body {
     background: url("img/right_wood.png");
     font-family: 'Gunny Rewritten', sans-serif;
     font-size: 28px;
-    line-height: 1em;
+    line-height: 28px;
     z-index: 1;
     padding-top: 500px;
 }
@@ -252,11 +253,10 @@ body {
 }
 
 .right-diary .diary-entry .text {
-  /* For a dashed, wrapped line (https://css-tricks.com/styling-underlines-web/) */
-  background-image: linear-gradient(to right, #999 75%, transparent 75%);
-  background-position: 0 1.04em;
-  background-repeat: repeat-x;
-  background-size: 8px 1px;
+  /* For a wrapped line (https://css-tricks.com/styling-underlines-web/) */
+  background-image: repeating-linear-gradient(180deg, transparent, transparent 27px, #888 28px);
+  display: block;
+  width: 100%;
 }
 
 
@@ -274,7 +274,7 @@ body {
   position: relative;
   top: 15px;
   padding: 10px 0;
-  background: white;
+  background: #f4f3ed;
   width: 90%;
   max-width: 700px;
   margin: 0 auto;
