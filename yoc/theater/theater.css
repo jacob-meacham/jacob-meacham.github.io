@@ -1,0 +1,351 @@
+@font-face {
+    font-family: 'Estreya Handwriting';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Estreya Handwriting'), local('Estreya Handwriting'),
+        url(fonts/Jellyka_Estrya_Handwriting.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Gunny Rewritten';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Gunny Rewritten'), local('Gunny Rewritten'),
+        url(fonts/gnyrwn971.ttf) format('truetype');
+}
+
+body {
+    margin: 0;
+    -webkit-user-select: none; /* Chrome/Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+ */
+    -o-user-select: none;
+    user-select: none;
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.resizer {
+  height: 38px;
+  width: 38px;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  margin-left: -22px;
+  margin-top: -22px;
+  border: 3px solid white;
+  -webkit-border-radius: 1000px;
+  -moz-border-radius: 1000px;
+  border-radius: 1000px;
+  -webkit-box-shadow: 0px 0px 12px rgba(51, 51, 51, 0.5);
+  -moz-box-shadow: 0px 0px 12px rgba(51, 51, 51, 0.5);
+  box-shadow: 0px 0px 12px rgba(51, 51, 51, 0.5);
+  z-index: 10;
+  cursor: pointer;
+}
+
+.resizer:before, .resizer:after {
+  content: " ";
+  display: block;
+  background: white;
+  position: absolute;
+  z-index: 3;
+  width: 3px;
+  height: 9999px;
+  left: 50%;
+  margin-left: -1.5px;
+  -webkit-box-shadow: 0px 0px 12px rgba(51, 51, 51, 0.5);
+  -moz-box-shadow: 0px 0px 12px rgba(51, 51, 51, 0.5);
+  box-shadow: 0px 0px 12px rgba(51, 51, 51, 0.5);
+}
+
+.resizer:before {
+  bottom: 50%;
+  margin-bottom: 22px;
+  -webkit-box-shadow: 0 3px 0 white, 0px 0px 12px rgba(51, 51, 51, 0.5);
+  -moz-box-shadow: 0 3px 0 white, 0px 0px 12px rgba(51, 51, 51, 0.5);
+  box-shadow: 0 3px 0 white, 0px 0px 12px rgba(51, 51, 51, 0.5);
+}
+
+.resizer:after {
+  top: 50%;
+  margin-top: 22px;
+  -webkit-box-shadow: 0 -3px 0 white, 0px 0px 12px rgba(51, 51, 51, 0.5);
+  -moz-box-shadow: 0 -3px 0 white, 0px 0px 12px rgba(51, 51, 51, 0.5);
+  box-shadow: 0 -3px 0 white, 0px 0px 12px rgba(51, 51, 51, 0.5);
+}
+
+.resizer-left-arrow, .resizer-right-arrow {
+  top: 50%;
+  margin-top: -6px;
+  width: 0;
+  height: 0;
+  border: 6px inset transparent;
+  position: absolute;
+}
+
+.resizer-left-arrow {
+  border-right: 6px solid white;
+  left: 50%;
+  margin-left: -17px;
+}
+
+.resizer-right-arrow {
+  border-left: 6px solid white;
+  right: 50%;
+  margin-right: -17px;
+}
+
+.diary-entries {
+    overflow: hidden;
+}
+
+.diary {
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.diary img {
+  width: 100%;
+}
+
+.diary .top {
+  margin-top: 15px;
+}
+
+.diary .bottom {
+  margin-bottom: 15px;
+}
+
+.diary .diary-top {
+    margin-top: 110px;
+    background-color: transparent;
+}
+
+.diary .diary-bottom {
+    margin-bottom: 210px;
+    background-color: transparent;
+}
+
+.diary-first-page {
+  height: 500px;
+  padding-top: 50px;
+}
+
+.diary-entry {
+    padding-top: 20px;
+    padding-bottom: 50px;
+    min-height: 500px;
+}
+
+.left-diary {
+    background: url("img/left_wood.jpg");
+    font-family: 'Estreya Handwriting', sans-serif;
+    font-size: 58px;
+    line-height: .5em;
+    z-index: 2;
+    padding-top: 500px;
+}
+
+.left-diary .diary-container {
+    max-width: 561px;
+    margin-left: 6%;
+}
+
+@media (max-width: 480px) {
+  .left-diary .diary-container {
+      margin-left: 5px;
+  }
+}
+
+
+.left-diary .diary-first-page {
+    background: url("img/left_body.jpg");
+    background-size: contain;
+    padding-left: 50px;
+    padding-right: 40px;
+    text-align: center;
+}
+
+.left-diary .author {
+  font-size: 95px;
+  margin-top: 130px;
+}
+
+.left-diary .timespan {
+  margin-top: 40px;
+  padding-right: 40px;
+  font-size: 65px;
+}
+
+.left-diary .diary-entry-container .top {
+  margin-top: 60px;
+}
+
+.left-diary .diary-entry {
+  background: url("img/left_body.jpg");
+  background-size: contain;
+  padding-left: 50px;
+  padding-right: 40px;
+}
+
+.right-diary {
+    background: url("img/right_wood.png");
+    font-family: 'Gunny Rewritten', sans-serif;
+    font-size: 28px;
+    line-height: 1em;
+    z-index: 1;
+    padding-top: 500px;
+}
+
+.right-diary .diary-container {
+    position: absolute;
+    top: 500px; /* Should match the padding added to the left-diary */
+    right: 144px;
+    max-width: 864px;
+    min-width: 400px;
+}
+
+.right-diary .diary-first-page {
+    background: url("img/right_body.jpg");
+    background-size: contain;
+    padding-left: 480px;
+    text-align: center;
+}
+
+.right-diary .top {
+  margin-bottom: -7px;
+}
+
+.right-diary .property {
+    font-family: 'HelveticaNeue-Light';
+    font-weight: 300;
+    font-size: 28px;
+    padding-bottom: 40px
+}
+
+.right-diary .author {
+    font-size: 40px;
+    padding: 3px;
+    margin-left: 80px;
+    margin-right: 80px;
+    border-bottom: 1px dotted grey;
+}
+
+.right-diary .diary-entry {
+  background: url("img/right_body.jpg");
+  background-size: contain;
+  padding-left: 480px;
+  padding-right: 40px;
+  text-align: justify;
+}
+
+.right-diary .diary-entry .text {
+  /* For a dashed, wrapped line (https://css-tricks.com/styling-underlines-web/) */
+  background-image: linear-gradient(to right, #999 75%, transparent 75%);
+  background-position: 0 1.04em;
+  background-repeat: repeat-x;
+  background-size: 8px 1px;
+}
+
+
+.left-diary .date {
+    margin-bottom: 15px;
+}
+
+.right-diary .date {
+    text-align: right;
+    margin-bottom: 15px;
+}
+
+.playbill {
+  z-index: 5;
+  position: relative;
+  top: 15px;
+  padding: 10px 0;
+  background: white;
+  width: 90%;
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.playbill-inner {
+  position: relative;
+  border-top: 8px solid black;
+  margin-left: 10px;
+  margin-right: 10px;
+
+  border-bottom: 8px solid black;
+}
+
+.playbill-inner:before {
+  content: " ";
+  position: absolute;
+  top: 2px;
+  left: 0px;
+  right: 0px;
+  border: 1px solid black;
+}
+
+.playbill-inner:after {
+  content: " ";
+  position: absolute;
+  bottom: 2px;
+  left: 0px;
+  right: 0px;
+  border: 1px solid black;
+}
+
+.playbill .title {
+  font-size: 28px;
+  margin-top: 10px;
+}
+
+.playbill .subtitle {
+  font-style: italic;
+}
+
+.playbill .role {
+  margin-bottom: 4px;
+}
+
+.playbill .role .role {
+  float: left;
+}
+
+.playbill .role .actor {
+  float: right;
+}
+
+.playbill .role .middle {
+  overflow: hidden;
+  display: block;
+  height: 1.0em;
+
+  /* Dotted line */
+  background-image: linear-gradient(to right, black 20%, rgba(255,255,255,0) 0%);
+  background-position: bottom;
+  background-size: 7px 1px;
+  background-repeat: repeat-x;
+}
+
+.playbill .brought {
+  font-weight: bold;
+}
+
+.playbill .authors {
+  margin-bottom: 20px;
+  margin-top: 40px;
+}
