@@ -340,11 +340,13 @@ h1, h2, h3, h4, h5 {
   padding: 15px;
   width: 50%;
   text-align: left;
+  display: flex;
 }
 
 .footer .about .info {
   font-size: 0.9em;
   margin: 0 40px;
+  float: right;
 }
 
 .footer .social {
@@ -353,8 +355,22 @@ h1, h2, h3, h4, h5 {
   width: 50%;
 }
 
-@media (max-width: 960px) {
+.avatar {
+  margin-top: 20px;
+}
+
+.avatar > img {
+  border-radius: 50%;
+}
+
+@media (max-width: 1127px) {
   .footer .about .more-info {
+    display: none !important;
+  }
+}
+
+@media (max-width: 960px) {
+  .footer .avatar {
     display: none !important;
   }
 }
