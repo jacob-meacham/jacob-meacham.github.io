@@ -71,6 +71,10 @@ var rippleUniforms = {
   time: {
     type: 'f',
     value: 10
+  },
+  mousePosition: {
+    type: 'v2',
+    value: new THREE.Vector2(0, 0)
   }
 };
 
@@ -94,6 +98,10 @@ function v2(x, y) {
   return new THREE.Vector2(x, y);
 }
 
+function v3(x, y, z) {
+  return new THREE.Vector3(x, y, z)
+}
+
 function lerpComponent(current, target, delta) {
   if (current < target) {
     if (current + delta > target) { return target; }
@@ -112,29 +120,12 @@ function CameraController() {
   this.radius = 5.0;
   this.theta = Math.PI * 0.5;
   this.phi = Math.PI * 0.5;
-  this.currentPos = v2(0.5, 0.5);
 
   this.lookAt = new THREE.Vector3(0.0, 0.0, 0.0);
 
   // Container position is the distance that the mouse is currently across the container, from 0-1.
   this.update = function(containerPos, dt) {
-    if (!containerPos) {
-      return;
-    }
 
-    var speed = dt * 4.0;
-    this.currentPos = lerp(this.currentPos, containerPos, speed);
-
-    // Slew right around PI * 0.5
-    this.phi = Math.PI * (0.5 - (0.001 - (1.0 - this.currentPos.x) * 0.002));
-    this.theta = Math.PI * (0.5 - (0.01 - this.currentPos.y * 0.02));
-
-    var x = this.radius * Math.cos(this.phi) * Math.sin(this.theta);
-    var y = this.radius * Math.cos(this.theta);
-    var z = this.radius * Math.sin(this.phi) * Math.sin(this.theta);
-
-    this.camera.position.copy(new THREE.Vector3(x, y, z));
-    this.camera.lookAt(this.lookAt);
   }
 }
 
@@ -166,8 +157,8 @@ function Scene() {
     this.renderRect = this.container.getBoundingClientRect();
     var scene = this;
     this.container.addEventListener('mousemove', function(evt) {
-      var x = (evt.clientX - scene.renderRect.left) / scene.renderRect.width;
-      var y = (evt.clientY - scene.renderRect.top) / scene.renderRect.height;
+      var x = ((evt.clientX - scene.renderRect.left) / scene.renderRect.width) * 2 - 1;
+      var y = -((evt.clientY - scene.renderRect.top) / scene.renderRect.height) * 2 + 1;
       scene.containerPos = v2(x, y);
     });
   };
@@ -182,10 +173,23 @@ function Scene() {
     this.renderRect = this.container.getBoundingClientRect();
   };
 
+  this.getCursorInWorld = function() {
+    var vector = v3(this.containerPos.x, this.containerPos.y, 0.5);
+
+    vector.unproject(this.camera);
+    var dir = vector.sub(this.camera.position).normalize();
+    var distance = -this.camera.position.z / dir.z;
+
+    return this.camera.position.clone().add(dir.multiplyScalar(distance));
+  }
+
   this.update = function(dt) {
     this.time += dt;
     sessionStorage.setItem('globalTime', this.time);
     rippleUniforms.time.value = this.time;
+    if (this.containerPos) {
+      rippleUniforms.mousePosition.value = this.getCursorInWorld();
+    }
     this.cameraController.update(this.containerPos, dt);
   };
 

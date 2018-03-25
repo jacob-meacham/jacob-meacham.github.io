@@ -389,30 +389,64 @@ h1, h2, h3, h4, h5 {
   display: none;
 }
 
-.project-card {
-  border-radius: 3px;
-  color: #222;
-  margin-bottom: 8px;
-  border: 3px solid rgba(0, 0, 0, 0);
+.hover-card {
+  position: relative;
+  transition: opacity 500ms ease-in-out;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.3);
+  transition: all 500ms cubic-bezier(0.19, 1.0, 0.22, 1.0);
+  transform: translateY(0) scale(0.95, 0.95);
+  overflow: hidden;
+
+  opacity: 0;
 }
 
-.project-card.active {
-  border: 3px solid #03B5AA;
+.hover-card.active {
+  box-shadow: 0 11px 18px rgba(0,0,0,0.2);
+  transform: translateY(-10px) scale(1, 1);
+}
+
+.hover-card.loaded {
+  opacity: 1;
+}
+
+.project-card {
+
+  background-color: #03B5AA;
+  margin-bottom: 8px;
 }
 
 .project-card > .card-img > img {
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
   display: block;
   width: 100%;
   height: auto;
   overflow: hidden;
+  transition: all 500ms cubic-bezier(0.19, 1.0, 0.22, 1.0);
 }
 
-.project-card > .info {
-  padding-top: 5px;
-  text-align: left;
-  padding-left: 15px;
+.project-card.active > .card-img > img {
+  transform: scale(1.2,1.2);
+  opacity: 0.3;
+}
+
+.project-card > .title {
+  position: absolute;
+  padding: 0 5px;
+  text-transform: uppercase;
+  color: white;
+  font-size: 1.5em;
+  width: 100%;
+  top: 35%;
+  z-index: 1;
+  opacity: 0;
+  transition: all 500ms cubic-bezier(0.19, 1.0, 0.22, 1.0);
+}
+
+.project-card.active > .title {
+  opacity: 1;
+}
+
+.project-card a {
+  color: #222;
 }
 
 a.div-linker {
@@ -421,11 +455,7 @@ a.div-linker {
   height: 100%;
   top: 0;
   left: 0;
-  z-index: 1;
-}
-
-.project-card a {
-  color: #222;
+  z-index: 2;
 }
 
 .portfolio-main {
@@ -475,7 +505,7 @@ a.div-linker {
 .game-card > .game-image {
   position: relative;
   overflow: hidden;
-  background-color: rgb(85, 85, 85);
+  background-color: rgb(3, 181, 170);
 }
 
 .game-card > .game-image img {
@@ -496,41 +526,9 @@ a.div-linker {
   }
 }
 
-.game-card > .header {
-  padding: 5px;
-  padding-left: 12px;
-  background: #02040F;
+.game-card .title {
   font-size: 1.2em;
   font-weight: bold;
-  color: white;
-  text-align: left;
-}
-
-.game-card > .header > .info {
-  padding-right: 10px;
-  padding-top: 3px;
-  float: right;
-  font-size: 0.8em;
-  font-weight: normal;
-  font-style: italic;
-}
-
-@media (max-width: 760px) {
-  .game-card > .header > .info {
-    display: none !important;
-  }
-}
-
-.game-card > .header > .work {
-  margin-left: 10px;
-  font-weight: normal;
-  color: #BF211E;
-}
-
-@media (max-width: 540px) {
-  .game-card > .header > .work {
-    display: none !important;
-  }
 }
 
 .game-card .platform {
@@ -540,35 +538,29 @@ a.div-linker {
 
 .game-card .desc {
   font-weight: 200;
+  margin-top: 10px;
 }
 
 .horiz-list-item:before {
   color: white;
-  content: '\002022';
+  content: '|';
   margin: 0 7px;
-}
-
-.game-card > .header.header-c1 {
-  border-bottom: 5px solid white;
-}
-
-.game-card > .header.header-c2 {
-  border-bottom: 5px solid #BF211E;
+  font-style: normal;
 }
 
 .game-card .caption {
   position: absolute;
-  bottom: 100%;
+  bottom: 0;
   left: 0;
-  overflow: hidden;
-  height: 0;
-  background: white;
+  height: 100%;
   width: 100%;
-  text-align: left;
-  background-color: rgba(51, 51, 51, 0.8);
-  color: white;
+  overflow: hidden;
 
-  transition: all 500ms cubic-bezier(0.25, 0.02, 0.04, 1.0);
+  color: white;
+  text-align: left;
+
+  opacity: 0;
+  transition: all 700ms cubic-bezier(0.25, 0.02, 0.04, 1.0);
 }
 
 .game-card .caption > .inner {
@@ -576,30 +568,14 @@ a.div-linker {
 }
 
 .game-card.active .caption {
-  bottom: 0;
-  height: 100%;
+  opacity: 1.0;
 }
 
-.hover-card {
-  position: relative;
-  /*display: none;*/
-
-  transition: opacity 500ms ease-in-out;
-  opacity: 0;
+.game-card .image > img {
+  transition: all 700ms cubic-bezier(0.19, 1.0, 0.22, 1.0);
 }
 
-.hover-card.loaded {
-  /*display: block;*/
-  opacity: 1;
-}
-
-.project-card {
-  box-shadow: 0 1px 1px rgba(0,0,0,0.3);
-  transition: all 500ms cubic-bezier(0.19, 1.0, 0.22, 1.0);
-  transform: translateY(0) scale(0.95, 0.95);
-}
-
-.project-card.active {
-  box-shadow: 0 11px 18px rgba(0,0,0,0.2);
-  transform: translateY(-20px) scale(1, 1);
+.game-card.active .image > img {
+  transform: scale(1.2,1.2);
+  opacity: 0.3;
 }
