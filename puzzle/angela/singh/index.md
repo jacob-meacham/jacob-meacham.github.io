@@ -12,4 +12,4 @@ Ding dang flimmy flammer, for sure we're lucky!
 Make those 'casts big and strong, take names and kick ass,<br>
 And don't be a stranger - we'll see you in class!
 
-<a href="https://prize">Your Prize</a>
+<a href="https://www.groupgreeting.com/sign/fd54e9e0b46d825">Your Prize</a>
