@@ -12,9 +12,9 @@ no_container: true
 
 <div class="container">
 <br>
-Your startup we know, 'twas a prior breadcrumb<br>
-but pray tell me, at ClassPass what did it become?<br>
+With a Singaporean squad, and country launches galore<br>
+what was your first turn as squad manage-ore?<br>
 
 <input id="guess" name="guess" />
-<input type="button" value="What product?" onclick="window.open('/puzzle/javier/' + document.getElementById('guess').value)" />
+<input type="button" value="What squad?" onclick="window.open('/puzzle/javier/' + document.getElementById('guess').value)" />
 </div>

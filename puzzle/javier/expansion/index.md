@@ -12,12 +12,9 @@ no_container: true
 
 <div class="container">
 <br>
-One thing that we noticed, in Zoom these past years<br>
-your background kept changing from behind your two ears!<br><br>
-
-But why did it change, and what did you do<br>
-so that we could spot differencesto each week or two?<br>
+Your clever growth mindset is one of the keys,<br>
+to prove it you start your day with a cold one of these!<br><br>
 
 <input id="guess" name="guess" />
-<input type="button" value="What did you do?" onclick="window.open('/puzzle/javier/' + document.getElementById('guess').value)" />
+<input type="button" value="What is it?" onclick="window.open('/puzzle/javier/' + document.getElementById('guess').value)" />
 </div>
