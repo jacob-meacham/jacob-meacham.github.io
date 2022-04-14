@@ -7,7 +7,13 @@
     }
 </style>
 <body>
-    <div class="container">
-        {{content}}
-    <div class="container">
+    <main class="main">
+        {%if page.no_container == null || page.no_container == false %}
+        <div class="container">
+        {% endif %}
+            {{content}}
+        {%if page.no_container == null || page.no_container == false %}
+        </div>
+        {% endif %}
+    </main>
 </body>
