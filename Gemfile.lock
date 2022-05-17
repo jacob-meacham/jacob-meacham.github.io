@@ -2,7 +2,7 @@ GEM
   remote: http://rubygems.org/
   specs:
     colorator (0.1)
-    ffi (1.9.10)
+    ffi (1.15.5)
     jekyll (3.0.1)
       colorator (~> 0.1)
       jekyll-sass-converter (~> 1.0)
@@ -38,4 +38,4 @@ DEPENDENCIES
   jekyll-sitemap
 
 BUNDLED WITH
-   2.1.4
+   2.3.13
