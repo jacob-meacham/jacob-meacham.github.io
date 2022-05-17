@@ -13,7 +13,7 @@ no_container: true
 <div class="container">
 <br>
 You've been here a long time - an eon or more<br>
-At least in years measured by ClassPass time for sure<br><br>
+At least in years measured by ClassPass for sure<br><br>
 
 Now you know the drill, and what is in store<br>
 Embarrasing old photos and trivia galore.<br><br>
