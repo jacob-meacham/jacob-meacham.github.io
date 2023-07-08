@@ -1,7 +1,6 @@
 ---
 title: Karen's Puzzler
 layout: bare
-<<<<<<< HEAD
 no_container: true
 ---
 
@@ -45,4 +44,3 @@ tell us who's birthday you share for the very next clue.
 
 <input id="guess" name="guess" />
 <input type="button" value="Who Am I?" onclick="window.open('/puzzle/karen/' + document.getElementById('guess').value)" />
->>>>>>> 8cc5830 (Commit)

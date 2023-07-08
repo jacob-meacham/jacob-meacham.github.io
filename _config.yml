@@ -2,5 +2,6 @@ url: http://jemonjam.com
 title: Jemonjam
 description: 'Developer, builder of things'
 highlighter: pygments
+permalink: /:categories/:year/:month/:day/:title
 gems:
     - jekyll-sitemap

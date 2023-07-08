@@ -1,0 +1,16 @@
+{% assign main_out = false %}
+{% for image in site.static_files %}
+    {% if image.path contains page.image_path %}
+        {% unless image.path contains 'thumb' %}
+            {% unless main_out %}
+<div class="portfolio-main">
+    <img src="{{ site.baseurl }}{{ image.path }}" alt="image" />
+</div>
+            {% assign main_out = true %}
+            {% endunless %}
+<div class="portfolio-thumb">
+    <img src="{{ site.baseurl }}{{ image.path }}" alt="image" />
+</div>
+        {% endunless %}
+    {% endif %}
+{% endfor %}

@@ -1,0 +1,23 @@
+<div class="masthead">
+    <nav class="navbar">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/">jemonjam</a>
+        </div>
+        <div>
+            <ul class="navbar-nav">
+                {% if page.group == "blog" %}
+                <li class="active"><a href="/">BLOG</a></li>
+                {% else %}
+                <li><a href="/">BLOG</a></li>
+                {% endif %}
+                {% if page.group == "lab" %}
+                <li class="active"><a href="/lab">LAB</a></li>
+                {% else %}
+                <li><a href="/lab">LAB</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+    <div class="title">jemonjam</div>
+    <div class="subtitle">engineer + builder + leader</div>
+</div>

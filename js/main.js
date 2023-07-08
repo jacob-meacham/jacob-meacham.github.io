@@ -79,7 +79,7 @@ var rippleUniforms = {
 };
 
 function createRipple(scene) {
-  var planeGeometry = new THREE.PlaneGeometry(100, 25, 128, 32);
+  var planeGeometry = new THREE.PlaneGeometry(200, 40, 128, 32);
 
   var shaderMaterial = new THREE.ShaderMaterial({
     uniforms: rippleUniforms,

@@ -3,25 +3,10 @@ title: art/table
 layout: default
 group: lab
 no_container: true
+image_path: img/wave-table
 ---
 
-<div class="portfolio-images">
-    <div class="portfolio-main">
-        <img src="/img/wave-table/004.jpg">
-    </div>
-    <div class="portfolio-thumb">
-        <img src="/img/wave-table/004.jpg">
-    </div>
-    <div class="portfolio-thumb">
-        <img src="/img/wave-table/003.jpg">
-    </div>
-    <div class="portfolio-thumb">
-        <img src="/img/wave-table/002.jpg">
-    </div>
-    <div class="portfolio-thumb">
-        <img src="/img/wave-table/001.jpg">
-    </div>
-</div>
+{% include portfolio_images.html %}
 
 <div class="container" markdown="1">
 When I moved to San Francisco, I left my old table behind, since there wasn't enough space in the new apartment. Still, it was nice to have extra table space when required, so I decided to build out a hanging table that doubled as a large piece of wall art.

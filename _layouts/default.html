@@ -2,60 +2,19 @@
 <html lang="en">
 {% include header.html %}
 <body>
-    <div class="masthead">
-        <nav class="navbar">
-            <div class="navbar-header">
-              <a class="navbar-brand" href="/">jemonjam</a>
-            </div>
-            <div>
-                <ul class="navbar-nav">
-                    {% if page.group == "lab" %}
-                    <li class="active"><a href="/">LAB</a></li>
-                    {% else %}
-                    <li><a href="/">LAB</a></li>
-                    {% endif %}
-                    {% if page.group == "games" %}
-                    <li class="active"><a href="/games">GAMES</a></li>
-                    {% else %}
-                    <li><a href="/games">GAMES</a></li>
-                    {% endif %}
-                    <li><a target="_blank" href="https://jemonjam.tumblr.com/tagged/art">ILLUSTRATION</a></li>
-                </ul>
-            </div>
-        </nav>
-        <div class="title">{{page.title}}</div>
-        {%if page.subtitle %}
-        <div class="subtitle">{{page.subtitle}}</div>
-        {% endif %}
-    </div>
+    {% include masthead.html %}
     <main class="main">
-        {%if page.no_container == null || page.no_container == false %}
+        {%if page.no_container == null or page.no_container == false %}
         <div class="container">
         {% endif %}
+            {%if page.title %}
+            <div class="title">{{page.title}}</div>
+            {%endif %}
             {{content}}
-        {%if page.no_container == null || page.no_container == false %}
+
+        {%if page.no_container == null or page.no_container == false %}
         </div>
         {% endif %}
     </main>
-    <footer class="footer">
-        <div class="panel about">
-            <span class="avatar">
-                <img src="https://gravatar.com/avatar/506b4e210602e1900e74e526a5143f1f?s=128"/>
-            </span>
-            <span class="info">
-                <p>Hello! My name is Jacob. I'm an engineer and game designer that loves to work with all sorts of tech, and in all kinds of styles. Right now, I work at <a href="https://classpass.com">ClassPass</a>, where I help everyone be the best version of themselves. I also work on illustration, games, creative coding, and interactive visualizations.</p>
-
-                <p class="more-info">Before my current gig, I was VPE at <a href="https://hereplus.me/pages/about">Doppler Labs</a>, a hardware startup in San Francisco. Before that, I worked at <a href="https://palantir.com">Palantir</a>, helping solve some of the world's biggest problems - poverty, disaster relief, healthcare access and more.</p>
-            </span>
-        </div>
-        <div class="panel social">
-            <a href="https://github.com/jacob-meacham" class="fa fa-github fa-2x"><span class="sr-only">Github</span></a>
-            <a href="https://www.linkedin.com/in/jacob-meacham-b55745b" class="fa fa-linkedin fa-2x"><span class="sr-only">Linkedin</span></a>
-            <a href="https://jemonjam.tumblr.com/" class="fa fa-tumblr fa-2x"><span class="sr-only">Tumblr</span></a>
-            <a href="https://twitter.com/jemonjam" class="fa fa-twitter fa-2x"><span class="sr-only">Twitter</span></a>
-            <a href="mailto://jacob.e.meacham@gmail.com" class="fa fa-envelope-o fa-2x"><span class="sr-only">Email</span></a>
-        </div>
-        <div class="copyright">Jacob Meacham - 2018 - Creative Commons Attribution 3.0</div>
-    </footer>
     {% include footer.html %}
 </body>
