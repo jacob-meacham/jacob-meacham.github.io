@@ -53,6 +53,12 @@ img {
   display:block;
 }
 
+.post img {
+  position: relative;
+  margin: 0 auto;
+  max-width: 650px;
+}
+
 .img-splash {
   margin: 10px -30px;
   padding: 25px 0;
