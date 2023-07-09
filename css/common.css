@@ -1,11 +1,4 @@
-/* Font from allfont.net */
-@font-face {
-    font-family: 'Montserrat Light';
-    font-style: normal;
-    font-weight: 400;
-    src: local('Montserrat Light'), local('Montserrat-Light'),
-        url(../fonts/montserrat-light.ttf) format('truetype');
-}
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap');
 
 * {
   box-sizing: border-box;
@@ -25,10 +18,6 @@ body {
 }
 
 /* Links */
-a {
-  text-decoration: none;
-}
-
 a,
 a:focus,
 a:hover {
@@ -38,7 +27,7 @@ a:hover {
 body {
   color: #555;
   text-align: center;
-  font-family: 'Montserrat Light', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   margin: 0;
   margin-bottom: 150px; /* For the footer */
   font-size: 16px;
@@ -82,6 +71,7 @@ img {
 
 .title {
   font-size: 2em;
+  font-weight: bold;
 }
 
 .post .title {
@@ -94,6 +84,10 @@ img {
 
 h1, h2, h3, h4, h5 {
   text-align: left;
+}
+
+h1 {
+  font-size: 1.5em;
 }
 
 .main ul {
@@ -164,6 +158,10 @@ h1, h2, h3, h4, h5 {
   margin-bottom: 20px;
 }
 
+.posts a {
+  font-weight: bold;
+}
+
 .posts .date {
   font-size: 0.9em;
 }
@@ -180,6 +178,10 @@ h1, h2, h3, h4, h5 {
   float: right;
   margin: 0;
   margin-right: 25px;
+}
+
+.navbar a {
+  text-decoration: none;
 }
 
 .navbar-nav>li {
@@ -404,6 +406,10 @@ h1, h2, h3, h4, h5 {
   .footer .social {
     width: 100%;
   }
+}
+
+.footer .social a {
+  text-decoration: none;
 }
 
 .footer .social .fa {
