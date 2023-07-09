@@ -7,3 +7,7 @@
 * Yearly Goals / Year in Review
 * Projector Screen project
 * Is brokenness a feature or a bug?
+* Media is effectively infinite
+* Check my drafts: https://medium.com/me/stories/drafts
+    - Especially Doppler ML infra
+    - And ultrasonic interference
