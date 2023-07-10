@@ -3,12 +3,13 @@ title: Remote Draw Home Tap Setup
 layout: post
 group: blog
 image_path: img/home-taps
-no_container: true
 ---
+
+# IN DRAFT
 
 My family loves seltzer and cold brew coffee. We used to use a sodastream, but it seemed wasteful and expensive, and we were always running out. There are many keezer builds on the intenet (and you can also buy commercial versions) that put the taps directly on the keezer, but I couldn't find as many instructions for building a home remote draw system. Our new house has a basement with space right below the kitchen, allowing for this possibility.
 
-<img src="/img/home-taps/taps.png">
+<img src="/img/home-taps/home-taps-thumb.jpg">
 
 # Parts List
 

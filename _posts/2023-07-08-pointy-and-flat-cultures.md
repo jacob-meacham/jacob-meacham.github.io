@@ -4,16 +4,16 @@ layout: post
 group: blog
 ---
 
-* Palantir anecdote about sleeping in the office for 30 days
-    - There are lots of people who are not going to like this, but it paints a very vivid picture of what it was like to work at Palantir
-* Contrast that with the culture we see in “Office Space”
 
 # What is culture?
+
 I see culture as the set of incentive gradients that we’ve collectively built. To the extent possible, we want to make sure our incentive gradients point in good directions – for example, an IC feels motivated to work towards a shared vision – and not in bad directions – for example, that we unduly reward heroic efforts. Some of these incentive gradients can be set up explicitly, but many of them are influenced implicitly, by the systems we build and by the standards we hold for ourselves. Thus, this lays out the broad incentive gradients I want us to set up.
 
 A flat culture is one in which the culture asks very little of the people within it and the incentive gradients are shallow. Everyone can easily fit into this culture because there aren’t “weird” cultural practices to bounce off of
 
 A pointy culture is one in which the culture has extreme gradients. Some people will hate working in that environment, while others will love it and find it to be their natural way of working with fellow travelers who believe the same thing – often you hear “I’ve finally found my people”
+
+# Culture on your team
 
 No company is all points or entirely flat but we can broadly talk about cultures that are pointier (they have more extreme gradients along more axes in the culture) or flatter (they have less extreme gradients in more places)
 
@@ -27,5 +27,11 @@ At Mindbody, we’re trying to build pointiness around efficient and safe manipu
 
 Don’t have pointless spikes – all these do is needlessly constrain the set of people who will be successful on your team without actually providing you any value. A really common spike I see in Silicon Valley is in interviewing – the spike ends up being “we hire for interview prestige” and is manifested by only hiring from Stanford, or asking challenging hackerrank interview questions. There are companies for which this is actually a useful spike – if you actually need those skills or connections, it will constrain your pool of candidates but those that pass will have a clear resonance great story they can tell about themselves and their team. For most teams though, this point just needlessly bounces people who could be great employees off
 
-Be flat everywhere else. This is similar to Charity Major’s https://charity.wtf/2023/05/01/choose-boring-technology-culture/ but I believe you should spend your innovation tokens on points, not on being differently flat
+Be flat everywhere else. This is similar to Charity Major’s idea of [choosing boring culture](https://charity.wtf/2023/05/01/choose-boring-technology-culture/) but I believe you should spend your innovation tokens on the areas where you should be point, not on being differently flat.
 
+## TODO
+
+* Introduction
+    - Palantir anecdote about sleeping in the office for 30 days
+        + There are lots of people who are not going to like this, but it paints a very vivid picture of what it was like to work at Palantir
+    - Contrast that with the culture we see in “Office Space”

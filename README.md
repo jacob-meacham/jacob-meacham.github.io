@@ -11,3 +11,5 @@
 * Check my drafts: https://medium.com/me/stories/drafts
     - Especially Doppler ML infra
     - And ultrasonic interference
+* Don't Ignore the Dumping Ground
+* How to drink from the firehose and why that's useful
