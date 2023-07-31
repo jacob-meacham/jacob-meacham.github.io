@@ -2,6 +2,8 @@
 title: A Year of Coding
 layout: post
 group: blog
+description: >
+    My experience writing code at least 1x/day for a year
 ---
 
 <img src="/img/year-of-coding.png">

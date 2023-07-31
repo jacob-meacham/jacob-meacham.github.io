@@ -1,6 +1,6 @@
 url: http://jemonjam.com
-title: Jemonjam
-description: 'Developer, builder of things'
+title: jemonjam
+description: 'Builder of things, muser of musings'
 highlighter: pygments
 permalink: /:categories/:year/:month/:day/:title
 gems:

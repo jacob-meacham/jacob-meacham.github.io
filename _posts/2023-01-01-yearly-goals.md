@@ -2,6 +2,8 @@
 title: 2023 Personal Goals / 2022 In Review
 layout: post
 group: blog
+description: >
+    My yearly goals for 2023
 ---
 
 Every year, I take the time to reflect on the previous year and set goals for the coming year. The format has evolved over time, and for 2023, I have categorized my goals in an OKR-ish manner.

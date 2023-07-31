@@ -2,6 +2,8 @@
 title: Building a Serverless, Event-Driven Backend Big Sky Dev Con Presentation
 layout: post
 group: blog
+description: >
+    Conference talk on a simple Serverless backend
 ---
 
 <br />

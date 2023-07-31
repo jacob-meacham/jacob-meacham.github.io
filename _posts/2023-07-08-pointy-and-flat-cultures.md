@@ -2,6 +2,8 @@
 title: Pointy vs Flat Cultures
 layout: post
 group: blog
+description: >
+    On how to build the right incentive gradients in your culture
 ---
 
 # I.

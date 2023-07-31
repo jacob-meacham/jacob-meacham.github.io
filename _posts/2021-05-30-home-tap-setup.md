@@ -3,6 +3,8 @@ title: Remote Draw Home Tap Setup
 layout: post
 group: blog
 image_path: img/home-taps
+description: >
+    A remote-draw home seltzer, cold brew, and libations tap setup
 ---
 
 # IN DRAFT
