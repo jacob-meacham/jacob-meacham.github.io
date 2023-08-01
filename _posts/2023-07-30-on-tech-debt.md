@@ -35,15 +35,15 @@ The Product Manager or an important stakeholder has absolute control over the ro
 
 ## The Higher-Up Diktat
 
-Someone higher up in the org structure (usually a VP of Engineering or CTO) dictates that a certain percentage of effort must be spent on "tech debt reduction" or "stability" or "maintenance". This is often 20%, likely as a misapplication of Google's original 20% time. The engineering manager is often responsible for filling the designated allocation. A static number ignores different realities for different teams. It also puts the PM and team in a somewhat antagonistic relationship and requires them to negotiate on whether a work item should be classified as technical excellence or customer-facing work (and thus whose budget it should be withdrawn from)
+Someone higher up in the org structure (usually a VP of Engineering or CTO) dictates that a certain percentage of effort must be spent on "tech debt reduction" or "stability" or "maintenance". This is often 20%, likely as a misapplication of Google's original 20% time, and the engineering manager is usually responsible for filling the designated allocation. Each team is on its journey, and has a unique balance of debt, excellence work, and customer-facing work, and a one-size-fits-all number ignores these different realities for different teams. It also puts the PM and team in a somewhat antagonistic relationship and requires them to negotiate on whether a work item should be classified as technical excellence or customer-facing work (and thus whose budget it should be withdrawn from)
 
 ## The Benevolent Dictator
 
-The Product Manager has ultimate say over the roadmap, but the team has enough influence to advocate for important tech excellence items. Often, the PM doesn’t really understand the goals or the value of this work (whether due to their lack of effort or the team's lack of communication), but trusts the team is prioritizng correctly
+The Product Manager has ultimate say over the roadmap, but the team has enough influence to advocate for important tech excellence items. Often, the PM doesn’t really understand the goals or the value of this work (whether due to their lack of effort or the team's lack of communication), but trusts the team is prioritizng correctly.
 
 ## Always Build with Quality
 
-The engineers have full autonomy on delivering with quality and build that quality into each ticket so that work on maintaing technical debt happens in combination with customer-facing work. This can work well except that first, it doesn’t allow for a robust conversation of tradeoffs - sometimes the right thing for a team to do is take on known technical debt to be able to move more quickly. And second, it is still challenging to work on true technical excellence items.
+The engineers have full autonomy on delivering with quality and build that quality into each ticket so that work on maintaing technical debt happens in combination with customer-facing work. This can work well except that first, it doesn’t allow for a robust conversation of tradeoffs - sometimes the right thing for a team to do is take on known technical debt to be able to move more quickly. And second, it is still challenging to work on technical excellence which isn't easily tied to customer-facing work.
 
 ## The Mind Meld
 
