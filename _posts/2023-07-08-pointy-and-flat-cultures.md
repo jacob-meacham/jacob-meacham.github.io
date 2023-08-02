@@ -22,7 +22,7 @@ Even if you've never worked at Initech or Palantir, you can imagine what it woul
 
 # II.
 
-One way to visualize a culture is the set of incentive gradients that a team collectively builds, with incentivized behaviors at points lower in the gradient. Because people generally like take the easiest, most rewarded path, their behaviors will tend to 'flow' downhill towards those valleys of incentivized behavior, and exhibiting behaviors out of step with the culture (eg staying higher on the incentive gradient) will take work.
+One way to visualize a culture is the set of incentive gradients that a team collectively builds, with incentivized behaviors at points lower in the gradient. Because people generally take the easiest, most rewarded path, their behaviors will tend to 'flow' downhill towards those valleys of incentivized behavior, and exhibiting behaviors out of step with the culture (eg staying higher on the incentive gradient) will take work.
 
 <figure>
     <img src="/img/gradient_ascent.png" />
