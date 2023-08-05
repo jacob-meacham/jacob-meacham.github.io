@@ -59,4 +59,4 @@ You should also ensure you're not building or maintaining useless incentive grad
 
 Pick where your culture should be pointy carefully, and maintain it well. Be flat everywhere else. This is broadly similar to Charity Major’s great essay on [choosing boring culture](https://charity.wtf/2023/05/01/choose-boring-technology-culture/). My addition is that you should spend your cultural innovation tokens on the correct steep cultural gradients, rather than just having a differently flat culture.
 
-_Thanks to Adam Ingram-Gobles, Casey Childers, Neil Kimmett, and Paul Twohey for their feedback_
+_Thanks to Adam Ingram-Goble, Casey Childers, Neil Kimmett, and Paul Twohey for their feedback_
