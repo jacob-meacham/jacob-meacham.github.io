@@ -3,5 +3,6 @@ title: jemonjam
 description: 'Builder of things, muser of musings'
 highlighter: pygments
 permalink: /:categories/:year/:month/:day/:title
-gems:
+plugins:
     - jekyll-sitemap
+    - jekyll-feed
