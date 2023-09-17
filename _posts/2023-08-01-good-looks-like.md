@@ -6,7 +6,7 @@ description: >
     On how to align on results
 ---
 
-Early on in an engineer's career, it's generally pretty clear what good work looks like. Are you writing beautiful code, that achieves what it sets out to achieve, and doesn't have too many bugs? Are you better at doing that today than you were yesterday?
+Early on in an engineer's career, it's generally pretty clear what good work looks like. Are you writing beautiful code, that achieves what it sets out to achieve, and doesn't have too many bugs? [Are you better at doing that today than you were yesterday]({% post_url 2023-02-18-my-leadership-principles %})?
 
 But as you take on more leadership tasks - whether that is as a staff engineer or a people leader - [measuring your impact becomes murkier]({% post_url 2023-04-02-management-and-internal-reward-functions %}). This is doubly true because generally your manager wants to delegate tasks that are amorphous by their very nature.
 
