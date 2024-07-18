@@ -5,6 +5,7 @@ group: blog
 description: >
     On what a platform team is
 ---
+2023-10-08
 
 Platform Team - Be obsessed with your internal customer 
 
