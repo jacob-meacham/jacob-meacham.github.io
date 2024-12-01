@@ -53,7 +53,7 @@ they will tend towards apathy and demotivation. If their internal story strays t
 
 In general, these narratives are only barely manageable explicitly and most of them are built up implicitly from the confluence and synthesis of each person's individual story. That said, it is possible to be more deliberate about the explicit control you do have.
 
-One such opportunity is the natural ability to [build mythology](https://youtube.com/clip/Ugkx3nLgsLWCDYW0t9LgU0m-j19U4f_Fvt5_) (as opposed to stories). As a team grows in size and in age, those with firsthand experience of events leave. Once this happens, you have a chance to pass the stories that build your team's narrative through a filter - keeping the myths that you want to celebrate and ones that afford a strong, possitive narrative at both the team and individual level).
+One such opportunity is the natural ability to [build mythology](https://youtube.com/clip/Ugkx3nLgsLWCDYW0t9LgU0m-j19U4f_Fvt5_) (as opposed to stories). As a team grows in size and in age, those with firsthand experience of events leave. Once this happens, you have a chance to pass the stories that build your team's narrative through a filter - keeping the myths that you want to celebrate and ones that afford a strong, possitive narrative at both the team and individual level.
 
 I have had some luck running this as a brainstorming session. With a group of both long-tenured and new folks, collect a list of stories that only the long-tenured folks know, but that resonate with everyone. Some example stories we collected the last time I ran a session like this:
 

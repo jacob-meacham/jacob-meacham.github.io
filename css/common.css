@@ -661,3 +661,18 @@ figcaption {
   font-style: italic;
   margin: 0 15%;
 }
+
+
+.blog-nav {
+  font-size: 14px;
+  display: block;
+  width: auto;
+  overflow: hidden;
+}
+
+.blog-nav a {
+  display: block;
+  width: 50%;
+  float: left;
+  margin: 1em 0;
+}
