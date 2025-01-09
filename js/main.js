@@ -202,7 +202,7 @@ $(document).ready(function() {
   // Initialize 3d
   var scene = new Scene();
   scene.init();
-  scene.scene.add(createBackground(scene, '#f6f6f6', '#e1e1e1'));
+  scene.scene.add(createBackground(scene, '#f5f0e9', '#e1e1e1'));
   scene.scene.add(createRipple(scene));
 
   // Initialize other components
