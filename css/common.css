@@ -107,6 +107,24 @@ img {
   text-align: left;
 }
 
+.goal-green {
+  background-color: green;
+  color: white;
+  font-weight: bold;
+}
+
+.goal-yellow {
+  background-color: yellow;
+  color: black;
+  font-weight: bold;
+}
+
+.goal-red {
+  background-color: red;
+  color: white;
+  font-weight: bold;
+}
+
 h1, h2, h3, h4, h5 {
   text-align: left;
 }
@@ -121,6 +139,7 @@ h2 {
 
 .main ul {
   text-align: left;
+  margin-top: 5px;
 }
 
 /* All of the below (between comments) is adapted from Bootstrap, trying to keep site size down as low as possible */

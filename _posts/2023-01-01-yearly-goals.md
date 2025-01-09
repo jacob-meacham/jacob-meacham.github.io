@@ -8,7 +8,9 @@ description: >
 
 Every year, I take the time to reflect on the previous year and set goals for the coming year. The format has evolved over time, and for 2023, I have categorized my goals in an OKR-ish manner.
 
-## Future Me Will Thank Me
+*Graded [here]({% post_url 2024-01-01-yearly-goals %})*
+
+# I. Future Me Will Thank Me
 
 These are goals that compound; not all of them may have an immediate practical outcome, but they all contribute to skills I want to learn or improve upon.
 
@@ -24,7 +26,7 @@ These are goals that compound; not all of them may have an immediate practical o
     - Build at least 2 physical objects.
 * **Find flow twice a week:** As an executive, I often find myself in a constant state of context switching and rarely experience a state of flow. I want to intentionally create space for finding that flow. I have made attempts before, but this year, I am committed to achieving it.
 
-## Work/Life Integration
+# II. Work/Life Integration
 
 Towards the end of last year, I took on a larger role, leading the global engineering team at Mindbody. Given our current position and the progress we need to make, I find myself spending more time on work-related tasks. Balancing work and family commitments means I have less time for other hobbies. This year, my goal is to restore a healthier work-life balance, allowing me to dedicate more time to my other interests.
 
@@ -32,7 +34,7 @@ Towards the end of last year, I took on a larger role, leading the global engine
     - Spend a reasonable amount of time working.
     - Ensure the team is performing well (based on my performance review).
 
-## Consumption
+# III. Consumption
 
 My overarching goal is to consume less and create more - and to be conscious of the quality of the work that I do consume. Even before taking into account the effects of generative AI, media is now effectively infinite. This effectively infinite sea of art and the lack of shared context in what is consumed, consuming new media doesn't confer much advantage.
 
@@ -40,7 +42,7 @@ My overarching goal is to consume less and create more - and to be conscious of 
 * **Watch 12 great movies.**
 * **Read 5 classic books.**
 
-## Physical
+# IV. Physical
 
 * **Take 10 swim lessons:** I live in a city with many rivers and enjoy river surfing, but my swimming ability is holding me back.
 * **Complete a mountain bike race:** Mountain biking has been my most consistent sport over the past few years.
@@ -49,7 +51,7 @@ My overarching goal is to consume less and create more - and to be conscious of 
     - Do 20 Pilates sessions.
     - Practice yoga once a week.
 
-## Home
+# V. Home
 
 * **Complete 1 major house project.**
 * **Transform the shop into a space of pride:** Last year, the shop was barely functional. This year, I want to make it a place where I truly enjoy spending time.
