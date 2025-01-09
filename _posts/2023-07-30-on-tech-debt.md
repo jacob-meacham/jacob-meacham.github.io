@@ -39,11 +39,11 @@ Someone higher up in the org structure (usually a VP of Engineering or CTO) dict
 
 ## The Benevolent Dictator
 
-The Product Manager has ultimate say over the roadmap, but the team has enough influence to advocate for important tech excellence items. Often, the PM doesn’t really understand the goals or the value of this work (whether due to their lack of effort or the team's lack of communication), but trusts the team is prioritizng correctly.
+The Product Manager has ultimate say over the roadmap, but the team has enough influence to advocate for important tech excellence items. Often, the PM doesn’t really understand the goals or the value of this work (whether due to their lack of effort or the team's lack of communication), but trusts the team is prioritizing correctly.
 
 ## Always Build with Quality
 
-The engineers have full autonomy on delivering with quality and build that quality into each ticket so that work on maintaing technical debt happens in combination with customer-facing work. This can work well except that first, it doesn’t allow for a robust conversation of tradeoffs - sometimes the right thing for a team to do is take on known technical debt to be able to move more quickly. And second, it is still challenging to work on technical excellence which isn't easily tied to customer-facing work.
+The engineers have full autonomy on delivering with quality and build that quality into each ticket so that work on maintaining technical debt happens in combination with customer-facing work. This can work well except that first, it doesn’t allow for a robust conversation of tradeoffs - sometimes the right thing for a team to do is take on known technical debt to be able to move more quickly. And second, it is still challenging to work on technical excellence which isn't easily tied to customer-facing work.
 
 ## The Mind Meld
 

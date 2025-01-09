@@ -8,7 +8,7 @@ description: >
 
 Early on in an engineer's career, it's generally pretty clear what good work looks like. Are you writing beautiful code, that achieves what it sets out to achieve, and doesn't have too many bugs? [Are you better at doing that today than you were yesterday]({% post_url 2023-02-18-my-leadership-principles %})?
 
-But as you take on more leadership tasks - whether that is as a staff engineer or a people leader - [measuring your impact becomes murkier]({% post_url 2023-04-02-management-and-internal-reward-functions %}). This is doubly true because generally your manager wants to delegate tasks that are amorphous by their very nature.
+But as you take on more leadership tasks - whether that is as a staff engineer or a people leader — [measuring your impact becomes murkier]({% post_url 2023-04-02-management-and-internal-reward-functions %}). This is doubly true because generally your manager wants to delegate tasks that are amorphous by their very nature.
 
 One potential source of frustration and feelings of micromanagement is when you and your manager have a different understanding of the priority or definition of a task. If your manager is often getting very involved at the end of a project (or if you are that manager in question), consider whether this is an issue you're dealing with (of course there are lots of other reasons that a manager might have a tendency to micromanage)
 

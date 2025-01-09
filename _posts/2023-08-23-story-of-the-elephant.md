@@ -22,6 +22,6 @@ I've always loved the [Parable of the Elephant](https://en.wikipedia.org/wiki/Bl
 >
 > And the third, who touched the elephant's tusk: "Wherever we may keep it, it must be padded, or surely the elephant will spear whatever is nearby."
 
-Which of them is right? All of them are both right and not right at the same time - they can deeply understand some aspect of the elephant, while having an incomplete picture of the overall shape, and thus the correct solution to the problem. Instead, they need to pool their knowledge with the trust that each has an accurate understanding from their own vantage point, and work together to form a more complete picture of the elephant.
+Which of them is right? All of them are both right and not right at the same time — they can deeply understand some aspect of the elephant, while having an incomplete picture of the overall shape, and thus the correct solution to the problem. Instead, they need to pool their knowledge with the trust that each has an accurate understanding from their own vantage point, and work together to form a more complete picture of the elephant.
 
 So too with problems faced by teams. We are all groping at some aspect based on the unique perspective we come to a problem with. To give ourselves the best chance at crafting a great solution, we want to pool our viewpoints together to ensure we understand the problem as completely as possible.

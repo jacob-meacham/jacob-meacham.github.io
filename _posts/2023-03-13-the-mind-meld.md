@@ -5,10 +5,9 @@ group: blog
 description: >
     On goals with your product manager
 ---
-
 # I.
 
-Imagine waking up in a featureless room, handcuffed to the lone chair sitting at the center. The last thing you remember is infiltrating the mad scientist's secret island hideout with your partner, who is no where to be found. In front of you is a menacing person, cracking their knuckles impatiently. After taking a red-hot drag from their cigarrette, they sneer, with sour breath, "Are you prepared to answer my questions?" 
+Imagine waking up in a featureless room, handcuffed to the lone chair sitting at the center. The last thing you remember is infiltrating the mad scientist's secret island hideout with your partner, who is no where to be found. In front of you is a menacing person, cracking their knuckles impatiently. After taking a red-hot drag from their cigarette, they sneer, with sour breath, "Are you prepared to answer my questions?" 
 
 Confused but steadfast you croak out a brave "Gurk?". 
 
