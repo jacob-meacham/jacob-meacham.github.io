@@ -1,42 +1,28 @@
 function initializeHoverCards() {
-  $('.hover-card').each(function() {
-    this.addEventListener('mouseenter', function() {
-      $(this).addClass('active');
+  document.querySelectorAll('.hover-card').forEach(function(card) {
+    card.addEventListener('mouseenter', function() {
+      this.classList.add('active');
     });
-    this.addEventListener('mouseleave', function() {
-      $(this).removeClass('active');
+    card.addEventListener('mouseleave', function() {
+      this.classList.remove('active');
     });
   });
 }
 
-function initializePortfolioMain() {
-  function activateThumb(selector) {
-    $('.portfolio-thumb').removeClass('active');
-    $(selector).addClass('active');
-  }
-
-  $('.portfolio-thumb img').each(function() {
-    this.addEventListener('click', function() {
-      var img = $(this).attr('src')
-      activateThumb($(this).parent());
-      $('.portfolio-main img').attr('src', img);
-    });
-  });
-
-  // Activate the first image.
-  activateThumb($('.portfolio-thumb').first());
-}
+// Gallery functionality moved to js/gallery.js
 
 function lazyLoad() {
-  $('.lazy-load').each(function() {
-    var self = $(this)
-    var img = self.attr('data-src')
+  document.querySelectorAll('.lazy-load').forEach(function(element) {
+    var imgSrc = element.getAttribute('data-src');
     var newImage = new Image();
     newImage.onload = function() {
-      self.parents('.hover-card').addClass('loaded');
+      var hoverCard = element.closest('.hover-card');
+      if (hoverCard) {
+        hoverCard.classList.add('loaded');
+      }
     };
-    self.append(newImage)
-    newImage.src = img
+    element.appendChild(newImage);
+    newImage.src = imgSrc;
   });
 }
 
@@ -198,7 +184,7 @@ function Scene() {
   }
 }
 
-$(document).ready(function() {
+document.addEventListener('DOMContentLoaded', function() {
   // Initialize 3d
   var scene = new Scene();
   scene.init();
@@ -207,7 +193,6 @@ $(document).ready(function() {
 
   // Initialize other components
   initializeHoverCards();
-  initializePortfolioMain();
   lazyLoad();
 
   // shim layer with setTimeout fallback. From

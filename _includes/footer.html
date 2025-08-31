@@ -17,12 +17,21 @@
     </div>
     <div class="copyright">© Jacob Meacham {{ 'now' | date: "%Y" }}</div>
 </footer>
-<script type="text/javascript" src="//cdn.jsdelivr.net/cash/1.0.0/cash.min.js" charset="utf-8"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r73/three.min.js" type="text/javascript" charset="utf-8"></script>
 <script>
 // this function must be defined in the global scope
 window.fadeIn = function(obj) {
-    $(obj).fadeIn(1000);
+    if (obj && obj.style) {
+        obj.style.opacity = '0';
+        obj.style.display = 'block';
+        obj.style.transition = 'opacity 1s ease-in-out';
+        
+        // Force reflow
+        obj.offsetHeight;
+        
+        obj.style.opacity = '1';
+    }
 }
 </script>
 <script id="backgroundVS" type="x-shader/x-vertex">

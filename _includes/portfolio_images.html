@@ -1,16 +1,52 @@
 {% assign main_out = false %}
-{% for image in site.static_files %}
-    {% if image.path contains page.image_path %}
-        {% unless image.path contains 'thumb' %}
-            {% unless main_out %}
-<div class="portfolio-main">
-    <img src="{{ site.baseurl }}{{ image.path }}" alt="image" />
-</div>
-            {% assign main_out = true %}
-            {% endunless %}
-<div class="portfolio-thumb">
-    <img src="{{ site.baseurl }}{{ image.path }}" alt="image" />
-</div>
-        {% endunless %}
-    {% endif %}
-{% endfor %}
+
+<!-- Check if page has custom image data, otherwise fall back to auto-discovery -->
+{% if page.gallery_images %}
+  {% for image in page.gallery_images %}
+    {% unless main_out %}
+  <div class="portfolio-main">
+      <button class="gallery-nav gallery-nav-left" aria-label="Previous image">‹</button>
+      <img src="{{ site.baseurl }}{{ image.src }}" alt="{{ image.alt | default: image.description }}" />
+      <button class="gallery-nav gallery-nav-right" aria-label="Next image">›</button>
+      {% if image.description or image.date %}
+      <div class="image-caption">
+        {% if image.description %}<div class="caption-text">{{ image.description }}</div>{% endif %}
+        {% if image.date %}<div class="caption-date">{{ image.date }}</div>{% endif %}
+      </div>
+      {% endif %}
+  </div>
+    {% assign main_out = true %}
+    {% endunless %}
+  <div class="portfolio-thumb">
+  <img src="{{ site.baseurl }}{{ image.src }}" alt="{{ image.alt | default: image.description }}" />
+  {% if image.description or image.date %}
+  <div class="thumb-caption">
+    {% if image.description %}<div class="caption-text">{{ image.description }}</div>{% endif %}
+    {% if image.date %}<div class="caption-date">{{ image.date }}</div>{% endif %}
+  </div>
+      {% endif %}
+  </div>
+  {% endfor %}
+{% else %}
+  <!-- Fallback to auto-discovery for backward compatibility -->
+  {% for image in site.static_files %}
+      {% if image.path contains page.image_path %}
+          {% unless image.path contains 'thumb' %}
+              {% unless main_out %}
+  <div class="portfolio-main">
+      <button class="gallery-nav gallery-nav-left" aria-label="Previous image">‹</button>
+      <img src="{{ site.baseurl }}{{ image.path }}" alt="image" />
+      <button class="gallery-nav gallery-nav-right" aria-label="Next image">›</button>
+  </div>
+              {% assign main_out = true %}
+              {% endunless %}
+  <div class="portfolio-thumb">
+      <img src="{{ site.baseurl }}{{ image.path }}" alt="image" />
+  </div>
+          {% endunless %}
+      {% endif %}
+  {% endfor %}
+{% endif %}
+
+<!-- Load gallery functionality only when needed -->
+<script src="{{ site.baseurl }}/js/gallery.js" defer></script>
