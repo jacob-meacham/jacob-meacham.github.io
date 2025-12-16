@@ -30,6 +30,12 @@ export class FlowViz {
       maxV: 34, // px/s
     };
 
+    // Animation pacing for hires/leavers.
+    this._anim = {
+      enterMs: 5000,
+      exitMs: 5000,
+    };
+
     const ro = new ResizeObserver(() => this._handleResize());
     ro.observe(canvas);
     this._ro = ro;
@@ -134,7 +140,7 @@ export class FlowViz {
       if (!st) continue;
       st.mode = delta.fired?.some((e) => e.id === emp.id) ? "fired" : "exit";
       st.t0 = t;
-      st.t1 = t + 850;
+      st.t1 = t + this._anim.exitMs;
       st.x0 = st.x;
       st.y0 = st.y;
       st.x1 = this._layout.w + 50;
@@ -159,7 +165,7 @@ export class FlowViz {
         x1: x,
         y1: y,
         t0: t,
-        t1: t + 750,
+        t1: t + this._anim.enterMs,
         alpha0: 0,
         alpha1: 1,
         // Milling state (brownian-ish)
