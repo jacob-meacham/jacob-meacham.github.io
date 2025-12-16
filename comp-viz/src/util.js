@@ -79,4 +79,25 @@ export function mixColorRgb(c1, c2, t) {
   return `rgb(${r},${g},${b})`;
 }
 
+// Approximation for standard normal CDF Φ(z)
+// Abramowitz & Stegun-inspired erf approximation (good enough for UI percentiles).
+export function normCdf(z) {
+  const x = z / Math.SQRT2;
+  // erf(x) approximation
+  const sign = x < 0 ? -1 : 1;
+  const ax = Math.abs(x);
+  const t = 1 / (1 + 0.3275911 * ax);
+  const a1 = 0.254829592;
+  const a2 = -0.284496736;
+  const a3 = 1.421413741;
+  const a4 = -1.453152027;
+  const a5 = 1.061405429;
+  const erf =
+    sign *
+    (1 -
+      (((((a5 * t + a4) * t + a3) * t + a2) * t + a1) * t) *
+        Math.exp(-ax * ax));
+  return 0.5 * (1 + erf);
+}
+
 

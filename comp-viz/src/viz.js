@@ -1,4 +1,4 @@
-import { clamp, lerp, easeOutCubic, mixColorRgb } from "./util.js";
+import { clamp, lerp, easeOutCubic, mixColorRgb, normCdf } from "./util.js";
 
 const GOOD = [50, 213, 131];
 const BAD = [249, 112, 102];
@@ -18,6 +18,7 @@ export class FlowViz {
     this._now = performance.now();
     this._entities = new Map(); // emp.id -> vizState
     this._exiting = []; // vizState
+    this._hoverId = null;
 
     this._layout = null;
     this._recomputeLayout();
@@ -41,6 +42,36 @@ export class FlowViz {
     this._ro = ro;
 
     this._lastFrameMs = performance.now();
+  }
+
+  setHoverId(id) {
+    this._hoverId = id;
+  }
+
+  pickAt(x, y, sim) {
+    // Hit test against drawn dots. Returns { emp, x, y, rOuter, happiness01, teamPct } or null.
+    if (!this._layout) return null;
+    let best = null;
+    let bestR = -Infinity;
+
+    for (const emp of sim.employees) {
+      const st = this._entities.get(emp.id);
+      if (!st) continue;
+      const dx = st.x + (st.jx ?? 0);
+      const dy = st.y + (st.jy ?? 0);
+      const perf = emp.performance;
+      const rOuter = 1.7 + (perf / 100) * 4.0;
+      const rr = (rOuter + 2) * (rOuter + 2);
+      const dd = (x - dx) * (x - dx) + (y - dy) * (y - dy);
+      if (dd <= rr && rOuter > bestR) {
+        const h01 = sim.happiness01For(emp);
+        const z = st._teamZ ?? 0;
+        const pct = clamp(normCdf(z), 0, 1);
+        best = { emp, x: dx, y: dy, rOuter, happiness01: h01, teamPct: pct };
+        bestR = rOuter;
+      }
+    }
+    return best;
   }
 
   // Populate the visualization with the current employee roster (no enter animation).
@@ -286,6 +317,7 @@ export class FlowViz {
 
       // Relative performance vs team (store for draw loop).
       const z = (emp.performance - teamAvg) / teamSd;
+      st._teamZ = z;
       st._rel01 = clamp(0.5 + 0.18 * z, 0.2, 0.9);
     }
 
@@ -362,6 +394,26 @@ export class FlowViz {
       ctx.strokeStyle = "rgba(0,0,0,.28)";
       ctx.lineWidth = 1;
       ctx.stroke();
+    }
+
+    // Hover highlight (bounding box)
+    if (this._hoverId) {
+      const st = this._entities.get(this._hoverId);
+      if (st) {
+        const emp = sim.employees.find((e) => e.id === this._hoverId);
+        const perf = emp ? emp.performance : 50;
+        const rOuter = 1.7 + (perf / 100) * 4.0;
+        const dx = st.x + (st.jx ?? 0);
+        const dy = st.y + (st.jy ?? 0);
+        const padBox = 3;
+        ctx.save();
+        ctx.globalAlpha = 0.9;
+        ctx.strokeStyle = "rgba(255,255,255,.35)";
+        ctx.lineWidth = 1;
+        ctx.setLineDash([4, 3]);
+        ctx.strokeRect(dx - rOuter - padBox, dy - rOuter - padBox, (rOuter + padBox) * 2, (rOuter + padBox) * 2);
+        ctx.restore();
+      }
     }
 
     ctx.restore();

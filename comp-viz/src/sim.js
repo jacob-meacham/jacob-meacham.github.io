@@ -2,6 +2,23 @@ import { clamp, mulberry32, normalClamped, mean, stddev } from "./util.js";
 
 const FACTORS = ["cash", "equity", "mission", "culture", "coworkers"];
 
+const FIRST_NAMES = [
+  "Alex","Avery","Blake","Casey","Charlie","Dakota","Drew","Eden","Elliot","Emerson",
+  "Finley","Harper","Hayden","Jamie","Jordan","Kai","Logan","Morgan","Parker","Quinn",
+  "Reese","Riley","Robin","Rowan","Sam","Sawyer","Shawn","Sidney","Skyler","Taylor",
+];
+const LAST_NAMES = [
+  "Chen","Patel","Nguyen","Kim","Garcia","Rodriguez","Singh","Khan","Lee","Brown",
+  "Johnson","Williams","Martinez","Davis","Miller","Wilson","Moore","Anderson","Taylor","Thomas",
+  "Jackson","White","Harris","Martin","Thompson","Young","Allen","King","Wright","Scott",
+];
+
+function randomName(rng) {
+  const f = FIRST_NAMES[Math.floor(rng() * FIRST_NAMES.length)];
+  const l = LAST_NAMES[Math.floor(rng() * LAST_NAMES.length)];
+  return `${f} ${l}`;
+}
+
 function probFromGap01(gap01, { base = 0, max = 1, exponent = 1.6 } = {}) {
   const g = clamp(gap01, 0, 1);
   const t = Math.pow(g, exponent);
@@ -322,6 +339,7 @@ export class Simulation {
       slot,
       performance,
       z: (performance - this.perfMean) / Math.max(1e-6, this.perfStd),
+      name: randomName(this._rng),
       weights: randomWeights(this._rng),
       tenure: 0,
       // Visualization state:

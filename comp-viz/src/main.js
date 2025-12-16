@@ -270,6 +270,30 @@ outFollow?.addEventListener("click", () => {
   outputChart.draw();
 });
 
+// Hover tooltip on employee dots in the flow viz.
+const cFlow = $("c-flow");
+cFlow.addEventListener("mousemove", (ev) => {
+  const hit = flow.pickAt(ev.offsetX, ev.offsetY, sim);
+  if (!hit) {
+    flow.setHoverId(null);
+    return hideTooltip();
+  }
+  flow.setHoverId(hit.emp.id);
+  const happinessPct = Math.round(hit.happiness01 * 100);
+  const perfPct = Math.round(hit.teamPct * 100);
+  showTooltip(
+    ev.clientX,
+    ev.clientY,
+    `<b>${hit.emp.name ?? "Employee"}</b><br>` +
+      `Happiness: <b>${happinessPct}%</b><br>` +
+      `Performance: <b>${Math.round(hit.emp.performance)}</b> (p<b>${perfPct}</b>)`
+  );
+});
+cFlow.addEventListener("mouseleave", () => {
+  flow.setHoverId(null);
+  hideTooltip();
+});
+
 function initialize() {
   // Ensure sliders match requested starting state (even if HTML defaults drift).
   ui.sCash.value = String(START.cash);
