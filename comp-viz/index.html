@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Total Comp × Team Performance (Toy Model)</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="header">
+        <div>
+          <div class="title">Total Comp × Team Performance</div>
+          <div class="subtitle">
+            A toy simulation: comp mix affects who joins, who stays, and how the team performs over time.
+          </div>
+        </div>
+        <div class="pill-row">
+          <div class="pill" id="pill-headcount">Headcount: —</div>
+          <div class="pill" id="pill-avg-perf">Avg perf: —</div>
+          <div class="pill" id="pill-output">Total output: —</div>
+          <div class="pill" id="pill-churn">Churn/tick: —</div>
+        </div>
+      </header>
+
+      <main class="main">
+        <section class="panel controls">
+          <div class="panel-title">Comp knobs</div>
+
+          <div class="slider">
+            <div class="slider-top">
+              <div class="label">Cash</div>
+              <div class="value" id="v-cash">—</div>
+            </div>
+            <input id="s-cash" type="range" min="0" max="100" value="70" step="1" />
+          </div>
+
+          <div class="slider">
+            <div class="slider-top">
+              <div class="label">Equity / upside</div>
+              <div class="value" id="v-equity">—</div>
+            </div>
+            <input id="s-equity" type="range" min="0" max="100" value="30" step="1" />
+          </div>
+
+          <div class="slider">
+            <div class="slider-top">
+              <div class="label">Mission</div>
+              <div class="value" id="v-mission">—</div>
+            </div>
+            <input id="s-mission" type="range" min="0" max="100" value="85" step="1" />
+          </div>
+
+          <div class="slider">
+            <div class="slider-top">
+              <div class="label">Culture + work/life</div>
+              <div class="value" id="v-culture">—</div>
+            </div>
+            <input id="s-culture" type="range" min="0" max="100" value="85" step="1" />
+          </div>
+
+          <div class="row subtle">
+            <div class="label">Great coworkers</div>
+            <div class="value" id="v-coworkers">—</div>
+          </div>
+          <div class="hint">
+            Great coworkers is emergent here: it rises when the team is strong &amp; stable, and falls with churn.
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="panel-title">Simulation</div>
+          <div class="controls-row">
+            <button id="btn-play" class="btn primary">Play</button>
+            <button id="btn-step" class="btn">Step</button>
+            <button id="btn-reset" class="btn danger">Reset</button>
+          </div>
+
+          <div class="slider">
+            <div class="slider-top">
+              <div class="label">Underperformance tolerance</div>
+              <div class="value" id="v-tolerance">—</div>
+            </div>
+            <input id="s-tolerance" type="range" min="0.2" max="2.0" value="0.9" step="0.05" />
+            <div class="hint" style="margin:8px 2px 0;">
+              Lower = less tolerant (more aggressive firing). Higher = more tolerant (slower firing).
+            </div>
+          </div>
+
+          <div class="slider">
+            <div class="slider-top">
+              <div class="label">Speed (ticks/sec)</div>
+              <div class="value" id="v-speed">—</div>
+            </div>
+            <input id="s-speed" type="range" min="1" max="60" value="12" step="1" />
+          </div>
+
+          <div class="row subtle">
+            <div class="label">Tick</div>
+            <div class="value mono" id="v-tick">—</div>
+          </div>
+
+          <details class="details">
+            <summary>Model notes</summary>
+            <div class="details-body">
+              <ul>
+                <li>There are always 1000 roles; open slots are immediately refilled each tick.</li>
+                <li>Each employee has a performance draw and personal weights over comp factors (summing to 100%).</li>
+                <li>Someone joins/stays if their weighted “total comp” meets their required level (based on performance).</li>
+                <li>Even if everyone is happy, there’s baseline churn that increases with individual tenure (“life happens”).</li>
+                <li>Each tick: voluntary exits (chance grows with comp shortfall) → firings (chance grows with underperformance) → hiring (fills open roles with delay).</li>
+              </ul>
+            </div>
+          </details>
+        </section>
+
+        <section class="panel viz">
+          <div class="panel-title">Team flow (enter / stay / exit)</div>
+          <canvas id="c-flow" width="980" height="420"></canvas>
+          <div class="legend">
+            <div class="legend-item"><span class="swatch" style="background:#32d583"></span>happy</div>
+            <div class="legend-item"><span class="swatch" style="background:#f97066"></span>unhappy</div>
+            <div class="legend-item"><span class="swatch muted"></span>size = performance</div>
+          </div>
+        </section>
+
+        <section class="panel charts">
+          <div class="panel-title">Performance distribution &amp; output</div>
+          <div class="chart-grid">
+            <div class="chart-card">
+              <div class="chart-title">Team performance distribution (histogram)</div>
+              <canvas id="c-hist" width="480" height="240"></canvas>
+            </div>
+            <div class="chart-card">
+              <div class="chart-head">
+                <div class="chart-title">Total output over time</div>
+                <div class="chart-controls">
+                  <button class="mini-btn" id="out-x-in" title="Zoom in (X)">X+</button>
+                  <button class="mini-btn" id="out-x-out" title="Zoom out (X)">X−</button>
+                  <button class="mini-btn" id="out-x-reset" title="Reset X zoom/pan">Reset</button>
+                  <button class="mini-btn" id="out-follow" title="Follow latest ticks">Follow</button>
+                </div>
+              </div>
+              <canvas id="c-output" width="480" height="240"></canvas>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        Tip: try extreme comp mixes and watch churn, coworker quality, and the “Laffer-ish” output curve emerge.
+      </footer>
+    </div>
+
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
+
+
