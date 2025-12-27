@@ -75,6 +75,14 @@ img {
   background-color: #111;
 }
 
+.container .img-splash {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  max-width: 100vw;
+  box-sizing: border-box;
+}
+
 .post li {
   text-align: left;
 }
@@ -87,6 +95,23 @@ img {
 
 .img-splash .img-container img {
   max-width: 100%;
+}
+
+/* Allow Markdown-only usage (kramdown IAL), e.g.
+ *
+ * ![](/img/foo.jpg)
+ * {: .img-splash }
+ *
+ * which renders as: <p class="img-splash"><img ...></p>
+ */
+.img-splash > img,
+.img-splash > a > img {
+  display: block;
+  position: relative;
+  margin: 0 auto;
+  max-width: 650px;
+  width: 100%;
+  height: auto;
 }
 
 .main {

@@ -9,12 +9,8 @@
 </style>
 <body>
     <main class="main">
-        {%if page.no_container == null or page.no_container == false %}
         <div class="container">
-        {% endif %}
             {{content}}
-        {%if page.no_container == null or page.no_container == false %}
         </div>
-        {% endif %}
     </main>
 </body>

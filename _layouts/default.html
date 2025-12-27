@@ -4,17 +4,12 @@
 <body>
     {% include masthead.html %}
     <main class="main">
-        {%if page.no_container == null or page.no_container == false %}
         <div class="container">
-        {% endif %}
             {%if page.title %}
             <div class="title">{{page.title}}</div>
             {%endif %}
             {{content}}
-
-        {%if page.no_container == null or page.no_container == false %}
         </div>
-        {% endif %}
     </main>
     {% include footer.html %}
 </body>
