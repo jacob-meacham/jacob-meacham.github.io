@@ -83,4 +83,7 @@ I made a number of Christmas presents!
 
 # 2025 Personal Goals
 
-{To be finished}
+1. Do more outdoors - take more time spent outside
+2. Stay on top of streaks - I've been using the Streaks app for a year and like it but haven't had perfect success keeping all of them
+3. Add more rituals - Find more rituals that sustain and fulfill me
+4. Set and achieve a monthly goal - Tackle a smaller goal each month
