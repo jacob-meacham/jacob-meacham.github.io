@@ -28,9 +28,10 @@ Since the brains of moltbot are an LLM, most of the tools it needs are exposed v
 ```bash
 # Moltbot can do this:
 sudo -u mcp_user /usr/local/bin/mcp ...
-# → Success
+```
 
-The sudoers rule is explicit:
+The sudoers rules are explicit:
+
 ```
 moltbot ALL=(mcp_user) NOPASSWD: /usr/local/bin/mcp list
 moltbot ALL=(mcp_user) NOPASSWD: /usr/local/bin/mcp tool *
