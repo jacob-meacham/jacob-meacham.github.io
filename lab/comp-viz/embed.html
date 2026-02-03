@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Total Comp × Team Performance</title>
+    <link rel="stylesheet" href="./embed.css" />
+  </head>
+  <body>
+    <div class="app">
+      <div class="toolbar">
+        <div class="sliders">
+          <div class="slider">
+            <span class="label">Cash</span>
+            <input id="s-cash" type="range" min="0" max="100" value="70" step="1" />
+            <span class="value" id="v-cash">70</span>
+          </div>
+          <div class="slider">
+            <span class="label">Equity</span>
+            <input id="s-equity" type="range" min="0" max="100" value="30" step="1" />
+            <span class="value" id="v-equity">30</span>
+          </div>
+          <div class="slider">
+            <span class="label">Mission</span>
+            <input id="s-mission" type="range" min="0" max="100" value="85" step="1" />
+            <span class="value" id="v-mission">85</span>
+          </div>
+          <div class="slider">
+            <span class="label">Culture</span>
+            <input id="s-culture" type="range" min="0" max="100" value="85" step="1" />
+            <span class="value" id="v-culture">85</span>
+          </div>
+        </div>
+        <div class="controls">
+          <button id="btn-play" class="btn primary">Play</button>
+          <button id="btn-reset" class="btn danger">Reset</button>
+          <div class="speed">
+            <span class="label">Speed</span>
+            <input id="s-speed" type="range" min="1" max="60" value="12" step="1" />
+          </div>
+        </div>
+      </div>
+
+      <div class="metrics">
+        <span class="pill" id="pill-headcount">Headcount: —</span>
+        <span class="pill" id="pill-avg-perf">Avg perf: —</span>
+        <span class="pill" id="pill-output">Output: —</span>
+        <span class="pill" id="pill-churn">Churn/tick: —</span>
+      </div>
+
+      <div class="canvases">
+        <div class="canvas-wrap flow-wrap">
+          <canvas id="c-flow" width="720" height="280"></canvas>
+          <div class="legend">
+            <span class="legend-item"><span class="swatch good"></span>happy</span>
+            <span class="legend-item"><span class="swatch bad"></span>unhappy</span>
+            <span class="legend-item"><span class="swatch muted"></span>size = perf</span>
+          </div>
+        </div>
+        <div class="canvas-wrap output-wrap">
+          <canvas id="c-output" width="720" height="150"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="./src/embed-main.js"></script>
+  </body>
+</html>
