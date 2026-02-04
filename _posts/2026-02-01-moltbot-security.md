@@ -25,19 +25,88 @@ For as many systems as possible, I gave moltbot its own service. For example, th
 
 Since the brains of moltbot are an LLM, most of the tools it needs are exposed via MCP - these MCP servers are what actually needs direct credential access. Therefore, the MCP servers run under a different user. Limited tools are exposed via a sudoers file, allowing moltbot access to these tools without access to the underlying server or secrets. Running the MCP servers locally makes setup simpler (moltbot can mostly self set them up and then create instructions to transfer them to the user that runs MCP).
 
+At `/usr/local/sbin/mcporter-allow` we have:
 ```bash
-# Moltbot can do this:
-sudo -u mcp_user /usr/local/bin/mcp ...
+#!/usr/bin/env bash
+set -euo pipefail
+
+export PATH="/path/to/node/bin:$PATH"
+
+NODE="/path/to/node/bin/node"
+MCPORTER="/path/to/mcporter"
+ALLOWED="/etc/mcporter/allowed-actions.txt"
+
+die() {
+  echo "Denied: $*" >&2
+  exit 1
+}
+
+verb="${1-}"
+shift || true
+
+case "$verb" in
+  list)
+    exec "$NODE" "$MCPORTER" list
+    ;;
+
+  daemon)
+    [[ "${1-}" == "status" ]] || die "only 'daemon status' is allowed"
+    exec "$NODE" "$MCPORTER" daemon status
+    ;;
+
+  call)
+    action="${1-}"
+    shift || true
+
+    [[ -n "$action" ]] || die "missing action name"
+    [[ -f "$ALLOWED" ]] || die "allowlist missing"
+
+    if ! grep -vE '^\s*(#|$)' "$ALLOWED" | grep -Fxq "$action"; then
+      die "action '$action' not allowlisted"
+    fi
+
+    exec "$NODE" "$MCPORTER" call "$action" "$@"
+    ;;
+
+  *)
+    die "command '$verb' is not allowed"
+    ;;
+esac
 ```
 
-The sudoers rules are explicit:
+Then in `/etc/mcporter/allowed-actions.txt` we can add our allowlist of MCP tools to expose to moltbot:
+```
+# MCP A
+mcp_a.read_list
+#mcp_a.write_list - don't allow
+
+# MCP B
+mcp_b.foo
+mcp_b.bar
+```
+
+Finally, we create `/usr/local/bin/mcp`:
+```bash
+#!/bin/bash
+
+exec sudo -n -u mcp_user /usr/local/sbin/mcporter-allow "$@"
+```
+
+Then we make the sudoers rules explicit:
 
 ```
-moltbot ALL=(mcp_user) NOPASSWD: /usr/local/bin/mcp list
-moltbot ALL=(mcp_user) NOPASSWD: /usr/local/bin/mcp tool *
+moltbot ALL=(jacob) NOPASSWD: /usr/local/sbin/mcporter-allow
 ```
 
-Even if moltbot is fully compromised, the attack surface allows for abusing the MCP API, vs direct exfiltration of the tokens. The MCP servers themselves are then limited in what is allowed (for example, email send is not allowed and moltbot has no ability to change this)
+```bash
+# Now, moltbot can do this:
+mcp list # works
+mcp auth # fails without getting to mcporter
+mcp tool plugin.tool_in_the_allowlist # succeeds
+mcp tool plugin.tool_not_allowlisted # fails
+```
+
+Even if moltbot is fully compromised, the attack surface allows for abusing the MCP API, vs direct exfiltration of the tokens. The MCP servers themselves are then limited in what is allowed (for example, email send is not allowed and moltbot has no ability to change this). The allowlist allows even more fine-grained control over the tools that are exposed.
 
 ## III. Behavioral Guardrails
 
