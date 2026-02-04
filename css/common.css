@@ -38,6 +38,43 @@ p {
   text-align: left;
 }
 
+pre,
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+}
+
+code {
+  background-color: #efe6db;
+  border-radius: 4px;
+  padding: 0 0.2em;
+  font-size: 0.9em;
+}
+
+pre {
+  text-align: left;
+  background-color: #f2ebe2;
+  border: 1px solid #e1d6c8;
+  border-radius: 6px;
+  padding: 12px 16px;
+  margin: 16px 0;
+  overflow-x: auto;
+  line-height: 1.45;
+  white-space: pre;
+  tab-size: 2;
+}
+
+pre code {
+  background: transparent;
+  padding: 0;
+  border: 0;
+  font-size: 1em;
+}
+
+.highlight {
+  text-align: left;
+}
+
 img {
   display:block;
 }
