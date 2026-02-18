@@ -1,0 +1,189 @@
+---
+layout: classpass
+title: "ClassPass Review Pages"
+description: "Review-powered landing pages generated from real ClassPass member data"
+---
+<style>
+  .index-hero {
+    text-align: center;
+    padding: 2.5rem 1rem 1rem;
+  }
+
+  .index-hero h1 {
+    font-family: var(--cp-font-display);
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: var(--cp-black);
+    letter-spacing: -0.01em;
+    margin-bottom: 0.5rem;
+    line-height: 1.1;
+  }
+
+  .index-hero p {
+    color: var(--cp-text-secondary);
+    font-size: 1rem;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .index-stats {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    margin: 1.75rem 0 2.5rem;
+    flex-wrap: wrap;
+  }
+
+  .stat { text-align: center; }
+
+  .stat .num {
+    display: block;
+    font-family: var(--cp-font-display);
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--cp-black);
+    letter-spacing: -0.02em;
+  }
+
+  .stat .label {
+    font-size: 0.7rem;
+    color: var(--cp-text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 600;
+  }
+
+  .city-card {
+    background: var(--cp-bg);
+    border-radius: 8px;
+    padding: 1.5rem 2rem;
+    box-shadow: var(--cp-card-shadow);
+    margin-bottom: 1rem;
+  }
+
+  .city-card h2 {
+    font-family: var(--cp-font-display);
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--cp-text);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .city-card h2 svg {
+    width: 16px;
+    height: 16px;
+    fill: var(--cp-text-secondary);
+    flex-shrink: 0;
+  }
+
+  .tag-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .tag-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.45rem 1rem;
+    background: var(--cp-bg-subtle);
+    border-radius: 999px;
+    color: var(--cp-text);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: background 0.15s, color 0.15s;
+    border: 1px solid var(--cp-border);
+  }
+
+  .tag-link:hover {
+    background: var(--cp-blue);
+    color: white;
+    border-color: var(--cp-blue);
+  }
+
+  .tag-link .arrow {
+    opacity: 0;
+    transition: opacity 0.15s;
+    font-size: 0.75rem;
+  }
+
+  .tag-link:hover .arrow { opacity: 1; }
+
+  .method-note {
+    margin-top: 2rem;
+    background: var(--cp-bg-subtle);
+    border-radius: 8px;
+    padding: 1.5rem 2rem;
+    font-size: 0.85rem;
+    color: var(--cp-text-secondary);
+    line-height: 1.7;
+    border: 1px solid var(--cp-border);
+  }
+
+  .method-note h3 {
+    font-family: var(--cp-font-display);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--cp-text);
+    margin-bottom: 0.5rem;
+  }
+
+  .method-note code {
+    font-size: 0.78rem;
+    background: var(--cp-bg);
+    padding: 0.1em 0.35em;
+    border-radius: 3px;
+    border: 1px solid var(--cp-border);
+  }
+</style>
+
+<div class="index-hero">
+  <h1>ClassPass Review Pages</h1>
+  <p>Review-powered landing pages generated from real ClassPass member ratings and reviews</p>
+</div>
+
+<div class="index-stats">
+  <div class="stat">
+    <span class="num">25</span>
+    <span class="label">Pages</span>
+  </div>
+  <div class="stat">
+    <span class="num">5</span>
+    <span class="label">Cities</span>
+  </div>
+  <div class="stat">
+    <span class="num">~165</span>
+    <span class="label">Studios Featured</span>
+  </div>
+</div>
+
+{% assign city_order = "New York,Los Angeles/Orange County,San Francisco,Chicago,Miami/South Florida" | split: "," %}
+{% assign review_pages = site.pages | where: "type", "best_feature_city" %}
+
+{% for city_name in city_order %}
+<div class="city-card">
+  <h2>
+    <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+    {{ city_name }}
+  </h2>
+  <div class="tag-grid">
+    {% assign city_pages = review_pages | where: "city", city_name | sort: "tag" %}
+    {% for pg in city_pages %}
+    <a href="{{ pg.url | relative_url }}" class="tag-link">
+      {{ pg.tag }} <span class="arrow">&rarr;</span>
+    </a>
+    {% endfor %}
+  </div>
+</div>
+{% endfor %}
+
+<div class="method-note">
+  <h3>How these pages were generated</h3>
+  <p>Each page was built by an AI agent that queried live Snowflake data &mdash; venues ranked by <code>GOODNESS</code> score from <code>TOPS_IN_CITY</code>, with real member reviews from <code>SCORE_COMMENTS</code>. Every page passes a 10-point compliance checklist covering brand voice, legal guardrails, and SEO fundamentals. The full pipeline is orchestrated by Claude Code using MCP tools for Snowflake access.</p>
+</div>

@@ -6,3 +6,9 @@ permalink: /:categories/:year/:month/:day/:title
 plugins:
     - jekyll-sitemap
     - jekyll-feed
+
+defaults:
+    - scope:
+          path: "lab/classpass-marketing-test"
+      values:
+          layout: "classpass-page"
