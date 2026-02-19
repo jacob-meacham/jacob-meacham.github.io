@@ -189,7 +189,7 @@ description: "Review-powered landing pages generated from real ClassPass member 
 </div>
 {% endfor %}
 
-{% assign uncategorized_pages = review_pages | where_exp: "pg", "pg.city == nil or pg.city == ''" | sort: "title" %}
+{% assign uncategorized_pages = review_pages | where_exp: "pg", "pg.city == nil" | sort: "title" %}
 {% if uncategorized_pages.size > 0 %}
 <div class="city-card">
   <h2>
