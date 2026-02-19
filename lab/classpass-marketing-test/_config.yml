@@ -1,0 +1,21 @@
+title: "ClassPass Review Pages"
+description: "Review-powered landing pages generated from real ClassPass member data"
+baseurl: ""
+url: ""
+
+markdown: kramdown
+kramdown:
+  input: GFM
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "page"
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor
+  - node_modules

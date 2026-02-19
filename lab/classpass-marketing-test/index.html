@@ -99,6 +99,10 @@ description: "Review-powered landing pages generated from real ClassPass member 
     font-weight: 500;
     transition: background 0.15s, color 0.15s;
     border: 1px solid var(--cp-border);
+    max-width: calc(50% - 0.25rem);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .tag-link:hover {
@@ -148,23 +152,25 @@ description: "Review-powered landing pages generated from real ClassPass member 
   <p>Review-powered landing pages generated from real ClassPass member ratings and reviews</p>
 </div>
 
+{% assign review_pages = site.pages | where_exp: "pg", "pg.path contains 'lab/classpass-marketing-test/' and pg.path contains '.md'" %}
+{% assign city_order_rest = review_pages | map: "city" | compact | uniq | sort_natural | where_exp: "c", "c != 'New York'" %}
+{% assign city_order = "New York" | split: "," | concat: city_order_rest %}
+{% assign tag_count = review_pages | map: "tag" | compact | uniq | size %}
+
 <div class="index-stats">
   <div class="stat">
-    <span class="num">25</span>
+    <span class="num">{{ review_pages | size }}</span>
     <span class="label">Pages</span>
   </div>
   <div class="stat">
-    <span class="num">5</span>
+    <span class="num">{{ city_order | size }}</span>
     <span class="label">Cities</span>
   </div>
   <div class="stat">
-    <span class="num">~165</span>
-    <span class="label">Studios Featured</span>
+    <span class="num">{{ tag_count }}</span>
+    <span class="label">Tags</span>
   </div>
 </div>
-
-{% assign city_order = "New York,Los Angeles/Orange County,San Francisco,Chicago,Miami/South Florida" | split: "," %}
-{% assign review_pages = site.pages | where: "type", "best_feature_city" %}
 
 {% for city_name in city_order %}
 <div class="city-card">
@@ -176,12 +182,29 @@ description: "Review-powered landing pages generated from real ClassPass member 
     {% assign city_pages = review_pages | where: "city", city_name | sort: "tag" %}
     {% for pg in city_pages %}
     <a href="{{ pg.url | relative_url }}" class="tag-link">
-      {{ pg.tag }} <span class="arrow">&rarr;</span>
+      {% assign pill_text = pg.tag | default: pg.title | remove: " | ClassPass" %}{{ pill_text }} <span class="arrow">&rarr;</span>
     </a>
     {% endfor %}
   </div>
 </div>
 {% endfor %}
+
+{% assign uncategorized_pages = review_pages | where_exp: "pg", "pg.city == nil or pg.city == ''" | sort: "title" %}
+{% if uncategorized_pages.size > 0 %}
+<div class="city-card">
+  <h2>
+    <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+    Other
+  </h2>
+  <div class="tag-grid">
+    {% for pg in uncategorized_pages %}
+    <a href="{{ pg.url | relative_url }}" class="tag-link">
+      {{ pg.title | remove: " | ClassPass" }} <span class="arrow">&rarr;</span>
+    </a>
+    {% endfor %}
+  </div>
+</div>
+{% endif %}
 
 <div class="method-note">
   <h3>How these pages were generated</h3>

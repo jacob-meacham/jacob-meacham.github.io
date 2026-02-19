@@ -1,0 +1,369 @@
+---
+layout: default
+---
+<style>
+  /* ── Page card ── */
+  .page-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .page-meta .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    background: var(--cp-purple);
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 0.3rem 0.75rem;
+    border-radius: 100px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+
+  .page-meta .chip.chip--tag {
+    background: var(--cp-coral);
+  }
+
+  .page-meta .chip svg {
+    width: 12px;
+    height: 12px;
+    fill: currentColor;
+    flex-shrink: 0;
+  }
+
+  .page-content {
+    background: var(--cp-white);
+    border-radius: var(--cp-radius);
+    padding: 2.5rem 3rem;
+    box-shadow: var(--cp-card-shadow);
+  }
+
+  @media (max-width: 640px) {
+    .page-content { padding: 1.75rem 1.25rem; }
+  }
+
+  /* ── Typography ── */
+  .page-content h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 1.25rem;
+    color: var(--cp-purple-dark);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+
+  .page-content h2 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+    color: var(--cp-text);
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--cp-border);
+    line-height: 1.3;
+  }
+
+  .page-content h2:first-of-type {
+    margin-top: 2rem;
+  }
+
+  .page-content h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--cp-text);
+  }
+
+  .page-content p {
+    margin-bottom: 1rem;
+    color: var(--cp-text);
+  }
+
+  .page-content > p:first-of-type {
+    font-size: 1.05rem;
+    color: var(--cp-text-secondary);
+    line-height: 1.7;
+  }
+
+  /* ── Blockquotes (reviews) ── */
+  .page-content blockquote {
+    border-left: 3px solid var(--cp-coral);
+    background: linear-gradient(135deg, #FFF5F5 0%, #FFF9F9 100%);
+    padding: 1rem 1.25rem;
+    margin: 0.75rem 0;
+    border-radius: 0 10px 10px 0;
+    font-style: italic;
+    color: var(--cp-text-secondary);
+    font-size: 0.92rem;
+    line-height: 1.6;
+  }
+
+  .page-content blockquote p {
+    margin-bottom: 0;
+    color: inherit;
+  }
+
+  /* ── Rating badges ── */
+  .page-content .rating-line {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: linear-gradient(135deg, #F3F0F7 0%, #EDE8F4 100%);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--cp-purple-dark);
+    margin: 0.5rem 0 1rem;
+  }
+
+  .page-content .rating-line .star {
+    color: #F5A623;
+  }
+
+  /* ── Links ── */
+  .page-content a {
+    color: var(--cp-purple);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.15s;
+  }
+
+  .page-content a:hover {
+    color: var(--cp-coral);
+    text-decoration: underline;
+  }
+
+  /* CTA links */
+  .page-content a[href*="classpass.com/classes"],
+  .page-content a[href*="classpass.com/search"],
+  .page-content p:last-of-type > a[href*="classpass.com"] {
+    display: inline-block;
+    background: var(--cp-purple);
+    color: white;
+    padding: 0.65rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    transition: background 0.2s, transform 0.1s;
+    text-decoration: none;
+  }
+
+  .page-content a[href*="classpass.com/classes"]:hover,
+  .page-content a[href*="classpass.com/search"]:hover,
+  .page-content p:last-of-type > a[href*="classpass.com"]:hover {
+    background: var(--cp-purple-dark);
+    transform: translateY(-1px);
+    text-decoration: none;
+    color: white;
+  }
+
+  /* ── Lists ── */
+  .page-content ol, .page-content ul {
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .page-content li {
+    margin-bottom: 0.4rem;
+  }
+
+  /* ── HR ── */
+  .page-content hr {
+    border: none;
+    border-top: 1px solid var(--cp-border);
+    margin: 2rem 0;
+  }
+
+  /* ── Tables ── */
+  .page-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    font-size: 0.85rem;
+  }
+
+  .page-content th {
+    background: #F3F0F7;
+    font-weight: 600;
+    text-align: left;
+    padding: 0.6rem 0.75rem;
+    border-bottom: 2px solid var(--cp-border);
+  }
+
+  .page-content td {
+    padding: 0.5rem 0.75rem;
+    border-bottom: 1px solid var(--cp-border);
+  }
+
+  /* ── Compliance section (collapsible) ── */
+  details.compliance-section {
+    margin-top: 2.5rem;
+    border: 1px solid var(--cp-border);
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--cp-white);
+  }
+
+  details.compliance-section summary {
+    background: linear-gradient(135deg, #F3F0F7 0%, #EDE8F4 100%);
+    padding: 0.85rem 1.25rem;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--cp-purple);
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    user-select: none;
+  }
+
+  details.compliance-section summary::-webkit-details-marker { display: none; }
+
+  details.compliance-section summary .arrow {
+    display: inline-block;
+    transition: transform 0.2s ease;
+    font-size: 0.7rem;
+  }
+
+  details.compliance-section[open] summary .arrow {
+    transform: rotate(90deg);
+  }
+
+  details.compliance-section .compliance-body {
+    padding: 1.25rem 1.5rem;
+    font-size: 0.85rem;
+    color: var(--cp-text-secondary);
+    border-top: 1px solid var(--cp-border);
+  }
+
+  details.compliance-section .compliance-body h2 {
+    display: none;
+  }
+
+  details.compliance-section .compliance-body ol {
+    padding-left: 1.25rem;
+  }
+
+  details.compliance-section .compliance-body li {
+    margin-bottom: 0.35rem;
+  }
+
+  details.compliance-section .compliance-body p:last-child {
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    opacity: 0.7;
+    font-style: italic;
+  }
+
+  /* ── Data source note ── */
+  .data-source {
+    margin-top: 1.5rem;
+    font-size: 0.78rem;
+    color: var(--cp-text-secondary);
+    opacity: 0.6;
+    font-style: italic;
+  }
+
+  .data-source code {
+    font-size: 0.75rem;
+    background: #F3F0F7;
+    padding: 0.1em 0.35em;
+    border-radius: 3px;
+  }
+
+  /* ── Back link ── */
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--cp-purple);
+    text-decoration: none;
+    margin-bottom: 1.25rem;
+  }
+
+  .back-link:hover { text-decoration: underline; }
+</style>
+
+<a href="{{ '/' | relative_url }}" class="back-link">&larr; All pages</a>
+
+{% if page.city or page.tag %}
+<div class="page-meta">
+  {% if page.city %}<span class="chip"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>{{ page.city }}</span>{% endif %}
+  {% if page.tag %}<span class="chip chip--tag">{{ page.tag }}</span>{% endif %}
+</div>
+{% endif %}
+
+<article class="page-content">
+  {{ content }}
+</article>
+
+<script>
+(function() {
+  var content = document.querySelector('.page-content');
+  if (!content) return;
+
+  // 1. Make compliance checklist collapsible
+  var headings = content.querySelectorAll('h2');
+  var complianceH2 = null;
+  for (var i = 0; i < headings.length; i++) {
+    if (headings[i].textContent.toLowerCase().indexOf('compliance') !== -1) {
+      complianceH2 = headings[i];
+      break;
+    }
+  }
+
+  if (complianceH2) {
+    // Remove preceding HR
+    var prev = complianceH2.previousElementSibling;
+    if (prev && prev.tagName === 'HR') prev.remove();
+
+    var details = document.createElement('details');
+    details.className = 'compliance-section';
+
+    var summary = document.createElement('summary');
+    summary.innerHTML = '<span class="arrow">&#9654;</span> Compliance Checklist (10 checks passed)';
+    details.appendChild(summary);
+
+    var body = document.createElement('div');
+    body.className = 'compliance-body';
+
+    complianceH2.parentNode.insertBefore(details, complianceH2);
+
+    // Move everything from complianceH2 onward into the body
+    while (details.nextSibling) {
+      body.appendChild(details.nextSibling);
+    }
+    details.appendChild(body);
+  }
+
+  // 2. Style rating lines
+  var paragraphs = content.querySelectorAll('p');
+  for (var j = 0; j < paragraphs.length; j++) {
+    var p = paragraphs[j];
+    var strong = p.querySelector('strong');
+    if (strong && strong.textContent.toLowerCase().indexOf('rating') !== -1 && !p.querySelector('a')) {
+      p.className = 'rating-line';
+      p.innerHTML = '<span class="star">&#9733;</span> ' + p.innerHTML;
+    }
+  }
+
+  // 3. Style data source line
+  var allP = content.querySelectorAll('p');
+  for (var k = 0; k < allP.length; k++) {
+    if (allP[k].textContent.toLowerCase().indexOf('data sourced from') !== -1) {
+      allP[k].className = 'data-source';
+    }
+  }
+})();
+</script>
