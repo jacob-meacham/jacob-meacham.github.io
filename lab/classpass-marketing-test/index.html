@@ -152,7 +152,7 @@ description: "Review-powered landing pages generated from real ClassPass member 
   <p>Review-powered landing pages generated from real ClassPass member ratings and reviews</p>
 </div>
 
-{% assign review_pages = site.pages | where_exp: "pg", "pg.path contains 'lab/classpass-marketing-test/' and pg.path contains '.md'" %}
+{% assign review_pages = site.pages | where_exp: "pg", "pg.path contains 'lab/classpass-marketing-test/'" | where_exp: "pg", "pg.path contains '.md'" %}
 {% assign city_order_rest = review_pages | map: "city" | compact | uniq | sort_natural | where_exp: "c", "c != 'New York'" %}
 {% assign city_order = "New York" | split: "," | concat: city_order_rest %}
 {% assign tag_count = review_pages | map: "tag" | compact | uniq | size %}
