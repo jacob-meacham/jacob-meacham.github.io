@@ -5,6 +5,6 @@ layout: bare
 
 # You are the Red Team
 
-![](../redteam.png)
+<picture><source type="image/webp" srcset="../redteam.webp"/><img src="../redteam.png" alt=""/></picture>
 
-![](../redcolor.png)
+<picture><source type="image/webp" srcset="../redcolor.webp"/><img src="../redcolor.png" alt=""/></picture>

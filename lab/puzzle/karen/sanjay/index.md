@@ -6,13 +6,13 @@ no_container: true
 
 <div class="img-splash">
     <div class="img-container">
-        <img src="booth.jpg" />
+        <picture><source type="image/webp" srcset="booth.webp"/><img src="booth.jpg" /></picture>
     </div>
 </div>
 
 <div class="img-splash">
     <div class="img-container">
-        <img src="sanjay.jpg" />
+        <picture><source type="image/webp" srcset="sanjay.webp"/><img src="sanjay.jpg" /></picture>
     </div>
 </div>
 

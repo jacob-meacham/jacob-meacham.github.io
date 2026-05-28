@@ -5,6 +5,6 @@ layout: bare
 
 # You are the Red Coyboy
 
-![](../coyboy_red.png)
+<picture><source type="image/webp" srcset="../coyboy_red.webp"/><img src="../coyboy_red.png" alt=""/></picture>
 
-![](../redcolor.png)
+<picture><source type="image/webp" srcset="../redcolor.webp"/><img src="../redcolor.png" alt=""/></picture>

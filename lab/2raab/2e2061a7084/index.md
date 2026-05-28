@@ -5,6 +5,6 @@ layout: bare
 
 # You are the Doctor
 
-![](../doctor.png)
+<picture><source type="image/webp" srcset="../doctor.webp"/><img src="../doctor.png" alt=""/></picture>
 
-![](../bluecolor.png)
+<picture><source type="image/webp" srcset="../bluecolor.webp"/><img src="../bluecolor.png" alt=""/></picture>

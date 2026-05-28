@@ -5,6 +5,6 @@ layout: bare
 
 # You are the Blue Team
 
-![](../blueteam.png)
+<picture><source type="image/webp" srcset="../blueteam.webp"/><img src="../blueteam.png" alt=""/></picture>
 
-![](../bluecolor.png)
+<picture><source type="image/webp" srcset="../bluecolor.webp"/><img src="../bluecolor.png" alt=""/></picture>

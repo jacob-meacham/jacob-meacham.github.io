@@ -6,7 +6,7 @@ no_container: true
 
 <div class="img-splash">
     <div class="img-container">
-        <img src="escape.jpg" />
+        <picture><source type="image/webp" srcset="escape.webp"/><img src="escape.jpg" /></picture>
     </div>
 </div>
 

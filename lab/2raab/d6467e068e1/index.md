@@ -5,6 +5,6 @@ layout: bare
 
 # You are the Butler
 
-![](../butler.png)
+<picture><source type="image/webp" srcset="../butler.webp"/><img src="../butler.png" alt=""/></picture>
 
-![](../greycolor.png)
+<picture><source type="image/webp" srcset="../greycolor.webp"/><img src="../greycolor.png" alt=""/></picture>

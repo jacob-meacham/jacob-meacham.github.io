@@ -13,7 +13,7 @@ First, my wife and I primed the whole thing with white primer. Once that had dri
 
 Painting on a table is actually a lot of fun, because the canvas is at just the right height. We got out our green, blue, black, and white acrylics, some cardboard for mixing on, and a bunch of old brushes of all different types. You don’t really want to use expensive paints for this project - a table is a big surface to cover, and you want to get pretty messy. Because we were painting water, what worked for us was to just keep painting over top of the drying underlayers, allowing us to mix everything together. We started with both foam and bristle brushes, and eventually also brought fingers and hands into the mix, along with some sponges for sea spray. The boat in the center wasn’t originally planned, but it gives the painting a bit of a foreboding air. All in all, it only took us about 45 minutes to paint the entire top of the table, as we didn’t want to let anything dry too much. After we were sure the top had dried, we taped it up and painted the sides and legs black. 
 
-![](/img/wave-table/001.jpg)
+<picture><source type="image/webp" srcset="/img/wave-table/001.webp"/><img src="/img/wave-table/001.jpg" alt=""/></picture>
 {: .img-splash }
 
 Next, we wanted to give it a more finished look, as well as protect it when it was in use as a table. We covered it with a plate of ¼” clear plexiglass, which is relatively inexpensive and easy to work with. Fortunately, we live near a plastic store that will cut large sheets of plastic to size. If you don’t happen to live near a store that sells sheets of plexiglass, you can usually find something at a big box store, or you could use glass instead.
@@ -28,5 +28,5 @@ We also made and attached some straps with snap buttons to keep the legs from fo
 
 So, how does it work? It’s really nice to see it on our wall, and it still functions well as a table. The plexiglass is pretty resilient and doesn’t get too scratched up, and it protects the art underneath nicely from food and spills.
 
-![](/img/wave-table/004.jpg)
+<picture><source type="image/webp" srcset="/img/wave-table/004.webp"/><img src="/img/wave-table/004.jpg" alt=""/></picture>
 {: .img-splash }

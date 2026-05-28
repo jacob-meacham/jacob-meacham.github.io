@@ -5,6 +5,6 @@ layout: bare
 
 # You are the Bomber
 
-![](../bomber.png)
+<picture><source type="image/webp" srcset="../bomber.webp"/><img src="../bomber.png" alt=""/></picture>
 
-![](../redcolor.png)
+<picture><source type="image/webp" srcset="../redcolor.webp"/><img src="../redcolor.png" alt=""/></picture>

@@ -5,6 +5,6 @@ layout: bare
 
 # You are the President
 
-![](../president.png)
+<picture><source type="image/webp" srcset="../president.webp"/><img src="../president.png" alt=""/></picture>
 
-![](../bluecolor.png)
+<picture><source type="image/webp" srcset="../bluecolor.webp"/><img src="../bluecolor.png" alt=""/></picture>

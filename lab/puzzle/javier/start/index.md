@@ -6,7 +6,7 @@ no_container: true
 
 <div class="img-splash">
     <div class="img-container">
-        <img src="start.png" />
+        <picture><source type="image/webp" srcset="start.webp"/><img src="start.png" /></picture>
     </div>
 </div>
 

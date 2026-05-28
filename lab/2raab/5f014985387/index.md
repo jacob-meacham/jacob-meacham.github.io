@@ -5,6 +5,6 @@ layout: bare
 
 # You are the Blue Spy
 
-![](../bluespy.png)
+<picture><source type="image/webp" srcset="../bluespy.webp"/><img src="../bluespy.png" alt=""/></picture>
 
-![](../redcolor.png)
+<picture><source type="image/webp" srcset="../redcolor.webp"/><img src="../redcolor.png" alt=""/></picture>

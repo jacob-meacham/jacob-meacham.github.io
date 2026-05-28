@@ -5,6 +5,6 @@ layout: bare
 
 # You are the Gambler
 
-![](../gambler.png)
+<picture><source type="image/webp" srcset="../gambler.webp"/><img src="../gambler.png" alt=""/></picture>
 
-![](../greycolor.png)
+<picture><source type="image/webp" srcset="../greycolor.webp"/><img src="../greycolor.png" alt=""/></picture>

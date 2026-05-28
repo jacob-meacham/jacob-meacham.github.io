@@ -5,6 +5,6 @@ layout: bare
 
 # You are the Maid
 
-![](../maid.png)
+<picture><source type="image/webp" srcset="../maid.webp"/><img src="../maid.png" alt=""/></picture>
 
-![](../greycolor.png)
+<picture><source type="image/webp" srcset="../greycolor.webp"/><img src="../greycolor.png" alt=""/></picture>

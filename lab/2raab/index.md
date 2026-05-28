@@ -25,26 +25,26 @@ The leader can also give up leadership by finding a willing player who will turn
 # Characters
 Only the below characters are possibly in the game:
 
-![](president.png)
-![](bomber.png)
-![](bluespy.png)
-![](redspy.png)
-![](coyboy_blue.png)
-![](coyboy_red.png)
-![](doctor.png)
-![](engingeer.png)
-![](blueteam.png)
-![](redteam.png)
-![](gambler.png)
-![](mi6.png)
-![](maid.png)
-![](butler.png)
+<picture><source type="image/webp" srcset="president.webp"/><img src="president.png" alt=""/></picture>
+<picture><source type="image/webp" srcset="bomber.webp"/><img src="bomber.png" alt=""/></picture>
+<picture><source type="image/webp" srcset="bluespy.webp"/><img src="bluespy.png" alt=""/></picture>
+<picture><source type="image/webp" srcset="redspy.webp"/><img src="redspy.png" alt=""/></picture>
+<picture><source type="image/webp" srcset="coyboy_blue.webp"/><img src="coyboy_blue.png" alt=""/></picture>
+<picture><source type="image/webp" srcset="coyboy_red.webp"/><img src="coyboy_red.png" alt=""/></picture>
+<picture><source type="image/webp" srcset="doctor.webp"/><img src="doctor.png" alt=""/></picture>
+<picture><source type="image/webp" srcset="engingeer.webp"/><img src="engingeer.png" alt=""/></picture>
+<picture><source type="image/webp" srcset="blueteam.webp"/><img src="blueteam.png" alt=""/></picture>
+<picture><source type="image/webp" srcset="redteam.webp"/><img src="redteam.png" alt=""/></picture>
+<picture><source type="image/webp" srcset="gambler.webp"/><img src="gambler.png" alt=""/></picture>
+<picture><source type="image/webp" srcset="mi6.webp"/><img src="mi6.png" alt=""/></picture>
+<picture><source type="image/webp" srcset="maid.webp"/><img src="maid.png" alt=""/></picture>
+<picture><source type="image/webp" srcset="butler.webp"/><img src="butler.png" alt=""/></picture>
 
 # Colors
 Each character sheet will also come with one of the colors below:
 
-![](redcolor.png)
+<picture><source type="image/webp" srcset="redcolor.webp"/><img src="redcolor.png" alt=""/></picture>
 
-![](bluecolor.png)
+<picture><source type="image/webp" srcset="bluecolor.webp"/><img src="bluecolor.png" alt=""/></picture>
 
-![](greycolor.png)
+<picture><source type="image/webp" srcset="greycolor.webp"/><img src="greycolor.png" alt=""/></picture>
