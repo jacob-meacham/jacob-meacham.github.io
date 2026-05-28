@@ -49,15 +49,22 @@ function initializePortfolioGallery() {
     
     var mainImg = document.querySelector('.portfolio-main img');
     if (!mainImg) return;
-    
-    // Create full-screen container
+    var mainSource = document.querySelector('.portfolio-main source');
+    var srcset = mainSource ? mainSource.getAttribute('srcset') : '';
+
+    // Create full-screen container. Mirror the main <picture> so the browser
+    // serves webp and so navigation can update it synchronously (see
+    // updateFullscreenImage).
     fullscreenContainer = document.createElement('div');
     fullscreenContainer.className = 'gallery-fullscreen';
     fullscreenContainer.innerHTML = `
       <div class="fullscreen-content">
         <button class="fullscreen-close" aria-label="Close full-screen">×</button>
         <button class="fullscreen-nav fullscreen-nav-left" aria-label="Previous image">‹</button>
-        <img src="${mainImg.currentSrc || mainImg.src}" alt="${mainImg.alt}" />
+        <picture>
+          ${srcset ? `<source type="image/webp" srcset="${srcset}" />` : ''}
+          <img src="${mainImg.getAttribute('src')}" alt="${mainImg.alt}" />
+        </picture>
         <button class="fullscreen-nav fullscreen-nav-right" aria-label="Next image">›</button>
         <div class="fullscreen-caption"></div>
       </div>
@@ -116,11 +123,19 @@ function initializePortfolioGallery() {
     if (!isFullscreen || !fullscreenContainer) return;
     
     var mainImg = document.querySelector('.portfolio-main img');
+    var mainSource = document.querySelector('.portfolio-main source');
     var fullscreenImg = fullscreenContainer.querySelector('img');
+    var fullscreenSource = fullscreenContainer.querySelector('source');
     var fullscreenCaption = fullscreenContainer.querySelector('.fullscreen-caption');
-    
+
     if (mainImg && fullscreenImg) {
-      fullscreenImg.src = mainImg.currentSrc || mainImg.src;
+      // Use the <source>/<img> attributes (set synchronously by updateMainImage),
+      // not currentSrc — currentSrc updates asynchronously after a <picture>
+      // source swap, which would leave the previous image showing.
+      if (fullscreenSource && mainSource) {
+        fullscreenSource.setAttribute('srcset', mainSource.getAttribute('srcset'));
+      }
+      fullscreenImg.setAttribute('src', mainImg.getAttribute('src'));
       fullscreenImg.alt = mainImg.alt;
     }
     
