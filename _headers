@@ -1,0 +1,13 @@
+# Cloudflare Pages reads this file from the published site root.
+# HTML is intentionally left to the platform default (revalidate) so content
+# deploys are picked up immediately.
+
+# Images/media change rarely and are not content-hashed -> cache a week.
+/img/*
+  Cache-Control: public, max-age=604800
+/scribble/*
+  Cache-Control: public, max-age=604800
+
+# Scripts are not content-hashed -> revalidate daily.
+/js/*
+  Cache-Control: public, max-age=86400
