@@ -9,7 +9,7 @@
       <button class="gallery-nav gallery-nav-left" aria-label="Previous image">‹</button>
       <picture>
         <source type="image/webp" srcset="{{ site.baseurl }}{{ webp }}" />
-        <img src="{{ site.baseurl }}{{ image.src }}" alt="{{ image.alt | default: image.description }}" decoding="async" />
+        <img src="{{ site.baseurl }}{{ image.src }}" alt="{{ image.alt | default: image.description | escape }}" decoding="async" />
       </picture>
       <button class="gallery-nav gallery-nav-right" aria-label="Next image">›</button>
       {% if image.description or image.date %}
@@ -24,7 +24,7 @@
   <div class="portfolio-thumb">
   <picture>
     <source type="image/webp" srcset="{{ site.baseurl }}{{ webp }}" />
-    <img src="{{ site.baseurl }}{{ image.src }}" alt="{{ image.alt | default: image.description }}" loading="lazy" decoding="async" />
+    <img src="{{ site.baseurl }}{{ image.src }}" alt="{{ image.alt | default: image.description | escape }}" loading="lazy" decoding="async" />
   </picture>
   {% if image.description or image.date %}
   <div class="thumb-caption">
