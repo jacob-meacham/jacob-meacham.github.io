@@ -1,0 +1,11 @@
+{
+  "name": "jemonjam",
+  "private": true,
+  "description": "Tooling for the jemonjam.com Jekyll blog",
+  "scripts": {
+    "thumbs": "node bin/thumbs.mjs"
+  },
+  "devDependencies": {
+    "sharp": "^0.33.5"
+  }
+}

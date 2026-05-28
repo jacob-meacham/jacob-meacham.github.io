@@ -11,9 +11,16 @@ function initializeHoverCards() {
 
 // Gallery functionality moved to js/gallery.js
 
+var supportsWebp = (function() {
+  try {
+    return document.createElement('canvas')
+      .toDataURL('image/webp').indexOf('data:image/webp') === 0;
+  } catch (e) { return false; }
+})();
+
 function lazyLoad() {
   document.querySelectorAll('.lazy-load').forEach(function(element) {
-    var imgSrc = element.getAttribute('data-src');
+    var original = element.getAttribute('data-src');
     var newImage = new Image();
     newImage.onload = function() {
       var hoverCard = element.closest('.hover-card');
@@ -21,8 +28,20 @@ function lazyLoad() {
         hoverCard.classList.add('loaded');
       }
     };
+
+    var src = original;
+    var webp = original.replace(/\.(jpe?g|png)$/i, '.webp');
+    if (supportsWebp && webp !== original) {
+      // Fall back to the original if the webp variant is missing.
+      newImage.onerror = function() {
+        newImage.onerror = null;
+        newImage.src = original;
+      };
+      src = webp;
+    }
+
     element.appendChild(newImage);
-    newImage.src = imgSrc;
+    newImage.src = src;
   });
 }
 
@@ -52,17 +71,8 @@ function createBackground(scene, c1, c2) {
   return mesh;
 }
 
-// Ripple mesh
-var rippleUniforms = {
-  time: {
-    type: 'f',
-    value: 10
-  },
-  mousePosition: {
-    type: 'v2',
-    value: new THREE.Vector2(0, 0)
-  }
-};
+// Ripple mesh uniforms — assigned in initMasthead, once THREE has loaded.
+var rippleUniforms;
 
 function createRipple(scene) {
   var planeGeometry = new THREE.PlaneGeometry(200, 40, 128, 32);
@@ -184,16 +194,20 @@ function Scene() {
   }
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-  // Initialize 3d
+// Builds the WebGL masthead. Only called after THREE has finished loading,
+// which itself only happens after the page has painted and fired `load`.
+function initMasthead() {
+  if (typeof THREE === 'undefined' || !document.querySelector('.masthead')) { return; }
+
+  rippleUniforms = {
+    time: { type: 'f', value: 10 },
+    mousePosition: { type: 'v2', value: new THREE.Vector2(0, 0) }
+  };
+
   var scene = new Scene();
   scene.init();
   scene.scene.add(createBackground(scene, '#f5f0e9', '#e1e1e1'));
   scene.scene.add(createRipple(scene));
-
-  // Initialize other components
-  initializeHoverCards();
-  lazyLoad();
 
   // shim layer with setTimeout fallback. From
   // http://www.paulirish.com/2011/requestanimationframe-for-smart-animating/
@@ -221,6 +235,34 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Finish bootstrapping
   scene.onResize();
+  scene.render();
+  scene.container.classList.add('webgl-ready');
   requestAnimFrame(update);
   window.addEventListener('resize', function() { scene.onResize() }, false);
+}
+
+// Lazily fetch three.js and start the decorative masthead.
+function loadMasthead() {
+  if (!document.querySelector('.masthead')) { return; }
+  var s = document.createElement('script');
+  s.src = 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r73/three.min.js';
+  s.async = true;
+  s.onload = initMasthead;
+  document.head.appendChild(s);
+}
+
+// Cheap, render-safe work runs as soon as the DOM is ready.
+document.addEventListener('DOMContentLoaded', function() {
+  initializeHoverCards();
+  lazyLoad();
+});
+
+// The decorative WebGL masthead is kept off the critical path: it loads only
+// once the page has painted and fully loaded, during idle time.
+window.addEventListener('load', function() {
+  if ('requestIdleCallback' in window) {
+    requestIdleCallback(loadMasthead, { timeout: 1500 });
+  } else {
+    setTimeout(loadMasthead, 200);
+  }
 });

@@ -1,7 +1,10 @@
 <footer class="footer">
     <div class="panel about">
         <span class="avatar">
-            <img src="https://gravatar.com/avatar/506b4e210602e1900e74e526a5143f1f?s=128"/>
+            <picture>
+                <source type="image/webp" srcset="/img/avatar.webp"/>
+                <img src="/img/avatar.png" width="128" height="128" alt="Jacob Meacham" loading="lazy"/>
+            </picture>
         </span>
         <span class="info">
             <p>Hello! My name is Jacob. I'm an engineer, maker, and leader that loves to build all sorts of things, and in all kinds of styles. Right now, I lead engineering for <a href="https://www.playlist.com/">Playlist</a>, where I help everyone be the best version of themselves. I also work on illustration, games, creative coding, and interactive visualizations.</p>
@@ -10,15 +13,14 @@
         </span>
     </div>
     <div class="panel social">
-        <a href="https://github.com/jacob-meacham" class="fa fa-github fa-2x"><span class="sr-only">Github</span></a>
-        <a href="https://www.linkedin.com/in/jacob-meacham-b55745b" class="fa fa-linkedin fa-2x"><span class="sr-only">Linkedin</span></a>
-        <a href="https://jemonjam.tumblr.com/" class="fa fa-tumblr fa-2x"><span class="sr-only">Tumblr</span></a>
-        <a href="mailto://jacob.e.meacham@gmail.com" class="fa fa-envelope-o fa-2x"><span class="sr-only">Email</span></a>
+        <a href="https://github.com/jacob-meacham" aria-label="Github"><svg viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M12 .5C5.37.5 0 5.87 0 12.5c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58 0-.29-.01-1.04-.02-2.05-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.21.09 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.5 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4c1.02 0 2.05.14 3 .4 2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.62-5.49 5.92.43.37.81 1.1.81 2.22 0 1.6-.01 2.89-.01 3.29 0 .32.21.7.82.58A12 12 0 0 0 24 12.5C24 5.87 18.63.5 12 .5z"/></svg></a>
+        <a href="https://www.linkedin.com/in/jacob-meacham-b55745b" aria-label="Linkedin"><svg viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a>
+        <a href="https://jemonjam.tumblr.com/" aria-label="Tumblr"><svg viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M14.563 24c-5.093 0-7.031-3.756-7.031-6.411V9.747H5.116V6.648c3.63-1.313 4.512-4.596 4.71-6.469.013-.124.113-.179.166-.179h3.487v6.114h4.736v3.633h-4.75v7.07c.007 1.6.598 3.79 3.376 3.79h.143c.973-.03 2.276-.31 2.993-.65l1.14 3.382c-.689.998-3.774 1.659-5.544 1.66z"/></svg></a>
+        <a href="mailto:jacob.e.meacham@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M2 4h20a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm10 7.5L3.2 6H20.8L12 11.5zM2 8.24V18h20V8.24l-9.47 5.9a1 1 0 0 1-1.06 0L2 8.24z"/></svg></a>
     </div>
     <div class="copyright">© Jacob Meacham {{ 'now' | date: "%Y" }}</div>
 </footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r73/three.min.js" type="text/javascript" charset="utf-8"></script>
 <script>
 // this function must be defined in the global scope
 window.fadeIn = function(obj) {
@@ -100,4 +102,4 @@ window.fadeIn = function(obj) {
       gl_FragColor = vColor;
   }
 </script>
-<script src="/js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="/js/main.js" type="text/javascript" charset="utf-8" defer></script>

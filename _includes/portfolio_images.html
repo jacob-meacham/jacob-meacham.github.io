@@ -6,7 +6,7 @@
     {% unless main_out %}
   <div class="portfolio-main">
       <button class="gallery-nav gallery-nav-left" aria-label="Previous image">‹</button>
-      <img src="{{ site.baseurl }}{{ image.src }}" alt="{{ image.alt | default: image.description }}" />
+      <img src="{{ site.baseurl }}{{ image.src }}" alt="{{ image.alt | default: image.description }}" decoding="async" />
       <button class="gallery-nav gallery-nav-right" aria-label="Next image">›</button>
       {% if image.description or image.date %}
       <div class="image-caption">
@@ -18,7 +18,7 @@
     {% assign main_out = true %}
     {% endunless %}
   <div class="portfolio-thumb">
-  <img src="{{ site.baseurl }}{{ image.src }}" alt="{{ image.alt | default: image.description }}" />
+  <img src="{{ site.baseurl }}{{ image.src }}" alt="{{ image.alt | default: image.description }}" loading="lazy" decoding="async" />
   {% if image.description or image.date %}
   <div class="thumb-caption">
     {% if image.description %}<div class="caption-text">{{ image.description }}</div>{% endif %}
@@ -31,17 +31,17 @@
   <!-- Fallback to auto-discovery for backward compatibility -->
   {% for image in site.static_files %}
       {% if image.path contains page.image_path %}
-          {% unless image.path contains 'thumb' %}
+          {% unless image.path contains 'thumb' or image.path contains '.webp' %}
               {% unless main_out %}
   <div class="portfolio-main">
       <button class="gallery-nav gallery-nav-left" aria-label="Previous image">‹</button>
-      <img src="{{ site.baseurl }}{{ image.path }}" alt="image" />
+      <img src="{{ site.baseurl }}{{ image.path }}" alt="image" decoding="async" />
       <button class="gallery-nav gallery-nav-right" aria-label="Next image">›</button>
   </div>
               {% assign main_out = true %}
               {% endunless %}
   <div class="portfolio-thumb">
-      <img src="{{ site.baseurl }}{{ image.path }}" alt="image" />
+      <img src="{{ site.baseurl }}{{ image.path }}" alt="image" loading="lazy" decoding="async" />
   </div>
           {% endunless %}
       {% endif %}

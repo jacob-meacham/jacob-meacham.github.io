@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap');
-
 * {
   box-sizing: border-box;
 }
@@ -27,7 +25,7 @@ a:hover {
 body {
   color: #555;
   text-align: center;
-  font-family: 'Montserrat', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   margin: 0;
   margin-bottom: 150px; /* For the footer */
   font-size: 16px;
@@ -368,41 +366,11 @@ h2 {
 }
 /* End Bootstrap */
 
-/* Subset of FontAwesome (fontawesome.com) */
-@font-face {
-  font-family: 'FontAwesome';
-  src: url('https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/fonts/fontawesome-webfont.eot?v=4.5.0');
-  src: url('https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/fonts/fontawesome-webfont.woff2?v=4.5.0') format('woff2'), url('https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/fonts/fontawesome-webfont.woff?v=4.5.0') format('woff'), url('https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/fonts/fontawesome-webfont.ttf?v=4.5.0') format('truetype'), url('https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/fonts/fontawesome-webfont.svg?v=4.5.0#fontawesomeregular') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
-.fa {
-  display: inline-block;
-  font: normal normal normal 14px/1 FontAwesome;
-  font-size: inherit;
-  text-rendering: auto;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-.fa-2x {
-  font-size: 2em;
-}
-.fa-github:before {
-  content: "\f09b";
-}
-.fa-envelope-o:before {
-  content: "\f003";
-}
-.fa-linkedin:before {
-  content: "\f0e1";
-}
-.fa-tumblr:before {
-  content: "\f173";
-}
-/* End FontAwesome */
-
 .masthead {
-  background-color: #e6e6e6;
+  /* Static stand-in for the WebGL background (cream center -> light-grey
+     edges) so there's no grey flash before three.js loads in. */
+  background-color: #f5f0e9;
+  background-image: radial-gradient(ellipse 85% 130% at 50% 50%, #f5f0e9 40%, #e1e1e1 100%);
   color: #333;
   height: 100px;
   margin-bottom: 30px;
@@ -422,6 +390,12 @@ h2 {
   position: absolute;
   top: 0;
   left: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease-in;
+}
+
+.masthead.webgl-ready canvas {
+  opacity: 1;
 }
 
 @media (max-width: 600px) {
@@ -520,22 +494,25 @@ h2 {
 
 .footer .social a {
   text-decoration: none;
-}
-
-.footer .social .fa {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   margin-left: 15px;
   width: 60px;
   height: 60px;
   border-radius: 100%;
-  padding-top: 12px;
   border: 0;
-
-  font-size: 2.5em;
   transition: background-color 500ms cubic-bezier(0.190, 1.000, 0.220, 1.000);
 }
 
-.footer .social .fa:hover {
+.footer .social a:hover {
   background-color: #555;
+}
+
+.footer .social a svg {
+  width: 28px;
+  height: 28px;
+  fill: currentColor;
 }
 
 .sr-only {
