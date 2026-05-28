@@ -3,7 +3,8 @@
   "private": true,
   "description": "Tooling for the jemonjam.com Jekyll blog",
   "scripts": {
-    "thumbs": "node bin/thumbs.mjs"
+    "thumbs": "node bin/thumbs.mjs",
+    "check:links": "node bin/check-links.mjs"
   },
   "devDependencies": {
     "sharp": "^0.33.5"

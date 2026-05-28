@@ -6,4 +6,7 @@ set -e
 [ -d node_modules ] || npm install
 node bin/thumbs.mjs
 
+# Auto-fix internal links missing a trailing slash (avoids the /path -> /path/ 301).
+node bin/check-links.mjs --fix
+
 bundle exec jekyll serve --host 0.0.0.0  --watch --drafts
