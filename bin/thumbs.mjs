@@ -20,7 +20,7 @@ import { readdir, stat, rename, utimes } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import path from 'node:path';
 
-const ROOTS = ['img', 'scribble'];
+const ROOTS = ['img', 'scribble', 'lab'];
 const IGNORE_DIRS = new Set(['icons']);
 const RASTER = /\.(jpe?g|png)$/i;
 const THUMB = /[-_]thumb\.[^.]+$/i;

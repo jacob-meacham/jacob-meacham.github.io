@@ -7,7 +7,10 @@ description: >
 ---
 
 <figure>
-    <img style="max-height: 600px;" src="/img/elephant.jpg" />
+    <picture>
+        <source type="image/webp" srcset="/img/elephant.webp" />
+        <img style="max-height: 600px;" src="/img/elephant.jpg" />
+    </picture>
     <figcaption>Blind Men Appraising an Elephant by Ohara Donshu (大原呑舟), early 19th century, Brooklyn Museum (Public Domain)</figcaption>
 </figure>
 

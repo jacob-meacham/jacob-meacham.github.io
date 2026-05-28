@@ -6,7 +6,7 @@ description: >
     My experience writing code at least 1x/day for a year
 ---
 
-<img src="/img/year-of-coding.png">
+{% include image.html src="/img/year-of-coding.png" alt="A year of GitHub commits" %}
 
 In 2015, I set a goal to commit code at least once per day. The rules were pretty simple
 

@@ -3,8 +3,7 @@ title: The Lantern Coast
 layout: default
 ---
 
-![Saltmarsh](img/saltmarsh.png "Saltmarsh")
-{: .img-splash }
+{% include image.html src="img/saltmarsh.png" alt="Saltmarsh" class="img-splash" %}
 
 ## The Setting
 Saltmarsh is a small coastal town clinging to survival at the edge of a fading world, filled with pirates, smugglers, adventurers, and others scratching out a living along the dangerous coast.
@@ -31,8 +30,7 @@ As a player, You’ll choose:
 
 The world changes as a result of player actions. Successes, failures, and choices will permanently affect locations, factions, and the safety of the coast.
 
-![Pirate's Cove](img/cove.png "Pirate's Cove")
-{: .img-splash }
+{% include image.html src="img/cove.png" alt="Pirate's Cove" class="img-splash" %}
 
 ### Tone & Themes
 Overall tone:

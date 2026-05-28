@@ -139,8 +139,7 @@ img {
  *
  * which renders as: <p class="img-splash"><img ...></p>
  */
-.img-splash > img,
-.img-splash > a > img {
+.img-splash img {
   display: block;
   position: relative;
   margin: 0 auto;

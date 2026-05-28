@@ -12,9 +12,7 @@ Although I wasn't there when it happened, one of the early myths of Palantir was
 
 Another evocative mythological workplace: [Office Space](https://en.wikipedia.org/wiki/Office_Space)
 
-<figure>
-    <img src="/img/pc-load-letter.jpg" />
-</figure>
+{% include image.html src="/img/pc-load-letter.jpg" alt="Office Space — PC LOAD LETTER printer error" %}
 
 Almost everyone can instantly recognize the gray sameness that is a pastiche of 1000 dreary workplaces.
 
@@ -24,10 +22,7 @@ Even if you've never worked at Initech or Palantir, you can imagine what it woul
 
 One way to visualize a culture is the set of incentive gradients that a team collectively builds, with incentivized behaviors at points lower in the gradient. Because people generally take the easiest, most rewarded path, their behaviors will tend to 'flow' downhill towards those valleys of incentivized behavior, and exhibiting behaviors out of step with the culture (eg staying higher on the incentive gradient) will take work.
 
-<figure>
-    <img src="/img/gradient_ascent.png" />
-    <figcaption>3D Gradient Graph - Public Domain</figcaption>
-</figure>
+{% include image.html src="/img/gradient_ascent.png" alt="3D gradient graph" caption="3D Gradient Graph - Public Domain" %}
 
 To the extent possible, the role of a leader is to shape those incentive gradients to point in good directions and not in bad directions. Some of these incentive gradients can be set up explicitly, but most of them are built and maintained implicitly, by the systems you build and by the standards you hold. Behaviors will flow downhill whether the gradient is steep or shallow; a steeper gradient means that someone who is resisting the natural gravity of the culture will have to work hard to maintain their position, which can be exhausting or even scary. A shallow gradient moves more slowly, which can be more comfortable.
 
