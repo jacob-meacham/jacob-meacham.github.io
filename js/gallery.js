@@ -17,8 +17,15 @@ function initializePortfolioGallery() {
     var thumbImg = thumbElement.querySelector('img');
     if (thumbImg) {
       var mainImg = document.querySelector('.portfolio-main img');
+      var mainSource = document.querySelector('.portfolio-main source');
+      var thumbSource = thumbElement.querySelector('source');
       var mainCaption = document.querySelector('.image-caption');
-      
+
+      // Update the webp <source> first, then the <img> fallback, so the
+      // <picture> reselects the right (webp) image.
+      if (mainSource && thumbSource) {
+        mainSource.setAttribute('srcset', thumbSource.getAttribute('srcset'));
+      }
       if (mainImg) {
         mainImg.setAttribute('src', thumbImg.getAttribute('src'));
         mainImg.setAttribute('alt', thumbImg.getAttribute('alt'));
@@ -50,7 +57,7 @@ function initializePortfolioGallery() {
       <div class="fullscreen-content">
         <button class="fullscreen-close" aria-label="Close full-screen">×</button>
         <button class="fullscreen-nav fullscreen-nav-left" aria-label="Previous image">‹</button>
-        <img src="${mainImg.src}" alt="${mainImg.alt}" />
+        <img src="${mainImg.currentSrc || mainImg.src}" alt="${mainImg.alt}" />
         <button class="fullscreen-nav fullscreen-nav-right" aria-label="Next image">›</button>
         <div class="fullscreen-caption"></div>
       </div>
@@ -113,7 +120,7 @@ function initializePortfolioGallery() {
     var fullscreenCaption = fullscreenContainer.querySelector('.fullscreen-caption');
     
     if (mainImg && fullscreenImg) {
-      fullscreenImg.src = mainImg.src;
+      fullscreenImg.src = mainImg.currentSrc || mainImg.src;
       fullscreenImg.alt = mainImg.alt;
     }
     
@@ -130,24 +137,23 @@ function initializePortfolioGallery() {
     var currentActive = document.querySelector('.portfolio-thumb.active');
     var currentIndex = Array.from(thumbs).indexOf(currentActive);
     
-    var newIndex;
-    if (direction === -1) {
-      newIndex = Math.max(0, currentIndex - 1);
-    } else {
-      newIndex = Math.min(thumbs.length - 1, currentIndex + 1);
-    }
-    
+    var n = thumbs.length;
+    if (n === 0) { return; }
+    // Loop around at the ends (works in both regular and full-screen mode).
+    var newIndex = ((currentIndex + direction) % n + n) % n;
+
     activateThumb(thumbs[newIndex]);
     updateMainImage(thumbs[newIndex]);
     updateFullscreenImage(); // Update full-screen if active
     thumbs[newIndex].scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
 
-  // Initialize thumbnail click handlers
-  document.querySelectorAll('.portfolio-thumb img').forEach(function(img) {
-    img.addEventListener('click', function() {
-      activateThumb(this.parentElement);
-      updateMainImage(this.parentElement);
+  // Initialize thumbnail click handlers. Bind to the whole thumb (not just the
+  // <img>) so clicking its caption label selects the image too.
+  document.querySelectorAll('.portfolio-thumb').forEach(function(thumb) {
+    thumb.addEventListener('click', function() {
+      activateThumb(this);
+      updateMainImage(this);
     });
   });
 
@@ -167,10 +173,6 @@ function initializePortfolioGallery() {
   
   // Add keyboard navigation
   document.addEventListener('keydown', function(e) {
-    var thumbs = document.querySelectorAll('.portfolio-thumb');
-    var currentActive = document.querySelector('.portfolio-thumb.active');
-    var currentIndex = Array.from(thumbs).indexOf(currentActive);
-    
     switch(e.key) {
       case 'ArrowLeft':
         e.preventDefault();

@@ -3,10 +3,14 @@
 <!-- Check if page has custom image data, otherwise fall back to auto-discovery -->
 {% if page.gallery_images %}
   {% for image in page.gallery_images %}
+    {% assign webp = image.src | replace: '.jpeg', '.webp' | replace: '.jpg', '.webp' | replace: '.png', '.webp' %}
     {% unless main_out %}
   <div class="portfolio-main">
       <button class="gallery-nav gallery-nav-left" aria-label="Previous image">‹</button>
-      <img src="{{ site.baseurl }}{{ image.src }}" alt="{{ image.alt | default: image.description }}" decoding="async" />
+      <picture>
+        <source type="image/webp" srcset="{{ site.baseurl }}{{ webp }}" />
+        <img src="{{ site.baseurl }}{{ image.src }}" alt="{{ image.alt | default: image.description }}" decoding="async" />
+      </picture>
       <button class="gallery-nav gallery-nav-right" aria-label="Next image">›</button>
       {% if image.description or image.date %}
       <div class="image-caption">
@@ -18,7 +22,10 @@
     {% assign main_out = true %}
     {% endunless %}
   <div class="portfolio-thumb">
-  <img src="{{ site.baseurl }}{{ image.src }}" alt="{{ image.alt | default: image.description }}" loading="lazy" decoding="async" />
+  <picture>
+    <source type="image/webp" srcset="{{ site.baseurl }}{{ webp }}" />
+    <img src="{{ site.baseurl }}{{ image.src }}" alt="{{ image.alt | default: image.description }}" loading="lazy" decoding="async" />
+  </picture>
   {% if image.description or image.date %}
   <div class="thumb-caption">
     {% if image.description %}<div class="caption-text">{{ image.description }}</div>{% endif %}
@@ -32,16 +39,23 @@
   {% for image in site.static_files %}
       {% if image.path contains page.image_path %}
           {% unless image.path contains 'thumb' or image.path contains '.webp' %}
+              {% assign webp = image.path | replace: '.jpeg', '.webp' | replace: '.jpg', '.webp' | replace: '.png', '.webp' %}
               {% unless main_out %}
   <div class="portfolio-main">
       <button class="gallery-nav gallery-nav-left" aria-label="Previous image">‹</button>
-      <img src="{{ site.baseurl }}{{ image.path }}" alt="image" decoding="async" />
+      <picture>
+        <source type="image/webp" srcset="{{ site.baseurl }}{{ webp }}" />
+        <img src="{{ site.baseurl }}{{ image.path }}" alt="image" decoding="async" />
+      </picture>
       <button class="gallery-nav gallery-nav-right" aria-label="Next image">›</button>
   </div>
               {% assign main_out = true %}
               {% endunless %}
   <div class="portfolio-thumb">
-      <img src="{{ site.baseurl }}{{ image.path }}" alt="image" loading="lazy" decoding="async" />
+      <picture>
+        <source type="image/webp" srcset="{{ site.baseurl }}{{ webp }}" />
+        <img src="{{ site.baseurl }}{{ image.path }}" alt="image" loading="lazy" decoding="async" />
+      </picture>
   </div>
           {% endunless %}
       {% endif %}

@@ -61,9 +61,7 @@ I read only one — [The Narrow Road Between Desires](https://www.goodreads.com/
 
 This was going very well - in fact I was taking a quick mountain bike ride after work when...
 
-<figure>
-    <img src="/img/shoulder-injury.png" />
-</figure>
+{% include image.html src="/img/shoulder-injury.png" alt="X-ray showing my shoulder injury" %}
 
 It turns out the ground is a lot harder than my shoulder and the tuberosity of my humerus was ripped off (an avulsion fraction). This put a damper on August, and I also took off <span class="goal-red">September</span> to heal.
 
