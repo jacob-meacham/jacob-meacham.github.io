@@ -1,4 +1,5 @@
 _site/
+.superpowers/
 node_modules/
 .obsidian/
 .DS_Store
