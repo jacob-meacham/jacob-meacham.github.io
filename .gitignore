@@ -5,3 +5,6 @@ node_modules/
 .DS_Store
 new_blog_optimizations.md
 agent-instructions
+
+# critique-post skill scratch copies (never commit)
+*-claude-edit.*
