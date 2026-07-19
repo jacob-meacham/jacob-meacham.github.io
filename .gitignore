@@ -6,5 +6,8 @@ node_modules/
 new_blog_optimizations.md
 agent-instructions
 
+# Machine-local skill symlinks into agent-instructions (never commit)
+.claude/skills/
+
 # critique-post skill scratch copies (never commit)
 *-claude-edit.*

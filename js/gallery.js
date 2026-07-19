@@ -17,15 +17,8 @@ function initializePortfolioGallery() {
     var thumbImg = thumbElement.querySelector('img');
     if (thumbImg) {
       var mainImg = document.querySelector('.portfolio-main img');
-      var mainSource = document.querySelector('.portfolio-main source');
-      var thumbSource = thumbElement.querySelector('source');
       var mainCaption = document.querySelector('.image-caption');
 
-      // Update the webp <source> first, then the <img> fallback, so the
-      // <picture> reselects the right (webp) image.
-      if (mainSource && thumbSource) {
-        mainSource.setAttribute('srcset', thumbSource.getAttribute('srcset'));
-      }
       if (mainImg) {
         mainImg.setAttribute('src', thumbImg.getAttribute('src'));
         mainImg.setAttribute('alt', thumbImg.getAttribute('alt'));
@@ -49,22 +42,16 @@ function initializePortfolioGallery() {
     
     var mainImg = document.querySelector('.portfolio-main img');
     if (!mainImg) return;
-    var mainSource = document.querySelector('.portfolio-main source');
-    var srcset = mainSource ? mainSource.getAttribute('srcset') : '';
 
-    // Create full-screen container. Mirror the main <picture> so the browser
-    // serves webp and so navigation can update it synchronously (see
-    // updateFullscreenImage).
+    // Create full-screen container mirroring the main image so navigation can
+    // update it synchronously (see updateFullscreenImage).
     fullscreenContainer = document.createElement('div');
     fullscreenContainer.className = 'gallery-fullscreen';
     fullscreenContainer.innerHTML = `
       <div class="fullscreen-content">
         <button class="fullscreen-close" aria-label="Close full-screen">×</button>
         <button class="fullscreen-nav fullscreen-nav-left" aria-label="Previous image">‹</button>
-        <picture>
-          ${srcset ? `<source type="image/webp" srcset="${srcset}" />` : ''}
-          <img src="${mainImg.getAttribute('src')}" alt="${mainImg.alt}" />
-        </picture>
+        <img src="${mainImg.getAttribute('src')}" alt="${mainImg.alt}" />
         <button class="fullscreen-nav fullscreen-nav-right" aria-label="Next image">›</button>
         <div class="fullscreen-caption"></div>
       </div>
@@ -123,18 +110,10 @@ function initializePortfolioGallery() {
     if (!isFullscreen || !fullscreenContainer) return;
     
     var mainImg = document.querySelector('.portfolio-main img');
-    var mainSource = document.querySelector('.portfolio-main source');
     var fullscreenImg = fullscreenContainer.querySelector('img');
-    var fullscreenSource = fullscreenContainer.querySelector('source');
     var fullscreenCaption = fullscreenContainer.querySelector('.fullscreen-caption');
 
     if (mainImg && fullscreenImg) {
-      // Use the <source>/<img> attributes (set synchronously by updateMainImage),
-      // not currentSrc — currentSrc updates asynchronously after a <picture>
-      // source swap, which would leave the previous image showing.
-      if (fullscreenSource && mainSource) {
-        fullscreenSource.setAttribute('srcset', mainSource.getAttribute('srcset'));
-      }
       fullscreenImg.setAttribute('src', mainImg.getAttribute('src'));
       fullscreenImg.alt = mainImg.alt;
     }

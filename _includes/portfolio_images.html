@@ -7,10 +7,7 @@
     {% unless main_out %}
   <div class="portfolio-main">
       <button class="gallery-nav gallery-nav-left" aria-label="Previous image">‹</button>
-      <picture>
-        <source type="image/webp" srcset="{{ site.baseurl }}{{ webp }}" />
-        <img src="{{ site.baseurl }}{{ image.src }}" alt="{{ image.alt | default: image.description | escape }}" decoding="async" />
-      </picture>
+      <img src="{{ site.baseurl }}{{ webp }}" alt="{{ image.alt | default: image.description | escape }}" decoding="async" />
       <button class="gallery-nav gallery-nav-right" aria-label="Next image">›</button>
       {% if image.description or image.date %}
       <div class="image-caption">
@@ -22,10 +19,7 @@
     {% assign main_out = true %}
     {% endunless %}
   <div class="portfolio-thumb">
-  <picture>
-    <source type="image/webp" srcset="{{ site.baseurl }}{{ webp }}" />
-    <img src="{{ site.baseurl }}{{ image.src }}" alt="{{ image.alt | default: image.description | escape }}" loading="lazy" decoding="async" />
-  </picture>
+    <img src="{{ site.baseurl }}{{ webp }}" alt="{{ image.alt | default: image.description | escape }}" loading="lazy" decoding="async" />
   {% if image.description or image.date %}
   <div class="thumb-caption">
     {% if image.description %}<div class="caption-text">{{ image.description }}</div>{% endif %}
@@ -43,19 +37,13 @@
               {% unless main_out %}
   <div class="portfolio-main">
       <button class="gallery-nav gallery-nav-left" aria-label="Previous image">‹</button>
-      <picture>
-        <source type="image/webp" srcset="{{ site.baseurl }}{{ webp }}" />
-        <img src="{{ site.baseurl }}{{ image.path }}" alt="image" decoding="async" />
-      </picture>
+      <img src="{{ site.baseurl }}{{ webp }}" alt="image" decoding="async" />
       <button class="gallery-nav gallery-nav-right" aria-label="Next image">›</button>
   </div>
               {% assign main_out = true %}
               {% endunless %}
   <div class="portfolio-thumb">
-      <picture>
-        <source type="image/webp" srcset="{{ site.baseurl }}{{ webp }}" />
-        <img src="{{ site.baseurl }}{{ image.path }}" alt="image" loading="lazy" decoding="async" />
-      </picture>
+      <img src="{{ site.baseurl }}{{ webp }}" alt="image" loading="lazy" decoding="async" />
   </div>
           {% endunless %}
       {% endif %}
