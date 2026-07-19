@@ -7,7 +7,7 @@ description: >
     Automating an RF-only projector screen from Home Assistant
 ---
 
-One of the most [automated]({% post_url 2024-06-15-homelab %}) areas of my home is my home theater. This uses the (sadly defunct) [Harmony Hub](https://support.myharmony.com/en-us/hub), which allows both network and IR control of devices and also reports its status to home assistant. This means that I can turn on the projector, set up the remote, turn off the lights, and set up audio either from the remote itself or from network control. (Update - it also allows me to do cool stuff like [blockbuster]({% post_url 2026-04-15-blockbuster-hardware %})!). Unfortunately, my motorized projector screen uses a 433MHz RF remote, which is not something the Harmony has hardware for. I wanted the screen to drop when I start watching and roll back up when I power everything off.
+One of the most [automated]({% post_url 2024-06-15-homelab %}) areas of my home is my home theater. This uses the (sadly defunct) [Harmony Hub](https://support.myharmony.com/en-us/hub), which allows both network and IR control of devices and also reports its status to home assistant. This means that I can turn on the projector, set up the remote, turn off the lights, and set up audio either from the remote itself or from network control. Unfortunately, my motorized projector screen uses a 433MHz RF remote, which is not something the Harmony has hardware for. I wanted the screen to drop when I start watching and roll back up when I power everything off.
 
 Fixing this is pretty easy; a very simple Raspberry Pi shield allows for RF transmit, a script captures what the screen remote sends for up/down, and AppDaemon listens for changes to state from the Harmony
 
